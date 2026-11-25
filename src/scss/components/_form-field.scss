@@ -1,0 +1,29 @@
+// Поле формы с подписью и подсказкой (Figma: Input 159:59451).
+// Подпись 14 px, между подписью, полем и подсказкой — 8 px; подсказка 12 px серая.
+@use 'abstracts' as *;
+
+.form-field {
+  display: grid;
+  gap: var(--space-8);
+  max-width: rem(530);
+
+  &__label {
+    @include text(body-14);
+
+    color: var(--color-text);
+  }
+
+  &__required {
+    color: var(--accent-red);
+  }
+
+  &__hint {
+    @include text(body-12);
+
+    color: var(--color-text-muted);
+  }
+
+  &.is-invalid &__hint {
+    color: var(--accent-red);
+  }
+}

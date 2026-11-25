@@ -1,0 +1,27 @@
+{{!--
+  Поле ввода (scss/components/_field.scss).
+  Параметры:
+    name, id, value, placeholder;
+    type      — тип <input> (по умолчанию text);
+    options   — массив строк: если задан, рендерится выпадающий список <select>;
+    size      — lg | sm (без него — 38 px);
+    style     — solid | tertiary | white (без него — с рамкой);
+    icon      — иконка слева (например, search);
+    action    — иконка-кнопка справа (например, sliders), actionLabel — её подпись;
+    label     — aria-label, если рядом нет видимой подписи <label>;
+    disabled, invalid, required;
+    hint      — если задан (так делает form-field), поле ссылается на подсказку {{id}}-hint.
+  Пример: {{> components/field placeholder="Поиск" icon="search" size="lg"}}
+--}}
+<div class="field{{#if size}} field--size-{{size}}{{/if}}{{#if style}} field--style-{{style}}{{/if}}{{#if options}} field--select{{/if}}{{#if invalid}} is-invalid{{/if}}">
+  {{#if icon}}{{> components/icon name=icon class="field__icon" size="20" label=""}}{{/if}}
+  {{#if options}}
+    <select class="field__control"{{#if name}} name="{{name}}"{{/if}}{{#if id}} id="{{id}}"{{/if}}{{#if label}} aria-label="{{label}}"{{/if}}{{#if disabled}} disabled{{/if}}{{#if required}} required{{/if}}{{#if invalid}} aria-invalid="true"{{/if}}{{#if hint}} aria-describedby="{{id}}-hint"{{/if}}>
+      {{#each options}}<option>{{this}}</option>{{/each}}
+    </select>
+    {{> components/icon name="chevron-down" class="field__icon" size="20" label=""}}
+  {{else}}
+    <input class="field__control" type="{{#if type}}{{type}}{{else}}text{{/if}}"{{#if name}} name="{{name}}"{{/if}}{{#if id}} id="{{id}}"{{/if}}{{#if value}} value="{{value}}"{{/if}}{{#if placeholder}} placeholder="{{placeholder}}"{{/if}}{{#if label}} aria-label="{{label}}"{{/if}}{{#if disabled}} disabled{{/if}}{{#if required}} required{{/if}}{{#if invalid}} aria-invalid="true"{{/if}}{{#if hint}} aria-describedby="{{id}}-hint"{{/if}}>
+  {{/if}}
+  {{#if action}}<button class="field__action" type="button" aria-label="{{actionLabel}}"{{#if disabled}} disabled{{/if}}>{{> components/icon name=action size="20" label="" class=""}}</button>{{/if}}
+</div>

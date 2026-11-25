@@ -1,0 +1,138 @@
+// Поле ввода (Figma: Basic Inputs 152:48282, поле формы 159:59451).
+// .field — оболочка с оформлением, внутри .field__control (<input> или <select>)
+// и, при необходимости, иконки .field__icon.
+//   Стиль:   по умолчанию — с рамкой (Outline); --style-solid, --style-tertiary, --style-white.
+//   Размер:  --size-lg 48 px, по умолчанию 38 px (Medium), --size-sm 30 px.
+//   Тип:     --select — выпадающий список со стрелкой.
+//   Состояния: фокус (рамка основного цвета), неактивное (<input disabled>), .is-invalid.
+// Скругление в макете фиксированное (6 px) и от темы не зависит.
+// Размер текста: Medium — 12 px (как в поле формы), Large — 16 px (как поиск в шапке).
+// В наборе Basic Inputs подписи 10 px — это заглушки шаблона, не реальный текст.
+@use 'abstracts' as *;
+
+.field {
+  // В Figma рамка внутри элемента, в CSS — снаружи: поле на 1 px меньше макетного
+  --field-padding: #{rem(11)};
+  --field-height: #{rem(38)};
+
+  position: relative;
+  display: flex;
+  gap: var(--space-10);
+  align-items: center;
+  height: var(--field-height);
+  padding-inline: var(--field-padding);
+
+  @include text(body-12);
+
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: rem(6);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition);
+
+  &:focus-within {
+    border-color: var(--color-main);
+    box-shadow: inset 0 0 0 1px var(--color-main);
+  }
+
+  &__control {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    appearance: none;
+    outline: none;
+    background: none;
+    border: 0;
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    color: var(--color-text-secondary);
+  }
+
+  // Кнопка-иконка внутри поля (например, фильтр у поиска)
+  &__action {
+    display: inline-flex;
+    padding: 0;
+    color: var(--color-text-secondary);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Размеры ---
+  &--size-lg {
+    --field-padding: #{rem(14)};
+    --field-height: #{rem(48)};
+
+    @include text(body-16);
+  }
+
+  &--size-sm {
+    --field-padding: #{rem(9)};
+    --field-height: #{rem(30)};
+  }
+
+  // --- Стили ---
+  &--style-solid {
+    background: var(--color-fill-strong);
+    border-color: transparent;
+  }
+
+  &--style-tertiary {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  &--style-white {
+    border-color: transparent;
+  }
+
+  // --- Выпадающий список: стрелка поверх, клики проходят сквозь неё к <select> ---
+  &--select {
+    .field__control {
+      padding-right: rem(28);
+      margin-right: rem(-28);
+      cursor: pointer;
+    }
+
+    .field__icon {
+      pointer-events: none;
+    }
+  }
+
+  // --- Состояния ---
+  &:has(:disabled) {
+    color: var(--color-text-muted);
+    background: var(--color-fill-strong);
+
+    .field__control {
+      cursor: default;
+
+      &::placeholder {
+        color: var(--color-text-muted);
+      }
+    }
+  }
+
+  &--style-white:has(:disabled) {
+    background: var(--color-border-strong);
+  }
+
+  &.is-invalid {
+    border-color: var(--accent-red);
+    box-shadow: inset 0 0 0 1px var(--accent-red);
+  }
+}

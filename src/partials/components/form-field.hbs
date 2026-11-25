@@ -1,0 +1,11 @@
+{{!--
+  Поле формы с подписью и подсказкой (scss/components/_form-field.scss).
+  Параметры: id (обязателен — связывает подпись и поле), title — подпись, hint — подсказка,
+  invalid, required; остальные (placeholder, type, options, size, style…) передаются в поле.
+  Пример: {{> components/form-field id="phone" title="Телефон" type="tel" hint="Для уточнения деталей заказа"}}
+--}}
+<div class="form-field{{#if invalid}} is-invalid{{/if}}">
+  <label class="form-field__label" for="{{id}}">{{title}}{{#if required}} <span class="form-field__required" aria-hidden="true">*</span>{{/if}}</label>
+  {{> components/field label=""}}
+  {{#if hint}}<p class="form-field__hint" id="{{id}}-hint">{{hint}}</p>{{/if}}
+</div>

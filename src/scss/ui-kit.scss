@@ -304,3 +304,37 @@ code {
     }
   }
 }
+
+// --- Формы ---
+.kit-fields {
+  display: grid;
+  grid-template-columns: rem(160) rem(220) rem(180) rem(140);
+  gap: var(--space-12) var(--gap);
+  align-items: center;
+  padding: var(--gap);
+  margin-bottom: rem(48);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+
+  &--plain {
+    grid-template-columns: repeat(4, rem(220));
+  }
+
+  &__head {
+    color: var(--color-text-secondary);
+
+    @include text(body-13);
+  }
+
+  @include media-down(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kit-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(rem(320), 1fr));
+  gap: var(--gap);
+  align-items: start;
+  margin-bottom: rem(48);
+}

@@ -1,0 +1,101 @@
+// Чекбокс и радиокнопка (состояния из набора иконок Figma, 24:11).
+// Разметка: <label class="check"><input class="check__input" type="checkbox"><span class="check__box"></span>Текст</label>
+//   .check--radio — круглая радиокнопка.
+// Радио выбранное — круг основного цвета с белой точкой (Variant31), неактивное — серый круг (Variant30).
+// Выбранный чекбокс в макете не нарисован — сделан по тем же правилам.
+@use 'abstracts' as *;
+
+.check {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+
+  @include text(body-14);
+
+  color: var(--color-text);
+  cursor: pointer;
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__box {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: rem(18);
+    height: rem(18);
+    margin: rem(3);
+    color: var(--color-on-main);
+    background: var(--color-bg);
+    border: 2px solid var(--color-text);
+    border-radius: 2px;
+    transition:
+      background-color var(--transition),
+      border-color var(--transition);
+
+    // Галочка рисуется рамкой, повёрнутой на 45°
+    &::after {
+      width: rem(5);
+      height: rem(10);
+      margin-top: rem(-2);
+      content: '';
+      border: solid currentcolor;
+      border-width: 0 2px 2px 0;
+      opacity: 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  @include hover {
+    .check__box {
+      border-color: var(--color-main);
+    }
+  }
+
+  &__input:checked + &__box {
+    background: var(--color-main);
+    border-color: var(--color-main);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__input:focus-visible + &__box {
+    outline: 2px solid var(--color-main);
+    outline-offset: 2px;
+  }
+
+  // --- Радиокнопка: круг 24 px ---
+  &--radio &__box {
+    width: rem(24);
+    height: rem(24);
+    margin: 0;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 50%;
+
+    &::after {
+      width: rem(10);
+      height: rem(10);
+      margin: 0;
+      background: currentcolor;
+      border: 0;
+      border-radius: 50%;
+      transform: none;
+    }
+  }
+
+  // --- Неактивные ---
+  &:has(:disabled) {
+    color: var(--color-text-muted);
+    cursor: default;
+
+    .check__box {
+      background: var(--color-border-strong);
+      border-color: var(--color-border);
+    }
+  }
+}

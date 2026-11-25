@@ -1,0 +1,11 @@
+{{!--
+  Вариант товара — цвет или размер (scss/components/_option.scss).
+  Параметры: name, value; text — размер (XL) или color — цвет образца (#hex) + title — его название;
+  checked, disabled.
+  Примеры: {{> components/option name="size" text="XL"}}
+           {{> components/option name="color" color="#d7252c" title="Красный"}}
+--}}
+<label class="option"{{#if color}} title="{{title}}"{{/if}}>
+  <input class="option__input" type="radio"{{#if name}} name="{{name}}"{{/if}} value="{{#if value}}{{value}}{{else}}{{#if text}}{{text}}{{else}}{{title}}{{/if}}{{/if}}"{{#if checked}} checked{{/if}}{{#if disabled}} disabled{{/if}}{{#if color}} aria-label="{{title}}"{{/if}}>
+  {{#if color}}<span class="option__swatch" style="--swatch: {{color}}"></span>{{else}}<span class="option__text">{{text}}</span>{{/if}}
+</label>

@@ -1,0 +1,16 @@
+{
+  "fieldStyles": [
+    { "style": "", "title": "Outline (по умолчанию)" },
+    { "style": "solid", "title": "Solid" },
+    { "style": "tertiary", "title": "Tertiary" },
+    { "style": "white", "title": "White" }
+  ],
+  "cities": ["Москва", "Санкт-Петербург", "Казань", "Новосибирск"],
+  "colors": [
+    { "color": "#222222", "title": "Чёрный" },
+    { "color": "#3153d3", "title": "Синий" },
+    { "color": "#d7252c", "title": "Красный" },
+    { "color": "#dddddd", "title": "Серый" }
+  ],
+  "sizes": ["XS", "S", "M", "L", "XL"]
+}

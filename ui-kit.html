@@ -16,6 +16,7 @@
           <a href="#typography">Типографика</a>
           <a href="#spacing">Отступы</a>
           <a href="#elements">Элементы</a>
+          <a href="#forms">Формы</a>
         </nav>
 
         <div class="kit-bar__switches" data-kit-theme>
@@ -185,6 +186,70 @@
             {{> components/tag text="Наушники" href="#elements" dark=true}}
             {{> components/tag text="Колонки" href="#elements" dark=true}}
             {{> components/tag text="Умные часы" href="#elements" dark=true}}
+          </div>
+        </div>
+      </section>
+      {{!-- Формы --}}
+      <section class="section section--space-2" id="forms">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Формы</h2>
+
+          <h3 class="text-h4">Поля ввода: стили и размеры</h3>
+          <p class="kit-note"><code>\{{> components/field placeholder="…" style="solid|tertiary|white" size="lg|sm" disabled=true}}</code> — без размера 38 px. Подложка серая, чтобы были видны белые поля.</p>
+          <div class="kit-fields">
+            <span></span><span class="kit-fields__head">Large · 48</span><span class="kit-fields__head">Medium · 38</span><span class="kit-fields__head">Small · 30</span>
+            {{#each data.kit.fieldStyles}}
+              <span class="kit-fields__head">{{title}}</span>
+              {{> components/field style=style size="lg" placeholder="Введите текст" label=title}}
+              {{> components/field style=style placeholder="Введите текст" label=title}}
+              {{> components/field style=style size="sm" placeholder="Введите текст" label=title}}
+              <span class="kit-fields__head">неактивное</span>
+              {{> components/field style=style size="lg" placeholder="Введите текст" label=title disabled=true}}
+              {{> components/field style=style placeholder="Введите текст" label=title disabled=true}}
+              {{> components/field style=style size="sm" placeholder="Введите текст" label=title disabled=true}}
+            {{/each}}
+          </div>
+
+          <h3 class="text-h4">Выпадающий список и поиск</h3>
+          <p class="kit-note"><code>options=…</code> — список, <code>icon="search"</code> — иконка слева, <code>action="sliders"</code> — кнопка справа.</p>
+          <div class="kit-fields kit-fields--plain">
+            {{> components/field options=data.kit.cities size="lg" label="Город"}}
+            {{> components/field options=data.kit.cities label="Город"}}
+            {{> components/field options=data.kit.cities size="sm" label="Город"}}
+            {{> components/field options=data.kit.cities label="Город" disabled=true}}
+            {{> components/field type="search" placeholder="Поиск" icon="search" size="lg" label="Поиск"}}
+            {{> components/field type="search" placeholder="Поиск" icon="search" label="Поиск"}}
+            {{> components/field type="search" placeholder="Поиск" icon="search" action="sliders" actionLabel="Фильтры" size="lg" label="Поиск"}}
+            {{> components/field type="search" placeholder="Поиск" icon="search" action="sliders" actionLabel="Фильтры" label="Поиск"}}
+          </div>
+
+          <h3 class="text-h4">Поле формы с подписью</h3>
+          <p class="kit-note"><code>\{{> components/form-field id="…" title="…" hint="…" required=true invalid=true}}</code></p>
+          <div class="kit-form">
+            {{> components/form-field id="kit-name" title="ФИО" placeholder="Иванов Иван" required=true}}
+            {{> components/form-field id="kit-phone" title="Телефон" type="tel" placeholder="+7 (___) ___-__-__" hint="Необходим для уточнения деталей заказа"}}
+            {{> components/form-field id="kit-email" title="E-mail" type="email" value="ivanov@" hint="Проверьте адрес: не хватает домена" invalid=true}}
+            {{> components/form-field id="kit-city" title="Город" options=data.kit.cities}}
+          </div>
+
+          <h3 class="text-h4">Чекбоксы и радиокнопки</h3>
+          <p class="kit-note"><code>\{{> components/check text="…" radio=true checked=true disabled=true}}</code></p>
+          <div class="kit-demo">
+            {{> components/check text="Чекбокс" name="kit-check-1"}}
+            {{> components/check text="Выбран" name="kit-check-2" checked=true}}
+            {{> components/check text="Неактивный" name="kit-check-3" disabled=true}}
+            {{> components/check text="Радио" name="kit-radio" radio=true}}
+            {{> components/check text="Выбрано" name="kit-radio" radio=true checked=true}}
+            {{> components/check text="Неактивное" name="kit-radio-2" radio=true disabled=true}}
+          </div>
+
+          <h3 class="text-h4">Варианты товара: цвет и размер</h3>
+          <p class="kit-note"><code>\{{> components/option name="…" color="#hex" title="…"}}</code>, <code>\{{> components/option name="…" text="XL"}}</code></p>
+          <div class="kit-demo">
+            {{#each data.kit.colors}}{{> components/option name="kit-color" color=color title=title checked=(eq @index 1)}}{{/each}}
+          </div>
+          <div class="kit-demo">
+            {{#each data.kit.sizes}}{{> components/option name="kit-size" text=this checked=(eq @index 4) disabled=(eq @index 0)}}{{/each}}
           </div>
         </div>
       </section>

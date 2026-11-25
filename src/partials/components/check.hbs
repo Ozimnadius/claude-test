@@ -1,0 +1,10 @@
+{{!--
+  Чекбокс или радиокнопка (scss/components/_check.scss).
+  Параметры: text, name, value; radio — радиокнопка; checked, disabled.
+  Пример: {{> components/check text="Согласен с условиями" name="agree" checked=true}}
+--}}
+<label class="check{{#if radio}} check--radio{{/if}}">
+  <input class="check__input" type="{{#if radio}}radio{{else}}checkbox{{/if}}"{{#if name}} name="{{name}}"{{/if}}{{#if value}} value="{{value}}"{{/if}}{{#if checked}} checked{{/if}}{{#if disabled}} disabled{{/if}}>
+  <span class="check__box" aria-hidden="true"></span>
+  {{#if text}}<span class="check__text">{{text}}</span>{{/if}}
+</label>

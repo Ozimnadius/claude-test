@@ -43,7 +43,7 @@
 - **Партиалы** — `src/partials/`, имя = путь без расширения (`components/icon.hbs` → `components/icon`). Хелперы — `src/partials/helpers.js` (`eq`, `concat`, `bem`, `times`).
 - **Демо-данные** — JSON в `src/data/`, доступны в шаблонах как `data.<имя файла>` (`data.site.name`). Правка JSON перезагружает страницу.
 - **Иконки** — SVG в `src/assets/icons/` собираются в спрайт. Цвет — через `currentColor`.
-- **Картинки** — оригиналы в `src/images-src/`, `npm run images` делает WebP в `src/assets/images/` (`имя.webp` + `имя@2x.webp`; суффикс `@1x` у оригинала — один файл). В разметке: `{{> components/img name="…" alt="…" width="…" height="…" retina=true}}`.
+- **Картинки** — оригиналы в `src/images-src/`, `npm run images` делает WebP в `src/assets/images/` (`имя.webp` + `имя@2x.webp`; суффикс `@1x` у оригинала — один файл). В разметке: `{{> components/img name="…" alt="…" width="…" height="…"}}` — `srcset` с версией 2x добавляется сам, если файл `@2x` есть.
 - **Стили** — точка входа `src/scss/main.scss`; в любом файле `@use 'abstracts' as *;` даёт `rem()`, `bp()`, миксины `media-up/down`, `hover`, `visually-hidden`, `text()`.
 - **Токены и темы** — CSS-переменные в `src/scss/base/_tokens.scss`, темы в `_themes.scss`: атрибуты `data-brand="red"` и `data-theme="dark"` на `<html>`. Компоненты берут только смысловые цвета `--color-*` (подробно — [design-tokens.md](docs/design-tokens.md)).
 - **Раскладка** — `.container` (контент 1696 + поля) и `.section` (вертикальный ритм, `--alt` — серый фон).

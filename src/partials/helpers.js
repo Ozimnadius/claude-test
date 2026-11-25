@@ -1,6 +1,16 @@
 /**
  * Хелперы Handlebars. Каждый экспорт регистрируется под своим именем.
  */
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const IMAGES = fileURLToPath(new URL('../assets/images/', import.meta.url));
+
+/**
+ * Есть ли у картинки двойная версия имя@2x.webp (её создаёт npm run images из исходника 2x).
+ * Партиал components/img сам добавляет srcset, если файл есть: {{#if (has2x name)}}.
+ */
+export const has2x = (name) => typeof name === 'string' && existsSync(`${IMAGES}${name}@2x.webp`);
 
 /** Сравнение: {{#if (eq a b)}} */
 export const eq = (a, b) => a === b;

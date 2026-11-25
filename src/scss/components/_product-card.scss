@@ -1,0 +1,188 @@
+// Карточка товара (Figma: Product 85:32686; на главной — I26:630;24:7620).
+//   .product-card            — обычная: поля 16, цена 18, название 15, кнопка 39 px;
+//   .product-card--compact   — узкая (мобильные карусели): поля 6, цена 16, название 13, кнопка на всю ширину.
+// Рамка Grey 150, скругление темы; картинка квадратная со скруглением 8 px (фиксированным).
+// Лейблы слева сверху (не шире 160 px), справа — «Избранное» и «Сравнить».
+@use 'abstracts' as *;
+
+.product-card {
+  // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
+  --pc-padding: #{rem(15)};
+  --pc-media-padding: var(--space-10);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  justify-content: space-between;
+  min-width: rem(175);
+  height: 100%;
+  padding: var(--pc-padding);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: box-shadow var(--transition);
+
+  @include hover {
+    box-shadow: 0 5px 20px rgb(0 0 0 / 8%);
+  }
+
+  &__main {
+    display: grid;
+    gap: rem(9);
+  }
+
+  // --- Картинка с лейблами и действиями поверх ---
+  &__media {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    aspect-ratio: 1;
+    padding: var(--pc-media-padding);
+    overflow: hidden;
+
+    // Фото товаров сняты на белом — подложка белая и в тёмной теме, чтобы фото с прозрачным и белым фоном выглядели одинаково
+    background: var(--white);
+    border-radius: rem(8);
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__labels {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    max-width: rem(160);
+  }
+
+  &__actions {
+    position: relative;
+    display: grid;
+    margin-left: auto;
+  }
+
+  &__action {
+    display: inline-flex;
+    padding: 0;
+    color: var(--color-text-muted);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+
+    &[aria-pressed='true'] {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Текст ---
+  &__info {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  &__price {
+    @include text(price-18);
+
+    color: var(--color-text);
+  }
+
+  &__title {
+    @include text(body-15);
+
+    color: var(--color-text);
+
+    // Вся карточка кликабельна через растянутую ссылку названия
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-10);
+    align-items: center;
+
+    @include text(body-13);
+  }
+
+  &__rating {
+    display: inline-flex;
+    gap: var(--space-10);
+    align-items: center;
+    color: var(--color-text);
+  }
+
+  &__star {
+    color: var(--accent-yellow-2);
+  }
+
+  &__stock {
+    color: var(--accent-green);
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    min-height: rem(39);
+  }
+
+  // Ссылка-название растянута на всю карточку (::after) — интерактивные элементы поднимаем над ней
+  &__labels,
+  &__actions {
+    z-index: 1;
+  }
+
+  // --- Узкая ---
+  &--compact {
+    --pc-padding: #{rem(5)};
+    --pc-media-padding: var(--space-6);
+
+    width: rem(180);
+    min-width: rem(160);
+    max-width: rem(200);
+
+    .product-card__price {
+      @include text(price-16);
+    }
+
+    .product-card__title {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      @include text(body-13);
+    }
+
+    .product-card__meta {
+      @include text(body-12);
+    }
+
+    .product-card__star {
+      width: rem(20);
+      height: rem(20);
+    }
+
+    .product-card__btn {
+      align-self: stretch;
+    }
+  }
+}

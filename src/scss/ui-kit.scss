@@ -388,3 +388,31 @@ code {
     @include text(h4);
   }
 }
+
+// --- Карточки ---
+.kit-cards {
+  display: grid;
+  gap: rem(6);
+  align-items: start;
+  margin-bottom: rem(48);
+
+  &--products {
+    grid-template-columns: repeat(2, rem(334)) repeat(2, rem(180));
+  }
+
+  &--categories {
+    grid-template-columns: repeat(2, rem(334)) rem(283);
+  }
+
+  &--large {
+    grid-template-columns: rem(484);
+  }
+
+  @include media-down(lg) {
+    grid-template-columns: repeat(auto-fill, minmax(rem(180), 1fr));
+  }
+}
+
+.kit-demo--brands {
+  justify-content: space-between;
+}

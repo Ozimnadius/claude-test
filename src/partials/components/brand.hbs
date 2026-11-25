@@ -1,0 +1,10 @@
+{{!--
+  Логотип бренда (scss/components/_brand.scss).
+  Параметры: name — название (для alt), image — картинка; href (по умолчанию #); card — на белой плашке.
+  Пример: {{> components/brand name="Rosei" image="brand-rosei"}}
+--}}
+{{#if card}}
+<a class="brand-card" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{> components/img name=image alt=name width="80" height="21" retina=false class="brand-card__img" eager=false}}</a>
+{{else}}
+<a class="brand-logo" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{> components/img name=image alt=name width="100" height="40" retina=false class="brand-logo__img" eager=false}}</a>
+{{/if}}

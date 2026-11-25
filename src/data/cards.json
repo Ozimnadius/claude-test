@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "title": "Умные часы Bambo-900",
+      "price": "1 900 ₽",
+      "image": "product-watch",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        { "type": "hit", "text": "Хит" },
+        { "type": "recommend", "text": "Советуем" },
+        { "type": "new", "text": "Новинка" },
+        { "type": "sale", "text": "Акция" }
+      ]
+    },
+    {
+      "title": "Классическая помада Fior 133 Беспечный розовый",
+      "price": "1 900 ₽",
+      "image": "product-lipstick",
+      "rating": "4.8",
+      "stock": "12",
+      "labels": [{ "type": "sale", "text": "Акция" }]
+    }
+  ],
+  "categories": [
+    { "title": "Одежда", "image": "category-clothes", "retina": true },
+    { "title": "Спорт и отдых", "image": "category-sport", "retina": true }
+  ],
+  "categoryLarge": {
+    "eyebrow": "Спорт и девайсы",
+    "title": "Умная электроника для бега",
+    "image": "category-sport",
+    "retina": true,
+    "tags": ["Наушники", "Смарт-часы"]
+  },
+  "brands": [
+    { "name": "Сильвер", "image": "brand-silver" },
+    { "name": "Rosei", "image": "brand-rosei" },
+    { "name": "Losk", "image": "brand-losk" },
+    { "name": "Lindros", "image": "brand-lindros" },
+    { "name": "Нереус", "image": "brand-nereus" },
+    { "name": "KMI", "image": "brand-kmi" },
+    { "name": "Kolleri", "image": "brand-kolleri" },
+    { "name": "Misterio", "image": "brand-misterio" },
+    { "name": "Жерко", "image": "brand-zherko" }
+  ]
+}

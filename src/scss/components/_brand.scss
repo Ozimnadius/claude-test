@@ -1,0 +1,38 @@
+// Бренды.
+//   .brand-logo  — логотип в слайдере брендов (Figma: Brands Section 46:2076): до 100 × 40, без подложки;
+//   .brand-card  — логотип на белой плашке 90 px, поля 10 × 5, скругление 6 (Figma: Brand Logo 267:158695).
+// Логотипы — цветные картинки; плашка остаётся белой и в тёмной теме, чтобы тёмные логотипы читались.
+@use 'abstracts' as *;
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(100);
+  height: rem(40);
+  transition: opacity var(--transition);
+
+  @include hover {
+    opacity: 0.7;
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.brand-card {
+  display: inline-flex;
+  width: rem(90);
+  padding: var(--space-10) rem(5);
+  background: var(--white);
+  border-radius: rem(6);
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 80 / 21.33;
+    object-fit: contain;
+  }
+}

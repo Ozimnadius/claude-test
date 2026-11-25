@@ -19,6 +19,7 @@
           <a href="#forms">Формы</a>
           <a href="#navigation">Навигация</a>
           <a href="#content">Контент</a>
+          <a href="#cards">Карточки</a>
         </nav>
 
         <div class="kit-bar__switches" data-kit-theme>
@@ -399,6 +400,38 @@
               <li class="kit-icons__item">{{> components/icon name=this size="40" label="" class=""}}<code>{{this}}</code></li>
             {{/each}}
           </ul>
+        </div>
+      </section>
+      {{!-- Карточки --}}
+      <section class="section section--space-2 section--alt" id="cards">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Карточки</h2>
+
+          <h3 class="text-h4">Товар</h3>
+          <p class="kit-note"><code>\{{> components/product-card товар compact=true}}</code> — данные из <code>src/data/cards.json</code>. В сетке главной карточки идут через 6 px.</p>
+          <div class="kit-cards kit-cards--products">
+            {{#each data.cards.products}}{{> components/product-card compact=false}}{{/each}}
+            {{#each data.cards.products}}{{> components/product-card compact=true}}{{/each}}
+          </div>
+
+          <h3 class="text-h4">Категории</h3>
+          <p class="kit-note"><code>\{{> components/category-card title="…" image="…" caption=true large=true}}</code> — подпись поверх фото, под фото и большая с тегами.</p>
+          <div class="kit-cards kit-cards--categories">
+            {{#each data.cards.categories}}{{> components/category-card caption=false large=false}}{{/each}}
+            {{> components/category-card title="Одежда" image="category-clothes" retina=true caption=true large=false width="283" height="283"}}
+          </div>
+          <div class="kit-cards kit-cards--large">
+            {{> components/category-card data.cards.categoryLarge large=true caption=false width="484" height="440"}}
+          </div>
+
+          <h3 class="text-h4">Бренды</h3>
+          <p class="kit-note"><code>\{{> components/brand name="…" image="…" card=true}}</code> — логотип для слайдера и на белой плашке.</p>
+          <div class="kit-demo kit-demo--brands">
+            {{#each data.cards.brands}}{{> components/brand card=false}}{{/each}}
+          </div>
+          <div class="kit-demo">
+            {{#each data.cards.brands}}{{> components/brand card=true}}{{/each}}
+          </div>
         </div>
       </section>
     </main>

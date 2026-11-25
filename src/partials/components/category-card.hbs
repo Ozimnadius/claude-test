@@ -1,0 +1,19 @@
+{{!--
+  Карточка категории (scss/components/_category-card.scss).
+  Параметры: title, image, retina, href (по умолчанию #);
+  caption — подпись под фото; large — большая карточка с eyebrow (надзаголовок) и tags (массив строк).
+  Пример: {{> components/category-card title="Одежда" image="category-clothes" retina=true}}
+--}}
+<article class="category-card{{#if caption}} category-card--caption{{/if}}{{#if large}} category-card--large{{/if}}">
+  {{> components/img name=image alt="" width=(or width "334") height=(or height "271") retina=retina class="category-card__img" eager=false}}
+  {{#if large}}
+    {{#if eyebrow}}<p class="category-card__eyebrow">{{eyebrow}}</p>{{/if}}
+    <a class="category-card__title category-card__link" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{#if tags}}<div class="category-card__tags">{{#each tags}}{{> components/tag text=this href="#" dark=true active=false}}{{/each}}</div>{{/if}}
+  {{else}}
+    <div class="category-card__bar">
+      <a class="category-card__title category-card__link" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+      {{> components/icon name="chevron-right" size="24" label="" class=""}}
+    </div>
+  {{/if}}
+</article>

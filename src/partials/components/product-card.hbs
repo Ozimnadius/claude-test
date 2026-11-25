@@ -1,0 +1,31 @@
+{{!--
+  Карточка товара (scss/components/_product-card.scss).
+  Параметры (обычно — объект товара из data/cards.json): title, price, image, retina, rating, stock,
+  labels — массив { type, text }; href — ссылка на товар (по умолчанию #); compact — узкий вариант.
+  Пример: {{> components/product-card product compact=true}} или {{#each items}}{{> components/product-card}}{{/each}}
+--}}
+<article class="product-card{{#if compact}} product-card--compact{{/if}}">
+  <div class="product-card__main">
+    <div class="product-card__media">
+      {{> components/img name=image alt="" width="249" height="249" retina=retina class="product-card__img" eager=false}}
+      {{#if labels}}
+        <div class="product-card__labels">
+          {{#each labels}}{{> components/label type=type text=text}}{{/each}}
+        </div>
+      {{/if}}
+      <div class="product-card__actions">
+        <button class="product-card__action" type="button" aria-label="В избранное" aria-pressed="false">{{> components/icon name="heart" size="24" label="" class=""}}</button>
+        <button class="product-card__action" type="button" aria-label="Сравнить" aria-pressed="false">{{> components/icon name="compare" size="24" label="" class=""}}</button>
+      </div>
+    </div>
+    <div class="product-card__info">
+      <p class="product-card__price">{{price}}</p>
+      <a class="product-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+      <div class="product-card__meta">
+        {{#if rating}}<span class="product-card__rating">{{> components/icon name="star" class="product-card__star" size="24" label=""}}<span><span class="visually-hidden">Рейтинг </span>{{rating}}</span></span>{{/if}}
+        {{#if stock}}<span class="product-card__stock">В наличии: {{stock}}</span>{{/if}}
+      </div>
+    </div>
+  </div>
+  {{> components/btn text="В корзину" size="sm" class="product-card__btn" variant="" icon="" href="" disabled=false}}
+</article>

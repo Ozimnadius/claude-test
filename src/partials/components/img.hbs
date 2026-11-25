@@ -1,0 +1,8 @@
+{{!--
+  Картинка WebP из src/assets/images (готовятся командой npm run images).
+  Параметры: name — имя файла без .webp; alt; width, height — размер в CSS-пикселях;
+  retina — есть вариант name@2x.webp (добавляется в srcset); eager — грузить сразу (первый экран);
+  class — классы.
+  Пример: {{> components/img name="product-watch" alt="Умные часы" width="249" height="249" retina=true class="product-card__img"}}
+--}}
+<img{{#if class}} class="{{class}}"{{/if}} src="/src/assets/images/{{name}}.webp"{{#if retina}} srcset="/src/assets/images/{{name}}.webp 1x, /src/assets/images/{{name}}@2x.webp 2x"{{/if}} alt="{{alt}}"{{#if width}} width="{{width}}"{{/if}}{{#if height}} height="{{height}}"{{/if}}{{#if eager}} fetchpriority="high"{{else}} loading="lazy"{{/if}} decoding="async">

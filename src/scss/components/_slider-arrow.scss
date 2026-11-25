@@ -1,0 +1,30 @@
+// Стрелка слайдера (Figma: Background+Shadow в секции брендов, I46:2076;46:2039).
+// Белый круг 40 px с тенью 0 5 10 rgb(0 0 0 / 7%), внутри шеврон 24 px.
+@use 'abstracts' as *;
+
+.slider-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: rem(40);
+  height: rem(40);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 7%);
+  transition:
+    color var(--transition),
+    box-shadow var(--transition);
+
+  @include hover {
+    color: var(--color-main);
+    box-shadow: 0 5px 14px rgb(0 0 0 / 12%);
+  }
+
+  &:disabled {
+    color: var(--color-text-muted);
+    cursor: default;
+    box-shadow: none;
+  }
+}

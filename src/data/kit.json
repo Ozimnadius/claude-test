@@ -1,16 +1,129 @@
 {
   "fieldStyles": [
-    { "style": "", "title": "Outline (по умолчанию)" },
-    { "style": "solid", "title": "Solid" },
-    { "style": "tertiary", "title": "Tertiary" },
-    { "style": "white", "title": "White" }
+    {
+      "style": "",
+      "title": "Outline (по умолчанию)"
+    },
+    {
+      "style": "solid",
+      "title": "Solid"
+    },
+    {
+      "style": "tertiary",
+      "title": "Tertiary"
+    },
+    {
+      "style": "white",
+      "title": "White"
+    }
   ],
   "cities": ["Москва", "Санкт-Петербург", "Казань", "Новосибирск"],
   "colors": [
-    { "color": "#222222", "title": "Чёрный" },
-    { "color": "#3153d3", "title": "Синий" },
-    { "color": "#d7252c", "title": "Красный" },
-    { "color": "#dddddd", "title": "Серый" }
+    {
+      "color": "#222222",
+      "title": "Чёрный"
+    },
+    {
+      "color": "#3153d3",
+      "title": "Синий"
+    },
+    {
+      "color": "#d7252c",
+      "title": "Красный"
+    },
+    {
+      "color": "#dddddd",
+      "title": "Серый"
+    }
   ],
-  "sizes": ["XS", "S", "M", "L", "XL"]
+  "sizes": ["XS", "S", "M", "L", "XL"],
+  "breadcrumbs": [
+    {
+      "text": "Главная",
+      "href": "/"
+    },
+    {
+      "text": "Информация",
+      "href": "#navigation"
+    },
+    {
+      "text": "Возможности",
+      "href": "#navigation"
+    },
+    {
+      "text": "Оформление"
+    }
+  ],
+  "tabs": ["Хит", "Советуем", "Новинка", "Акция"],
+  "menu": [
+    {
+      "text": "Бренды"
+    },
+    {
+      "text": "Акции"
+    },
+    {
+      "text": "Услуги",
+      "arrow": true
+    },
+    {
+      "text": "Компания",
+      "arrow": true
+    },
+    {
+      "text": "Блог"
+    }
+  ],
+  "asideMenu": [
+    {
+      "text": "Реквизиты",
+      "href": "#navigation"
+    },
+    {
+      "text": "Магазины",
+      "href": "#navigation"
+    },
+    {
+      "text": "Возможности",
+      "href": "#navigation",
+      "open": true,
+      "children": [
+        {
+          "text": "Оформление",
+          "href": "#navigation",
+          "active": true
+        },
+        {
+          "text": "Кнопки",
+          "href": "#navigation"
+        },
+        {
+          "text": "Иконки",
+          "href": "#navigation"
+        },
+        {
+          "text": "Элементы",
+          "href": "#navigation"
+        }
+      ]
+    }
+  ],
+  "advantages": [
+    {
+      "icon": "adv-delivery",
+      "title": "Доставка"
+    },
+    {
+      "icon": "adv-support",
+      "title": "Поддержка"
+    },
+    {
+      "icon": "adv-percent",
+      "title": "Скидки"
+    },
+    {
+      "icon": "adv-sale",
+      "title": "Акции"
+    }
+  ]
 }

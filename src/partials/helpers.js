@@ -23,3 +23,7 @@ export function times(n, options) {
   for (let i = 0; i < n; i += 1) out += options.fn(this, { data: { index: i } });
   return out;
 }
+
+/** Первое непустое значение: {{or active 0}}. Последний аргумент — служебный объект Handlebars. */
+export const or = (...args) =>
+  args.slice(0, -1).find((v) => v !== undefined && v !== null && v !== '') ?? args.at(-2);

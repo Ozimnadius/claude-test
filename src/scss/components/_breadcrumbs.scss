@@ -1,0 +1,33 @@
+// Хлебные крошки (Figma: страница «Оформление», 164:67830).
+// Текст 13 / 20 серый (Grey 300), разделитель «–» 16 px светлый (Grey 200), отступы вокруг — 9 px.
+// В макете шрифт Inter — заменён на Geologica, как во всём проекте.
+@use 'abstracts' as *;
+
+.breadcrumbs {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    font-size: rem(13);
+    line-height: rem(20);
+    color: var(--color-text-muted);
+
+    & + &::before {
+      margin-inline: rem(9);
+      font-size: rem(16);
+      color: var(--color-border-strong);
+      content: '–';
+    }
+  }
+
+  &__link {
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}

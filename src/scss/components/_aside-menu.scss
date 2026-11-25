@@ -1,0 +1,39 @@
+// Боковое меню раздела (Figma: страница «Оформление», 164:68280).
+// Пункт 31 px: ссылка 28 px (поля 4 × 8, текст 16 / 20) + 3 px до следующего.
+// Активный пункт и раскрытый родитель — серая подложка (Grey 100) и Medium 500.
+// Вложенный список сдвинут на 12 px. В макете шрифт Inter — заменён на Geologica.
+@use 'abstracts' as *;
+
+.aside-menu {
+  &__list {
+    display: grid;
+    gap: rem(3);
+  }
+
+  &__list &__list {
+    padding-top: rem(3);
+    padding-left: var(--space-12);
+  }
+
+  &__link {
+    display: inline-block;
+    padding: var(--space-4) var(--space-8);
+    font-size: rem(16);
+    line-height: rem(20);
+    color: var(--color-text);
+    border-radius: var(--radius);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+
+    &.is-active,
+    &[aria-current='page'] {
+      font-weight: 500;
+      background: var(--color-fill);
+    }
+  }
+}

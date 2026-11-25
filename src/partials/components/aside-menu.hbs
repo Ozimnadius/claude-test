@@ -1,0 +1,9 @@
+{{!--
+  Боковое меню (scss/components/_aside-menu.scss).
+  Параметры: items — массив { text, href, active, open, children: [...] } (вложенность любая); label — подпись навигации.
+  active — текущая страница, open — раскрытый раздел (подсвечивается так же).
+  Пример: {{> components/aside-menu items=data.kit.asideMenu label="Разделы"}}
+--}}
+<nav class="aside-menu"{{#if label}} aria-label="{{label}}"{{/if}}>
+  {{> components/aside-menu-list items=items}}
+</nav>

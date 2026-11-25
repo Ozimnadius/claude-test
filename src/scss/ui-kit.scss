@@ -338,3 +338,29 @@ code {
   align-items: start;
   margin-bottom: rem(48);
 }
+
+// --- Навигация ---
+.kit-demo--tight {
+  gap: 0;
+  padding-block: 0;
+}
+
+.kit-demo--block {
+  display: block;
+}
+
+.kit-demo--main {
+  color: var(--color-main);
+}
+
+.kit-adv {
+  display: grid;
+  gap: var(--space-8);
+  justify-items: center;
+
+  @include text(body-12);
+
+  code {
+    color: var(--color-text-secondary);
+  }
+}

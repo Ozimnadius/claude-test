@@ -1,0 +1,12 @@
+{{!--
+  Хлебные крошки (scss/components/_breadcrumbs.scss).
+  Параметры: items — массив { text, href }; у последнего пункта (текущей страницы) href не нужен.
+  Пример: {{> components/breadcrumbs items=data.kit.breadcrumbs}}
+--}}
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <ol class="breadcrumbs__list">
+    {{#each items}}
+      <li class="breadcrumbs__item">{{#if href}}<a class="breadcrumbs__link" href="{{href}}">{{text}}</a>{{else}}<span aria-current="page">{{text}}</span>{{/if}}</li>
+    {{/each}}
+  </ol>
+</nav>

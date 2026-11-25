@@ -1,0 +1,10 @@
+{{!--
+  Табы (scss/components/_tabs.scss). Переключение — JS на этапе 6.
+  Параметры: items — массив строк; active — индекс выбранного (по умолчанию 0); label — подпись группы.
+  Пример: {{> components/tabs items=data.kit.tabs label="Подборки товаров"}}
+--}}
+<div class="tabs" role="tablist"{{#if label}} aria-label="{{label}}"{{/if}}>
+  {{#each items}}
+    <button class="tabs__btn" type="button" role="tab" aria-selected="{{#if (eq @index (or ../active 0))}}true{{else}}false{{/if}}"{{#unless (eq @index (or ../active 0))}} tabindex="-1"{{/unless}}>{{this}}</button>
+  {{/each}}
+</div>

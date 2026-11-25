@@ -17,6 +17,7 @@
           <a href="#spacing">Отступы</a>
           <a href="#elements">Элементы</a>
           <a href="#forms">Формы</a>
+          <a href="#navigation">Навигация</a>
         </nav>
 
         <div class="kit-bar__switches" data-kit-theme>
@@ -250,6 +251,55 @@
           </div>
           <div class="kit-demo">
             {{#each data.kit.sizes}}{{> components/option name="kit-size" text=this checked=(eq @index 4) disabled=(eq @index 0)}}{{/each}}
+          </div>
+        </div>
+      </section>
+      {{!-- Навигация --}}
+      <section class="section section--space-2 section--alt" id="navigation">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Навигация</h2>
+
+          <h3 class="text-h4">Пункты меню</h3>
+          <p class="kit-note"><code>\{{> components/menu-link text="…" href="…" arrow=true inline=true lg=true}}</code> — высокий 49 px для меню шапки, плоский — для строки.</p>
+          <div class="kit-demo kit-demo--tight">
+            {{#each data.kit.menu}}{{> components/menu-link text=text href=(or href "#navigation") arrow=arrow}}{{/each}}
+          </div>
+          <div class="kit-demo">
+            {{> components/menu-link text="Каталог" arrow=true inline=true}}
+            {{> components/menu-link text="Каталог" inline=true href="#navigation"}}
+            {{> components/menu-link text="Каталог" inline=true lg=true href="#navigation"}}
+            {{> components/menu-link text="Текущий раздел" inline=true active=true href="#navigation"}}
+          </div>
+
+          <h3 class="text-h4">Хлебные крошки</h3>
+          <p class="kit-note"><code>\{{> components/breadcrumbs items=…}}</code> — массив <code>{ text, href }</code>, у текущей страницы без ссылки.</p>
+          <div class="kit-demo">{{> components/breadcrumbs items=data.kit.breadcrumbs}}</div>
+
+          <h3 class="text-h4">Заголовок секции</h3>
+          <p class="kit-note"><code>\{{> components/section-head title="…" href="…" tabs=… arrows=true}}</code> — заголовок 28 px, стрелка «Все», справа табы или стрелки слайдера.</p>
+          <div class="kit-demo kit-demo--block">{{> components/section-head title="Лучшие предложения" href="#navigation" tabs=data.kit.tabs}}</div>
+          <div class="kit-demo kit-demo--block">{{> components/section-head title="Бренды" href="#navigation" arrows=true}}</div>
+          <div class="kit-demo kit-demo--block">{{> components/section-head title="Блог"}}</div>
+
+          <h3 class="text-h4">Табы и стрелки слайдера</h3>
+          <p class="kit-note"><code>\{{> components/tabs items=… active=1}}</code>, <code>\{{> components/slider-arrow dir="prev|next" disabled=true}}</code>. Переключение табов — этап 6.</p>
+          <div class="kit-demo">
+            {{> components/tabs items=data.kit.tabs active=1 label="Подборки"}}
+          </div>
+          <div class="kit-demo">
+            {{> components/slider-arrow dir="prev"}}
+            {{> components/slider-arrow dir="next"}}
+            {{> components/slider-arrow dir="prev" disabled=true}}
+          </div>
+
+          <h3 class="text-h4">Боковое меню</h3>
+          <p class="kit-note"><code>\{{> components/aside-menu items=…}}</code> — пункты <code>{ text, href, active, open, children }</code>.</p>
+          <div class="kit-demo kit-demo--block">{{> components/aside-menu items=data.kit.asideMenu label="Разделы"}}</div>
+
+          <h3 class="text-h4">Иконки преимуществ 40 px</h3>
+          <p class="kit-note"><code>\{{> components/icon name="adv-delivery" size="40"}}</code> — контурные, цвет от текста; в блоке «О компании» — основной цвет.</p>
+          <div class="kit-demo kit-demo--main">
+            {{#each data.kit.advantages}}<span class="kit-adv">{{> components/icon name=icon size="40" label="" class=""}}<code>{{icon}}</code></span>{{/each}}
           </div>
         </div>
       </section>

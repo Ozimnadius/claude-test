@@ -1,0 +1,39 @@
+// Табы-переключатели (Figma: заголовки секций главной — Хит / Советуем / Новинка / Акция).
+// Кнопки 39 px, поля 17 px, текст 14-21, скругление темы; активная — основной цвет,
+// остальные — серая заливка (Grey 150). Зазор между кнопками 8 px.
+// Переключение контента — JS на этапе 6; сейчас состояние задаётся атрибутом aria-selected.
+@use 'abstracts' as *;
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(39);
+    padding-inline: rem(17);
+
+    @include text(btn-14);
+
+    color: var(--color-text);
+    white-space: nowrap;
+    background: var(--color-fill-strong);
+    border-radius: var(--radius);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      background: var(--color-border-strong);
+    }
+
+    &[aria-selected='true'] {
+      color: var(--color-on-main);
+      cursor: default;
+      background: var(--color-main);
+    }
+  }
+}

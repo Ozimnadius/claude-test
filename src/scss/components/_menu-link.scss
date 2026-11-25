@@ -1,0 +1,49 @@
+// Пункт меню (Figma: Main_Menu_Btn 261:114281).
+//   .menu-link          — высокий (High): поля 14 × 12, высота 49 — верхнее меню шапки;
+//   .menu-link--inline  — плоский (Tall): без полей — для строки (выбор раздела в поиске и т. п.);
+//   .menu-link--lg      — текст 15-22 вместо 14-21 (Tall_Clean).
+// Стрелка — иконка chevron-down 16 px (.menu-link__arrow); с ней правое поле 6 вместо 12.
+@use 'abstracts' as *;
+
+.menu-link {
+  display: inline-flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-14) var(--space-12);
+
+  @include text(btn-14);
+
+  color: var(--color-text);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--transition);
+
+  @include hover {
+    color: var(--color-main);
+  }
+
+  &:has(.menu-link__arrow) {
+    padding-right: var(--space-6);
+  }
+
+  &--inline,
+  &--inline:has(.menu-link__arrow) {
+    padding: 0;
+  }
+
+  &--lg {
+    @include text(btn-15);
+  }
+
+  &.is-active {
+    color: var(--color-main);
+  }
+
+  &__arrow {
+    transition: transform var(--transition);
+  }
+
+  &[aria-expanded='true'] &__arrow {
+    transform: rotate(180deg);
+  }
+}

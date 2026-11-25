@@ -1,0 +1,9 @@
+{{!-- Список бокового меню, вызывает сам себя для вложенных пунктов (см. aside-menu.hbs). --}}
+<ul class="aside-menu__list">
+  {{#each items}}
+    <li class="aside-menu__item">
+      <a class="aside-menu__link{{#if open}} is-active{{/if}}" href="{{href}}"{{#if active}} aria-current="page"{{/if}}>{{text}}</a>
+      {{#if children}}{{> components/aside-menu-list items=children}}{{/if}}
+    </li>
+  {{/each}}
+</ul>

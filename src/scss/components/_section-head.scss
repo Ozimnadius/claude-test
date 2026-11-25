@@ -1,0 +1,48 @@
+// Заголовок секции (Figma: Heading 3 в секциях главной, напр. I26:630;32:1116).
+// Слева — заголовок H2 28 px и кнопка «Все» (стрелка на серой плашке 28 px), справа — табы или стрелки.
+// При нехватке места правая часть переносится под заголовок (зазор 10 px).
+@use 'abstracts' as *;
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(10) var(--gap);
+  align-items: center;
+  justify-content: space-between;
+
+  &__title-wrap {
+    display: flex;
+    gap: rem(20);
+    align-items: center;
+  }
+
+  &__title {
+    @include text(h2);
+
+    color: var(--color-text);
+  }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    height: rem(28);
+    padding-inline: rem(2);
+    color: var(--color-text);
+    background: var(--color-fill-strong);
+    border-radius: var(--radius);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      color: var(--color-on-main);
+      background: var(--color-main);
+    }
+  }
+}
+
+// Стрелки справа (секции со слайдером)
+.section-head__arrows {
+  display: flex;
+  gap: var(--space-8);
+}

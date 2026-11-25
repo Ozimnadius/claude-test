@@ -1,0 +1,11 @@
+// Образы (Figma: Visions Section 88:25970): кнопки-фильтры под описанием, через 8 px.
+// Переключение подборок — JS на этапе 6.
+@use 'abstracts' as *;
+
+.visions {
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+}

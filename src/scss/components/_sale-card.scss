@@ -52,6 +52,7 @@
     height: rem(23);
     font-size: rem(12);
     color: var(--black);
+    border-radius: var(--radius);
   }
 
   &__discount {
@@ -112,6 +113,6 @@
   &__dates {
     @include text(body-15);
 
-    color: var(--color-text-body);
+    color: var(--color-text-secondary);
   }
 }

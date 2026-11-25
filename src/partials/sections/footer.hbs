@@ -1,0 +1,50 @@
+{{!--
+  Подвал (scss/sections/_footer.scss; Figma: Footer 73:4499). Данные — src/data/footer.json.
+  Верх: подписка и 4 колонки ссылок слева, контакты и соцсети справа. Низ: копирайт, способы оплаты, документы, разработчик.
+--}}
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__main">
+        <form class="footer__subscribe" action="#">
+          <label class="footer__subscribe-label" for="footer-email">Подписаться на новости и акции</label>
+          <input class="footer__subscribe-input" id="footer-email" type="email" name="email" placeholder="Ваш e-mail" autocomplete="email">
+          {{> components/btn text="Подписаться" type="submit" size="" variant="" icon="" href="" disabled=false class=""}}
+        </form>
+        <nav class="footer__columns" aria-label="Разделы сайта">
+          {{#each data.footer.columns}}
+            <div class="footer__column">
+              <p class="footer__column-title">{{title}}</p>
+              <ul class="footer__links">
+                {{#each links}}<li><a class="footer__link" href="#">{{this}}</a></li>{{/each}}
+              </ul>
+            </div>
+          {{/each}}
+        </nav>
+      </div>
+      <div class="footer__aside">
+        <address class="footer__contacts">
+          <p class="footer__column-title">Контакты</p>
+          <a class="footer__contact" href="{{data.footer.phoneHref}}">{{data.footer.phone}}</a>
+          <a class="footer__contact" href="mailto:{{data.footer.email}}">{{data.footer.email}}</a>
+          <p class="footer__contact">{{data.footer.address}}</p>
+        </address>
+        <ul class="footer__social" aria-label="Мы в соцсетях">
+          {{#each data.footer.social}}
+            <li><a class="footer__social-link" href="#" aria-label="{{name}}"><img src="/src/assets/logos/{{file}}.svg" alt="" width="20" height="20" loading="lazy"></a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">{{data.footer.copyright}}</p>
+      <ul class="footer__payments" aria-label="Способы оплаты">
+        {{#each data.footer.payments}}<li><img src="/src/assets/logos/{{file}}.svg" alt="{{name}}" title="{{name}}" width="{{w}}" height="20" loading="lazy"></li>{{/each}}
+      </ul>
+      <ul class="footer__legal">
+        {{#each data.footer.legal}}<li><a class="footer__small-link" href="#">{{this}}</a></li>{{/each}}
+      </ul>
+      <p class="footer__dev">Разработано в <a class="footer__small-link" href="#">{{data.footer.developer}}</a></p>
+    </div>
+  </div>
+</footer>

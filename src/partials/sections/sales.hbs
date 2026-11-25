@@ -1,0 +1,9 @@
+{{!-- Акции (Figma: Sales Section 69:2821): серый фон, заголовок со стрелкой и 3 акции через 24 px. Таймер — этап 6. --}}
+<section class="section section--alt" aria-labelledby="sales-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Акции" href="#" tabs=false arrows=false id="sales-title"}}</div>
+    <div class="card-grid card-grid--cols-3 card-grid--wide">
+      {{#each data.home.sales}}{{> components/sale-card retina=false}}{{/each}}
+    </div>
+  </div>
+</section>

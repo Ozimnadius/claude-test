@@ -1,0 +1,197 @@
+// Подвал (Figma: Footer 73:4499, вариант 1920).
+// Граница сверху Grey 150, поле сверху 80. Верх: слева подписка и 4 колонки ссылок (через 80),
+// справа (293 px, через 80) — контакты и соцсети. Низ (91 px): граница сверху, копирайт, оплата, документы, разработчик.
+@use 'abstracts' as *;
+
+.footer {
+  padding-top: var(--rhythm-1);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+
+  &__top {
+    display: flex;
+    gap: rem(80);
+    padding-bottom: rem(80);
+  }
+
+  &__main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: rem(80);
+    min-width: 0;
+  }
+
+  // --- Подписка ---
+  &__subscribe {
+    display: flex;
+    gap: var(--space-18);
+    align-items: center;
+  }
+
+  &__subscribe-label {
+    flex-shrink: 0;
+    width: rem(170);
+
+    @include text(body-16-bold);
+
+    color: var(--color-text);
+  }
+
+  &__subscribe-input {
+    flex: 1;
+    min-width: 0;
+    height: rem(47);
+    padding-inline: rem(15);
+    color: var(--color-text);
+    outline: none;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius);
+    transition: border-color var(--transition);
+
+    @include text(body-16);
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+    }
+
+    &:focus {
+      border-color: var(--color-main);
+      box-shadow: inset 0 0 0 1px var(--color-main);
+    }
+  }
+
+  // --- Колонки ссылок ---
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-18);
+    max-width: rem(1000);
+  }
+
+  &__column {
+    display: grid;
+    gap: rem(13);
+    align-content: start;
+  }
+
+  &__column-title {
+    @include text(body-16-bold);
+
+    color: var(--color-text);
+  }
+
+  &__links {
+    display: grid;
+    gap: rem(13);
+
+    // Пункт без собственной высоты строки — высоту задаёт ссылка 15 / 1.42
+    > li {
+      display: flex;
+    }
+  }
+
+  &__link {
+    @include text(body-15);
+
+    color: var(--color-text-secondary);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Контакты и соцсети ---
+  &__aside {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: rem(28);
+    width: rem(293);
+  }
+
+  &__contacts {
+    display: grid;
+    gap: var(--space-16);
+    font-style: normal;
+  }
+
+  &__contact {
+    @include text(body-15);
+
+    color: var(--color-text);
+  }
+
+  a.footer__contact {
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  // Кнопки соцсетей: серая плашка 40 px, скругление 8, логотип 20 px в фирменных цветах
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(40);
+    height: rem(40);
+    background: var(--grey-100);
+    border-radius: rem(8);
+    transition: background-color var(--transition);
+
+    @include hover {
+      background: var(--grey-200);
+    }
+  }
+
+  // --- Нижняя строка ---
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-16) var(--gap);
+    align-items: center;
+    justify-content: space-between;
+    min-height: rem(91);
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__copyright {
+    @include text(body-15);
+
+    color: var(--color-text-secondary);
+  }
+
+  &__payments {
+    display: flex;
+    gap: rem(20);
+    align-items: center;
+  }
+
+  &__legal {
+    display: flex;
+    gap: rem(27);
+  }
+
+  &__dev {
+    @include text(body-14);
+
+    color: var(--color-text-secondary);
+  }
+
+  &__small-link {
+    @include text(body-14);
+
+    color: var(--color-text-secondary);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}

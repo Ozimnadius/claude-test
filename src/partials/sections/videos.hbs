@@ -1,0 +1,9 @@
+{{!-- Видеоотзывы (Figma: Videoreview Section 69:3018): заголовок со стрелкой и 4 видео через 24 px; граница снизу. Слайдер и открытие видео — этап 6. --}}
+<section class="section section--divided" aria-labelledby="videos-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Видеоотзывы" href="#" tabs=false arrows=false id="videos-title"}}</div>
+    <div class="card-grid card-grid--cols-4 card-grid--wide">
+      {{#each data.home.videos}}{{> components/video-card retina=false}}{{/each}}
+    </div>
+  </div>
+</section>

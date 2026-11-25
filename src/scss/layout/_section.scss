@@ -40,6 +40,18 @@
   &--tight {
     margin-bottom: rem(20);
   }
+
+  // Образы: заголовок, описание и кнопки-фильтры столбиком через 28 px
+  &--stack {
+    display: flex;
+    flex-direction: column;
+    gap: rem(28);
+    align-items: flex-start;
+
+    .section__lead {
+      margin-top: 0;
+    }
+  }
 }
 
 // Описание под заголовком секции (галерея): 16 px серым, через 22 px от заголовка

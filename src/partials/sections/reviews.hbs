@@ -1,0 +1,9 @@
+{{!-- Отзывы (Figma: Textreview section 69:3208): заголовок со стрелкой и 2 отзыва через 24 px. --}}
+<section class="section" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Отзывы" href="#" tabs=false arrows=false id="reviews-title"}}</div>
+    <div class="card-grid card-grid--cols-2 card-grid--wide">
+      {{#each data.home.reviews}}{{> components/review-card href=""}}{{/each}}
+    </div>
+  </div>
+</section>

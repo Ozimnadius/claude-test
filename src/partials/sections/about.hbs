@@ -1,0 +1,21 @@
+{{!--
+  О компании (scss/sections/_about.scss; Figma: About Section 73:3517).
+  Слева — карточка с заголовком, текстом и кнопкой, справа — фото той же высоты; ниже — 4 преимущества.
+--}}
+<section class="section about" aria-labelledby="about-title">
+  <div class="container about__inner">
+    <div class="about__row">
+      <div class="about__card">
+        <div class="about__text">
+          <h2 class="about__title" id="about-title">{{data.home.about.title}}</h2>
+          {{#each data.home.about.paragraphs}}<p class="about__paragraph">{{this}}</p>{{/each}}
+        </div>
+        <a class="about__btn" href="#">О компании</a>
+      </div>
+      {{> components/img name=data.home.about.image alt="" width="836" height="442" retina=true class="about__img" eager=false}}
+    </div>
+    <div class="card-grid card-grid--cols-4 card-grid--wide">
+      {{#each data.home.about.advantages}}{{> components/advantage-card}}{{/each}}
+    </div>
+  </div>
+</section>

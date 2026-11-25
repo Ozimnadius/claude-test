@@ -23,14 +23,15 @@
 
 ## Документация
 
-| Файл                                           | О чём                                                     |
-| ---------------------------------------------- | --------------------------------------------------------- |
-| [docs/PLAN.md](docs/PLAN.md)                   | План работ по этапам и статус                             |
-| [docs/figma.md](docs/figma.md)                 | Макет: ссылки на фреймы, состав страниц, брейкпоинты      |
-| [docs/design-tokens.md](docs/design-tokens.md) | Цвета, типографика, отступы, скругления, темы             |
-| [docs/components.md](docs/components.md)       | Перечень компонентов UI-кита и секций главной             |
-| [docs/conventions.md](docs/conventions.md)     | Соглашения: структура папок, BEM, SCSS, JS, картинки, git |
-| [docs/decisions.md](docs/decisions.md)         | Журнал решений и открытые вопросы                         |
+| Файл                                           | О чём                                                                          |
+| ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| [docs/PLAN.md](docs/PLAN.md)                   | План работ по этапам и статус                                                  |
+| [docs/figma.md](docs/figma.md)                 | Макет: ссылки на фреймы, состав страниц, брейкпоинты                           |
+| [docs/design-tokens.md](docs/design-tokens.md) | Цвета, типографика, отступы, скругления, темы                                  |
+| [docs/components.md](docs/components.md)       | Перечень компонентов UI-кита и секций главной                                  |
+| [docs/conventions.md](docs/conventions.md)     | Соглашения: структура папок, BEM, SCSS, JS, картинки, git                      |
+| [docs/decisions.md](docs/decisions.md)         | Журнал решений и открытые вопросы                                              |
+| [docs/report.md](docs/report.md)               | Итоговый отчёт: сравнение с вариантом Codex (Astra 6.2), время, замеры, оценки |
 
 ## Как запустить
 

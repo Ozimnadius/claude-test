@@ -2,8 +2,10 @@
 <section class="section" aria-labelledby="blog-title">
   <div class="container">
     <div class="section__head section__head--tight">{{> components/section-head title="Блог" href="#" tabs=false arrows=false id="blog-title"}}</div>
-    <div class="card-grid card-grid--cols-5 card-grid--wide card-grid--scroll-xs" style="--scroll-item: 275px">
-      {{#each data.home.posts}}{{> components/post-card gallery=false plain=false}}{{/each}}
+    <div class="slider slider--lane" data-slider="xs">
+      <div class="card-grid card-grid--cols-5 card-grid--wide card-grid--scroll-xs" style="--scroll-item: 275px">
+        {{#each data.home.posts}}{{> components/post-card gallery=false plain=false}}{{/each}}
+      </div>
     </div>
   </div>
 </section>

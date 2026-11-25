@@ -62,7 +62,7 @@
 - Модуль = поведение: `tabs.js`, `slider.js`, `countdown.js`, `header.js`, `theme-switcher.js`.
 - Каждый модуль экспортирует функцию `init…()`; `main.js` вызывает её, только если на странице есть нужные `data-*` атрибуты.
 - Состояние открытых и выбранных элементов — через доступные атрибуты (`aria-expanded`, `aria-pressed`, `hidden`), а не классы `is-*`: так его видят и экранные дикторы, и CSS.
-- Модули: `theme.js` (тема, `[data-theme-switch]`), `dropdown.js` (выпадающие списки, `[data-dropdown]`), `header.js` (мобильное меню `[data-mobile-menu]` и панель поиска `[data-search-panel]`).
+- Модули: `theme.js` (тема, `[data-theme-switch]`), `dropdown.js` (выпадающие списки, `[data-dropdown]`), `header.js` (мобильное меню `[data-mobile-menu]` и панель поиска `[data-search-panel]`), `tabs.js` (табы, `[data-tabs]`), `slider.js` (слайдеры на Swiper, `[data-slider]`), `countdown.js` (таймер акций, `[data-countdown]`).
 - Без лишних зависимостей. Для слайдеров — решение в [decisions.md](decisions.md).
 
 ## HTML

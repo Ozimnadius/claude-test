@@ -1,10 +1,12 @@
 {{!--
-  Табы (scss/components/_tabs.scss). Переключение — JS на этапе 6.
-  Параметры: items — массив строк; active — индекс выбранного (по умолчанию 0); label — подпись группы.
+  Табы (scss/components/_tabs.scss). Переключение — src/js/modules/tabs.js.
+  Параметры: items — массив строк; active — индекс выбранного (по умолчанию 0); label — подпись группы;
+  idPrefix — префикс id: кнопки получают id «префикс-tab-N» и связь с панелями «префикс-panel-N»
+  (панели — элементы role="tabpanel" внутри общего [data-tabs]). Без idPrefix табы только визуальные.
   Пример: {{> components/tabs items=data.kit.tabs label="Подборки товаров"}}
 --}}
 <div class="tabs" role="tablist"{{#if label}} aria-label="{{label}}"{{/if}}>
   {{#each items}}
-    <button class="tabs__btn" type="button" role="tab" aria-selected="{{#if (eq @index (or ../active 0))}}true{{else}}false{{/if}}"{{#unless (eq @index (or ../active 0))}} tabindex="-1"{{/unless}}>{{this}}</button>
+    <button class="tabs__btn" type="button" role="tab"{{#if ../idPrefix}} id="{{../idPrefix}}-tab-{{@index}}" aria-controls="{{../idPrefix}}-panel-{{@index}}"{{/if}} aria-selected="{{#if (eq @index (or ../active 0))}}true{{else}}false{{/if}}"{{#unless (eq @index (or ../active 0))}} tabindex="-1"{{/unless}}>{{this}}</button>
   {{/each}}
 </div>

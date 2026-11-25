@@ -5,8 +5,10 @@
       {{> components/section-head title="Галерея" href="#" tabs=false arrows=false id="gallery-title"}}
       <p class="section__lead">{{data.home.gallery.lead}}</p>
     </div>
-    <div class="card-grid card-grid--cols-4 card-grid--wide card-grid--scroll-xs" style="--scroll-item: 245px">
-      {{#each data.home.gallery.items}}{{> components/post-card plain=false}}{{/each}}
+    <div class="slider slider--lane" data-slider="xs">
+      <div class="card-grid card-grid--cols-4 card-grid--wide card-grid--scroll-xs" style="--scroll-item: 245px">
+        {{#each data.home.gallery.items}}{{> components/post-card plain=false}}{{/each}}
+      </div>
     </div>
   </div>
 </section>

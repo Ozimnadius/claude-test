@@ -26,3 +26,14 @@
     padding-inline: var(--space-8);
   }
 }
+
+// Кнопки-фильтры — табы: невыбранная выглядит как светлая кнопка (.btn--secondary)
+.visions__filter[aria-selected='false'] {
+  color: var(--color-main);
+  background: var(--color-fill);
+
+  @include hover {
+    color: var(--color-main);
+    background: var(--color-fill-strong);
+  }
+}

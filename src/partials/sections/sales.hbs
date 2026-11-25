@@ -1,9 +1,11 @@
-{{!-- Акции (Figma: Sales Section 69:2821): серый фон, заголовок со стрелкой и 3 акции через 24 px. Таймер — этап 6. --}}
+{{!-- Акции (Figma: Sales Section 69:2821): серый фон, заголовок со стрелкой и 3 акции через 24 px. Таймер — modules/countdown.js. --}}
 <section class="section section--alt" aria-labelledby="sales-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Акции" href="#" tabs=false arrows=false id="sales-title"}}</div>
-    <div class="card-grid card-grid--cols-3 card-grid--wide-lg card-grid--scroll-xs" style="--scroll-item: 283px">
-      {{#each data.home.sales}}{{> components/sale-card retina=false}}{{/each}}
+    <div class="slider slider--lane" data-slider="xs">
+      <div class="card-grid card-grid--cols-3 card-grid--wide-lg card-grid--scroll-xs" style="--scroll-item: 283px">
+        {{#each data.home.sales}}{{> components/sale-card retina=false}}{{/each}}
+      </div>
     </div>
   </div>
 </section>

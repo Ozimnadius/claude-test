@@ -1,0 +1,46 @@
+// Слайдер на Swiper (modules/slider.js). Разметка: .slider[data-slider] > обёртка > слайды.
+// Swiper запускается только на своей ширине (data-slider="xs|sm|md|all"); до запуска и без JS
+// лента работает на CSS-прокрутке (.card-grid--scroll-*, layout/_grid.scss), а шире — обычной сеткой.
+// Классы .slider__wrapper и .slider__slide ставит скрипт, swiper-initialized — сам Swiper.
+// Ядро стилей Swiper не подключаем: нужные правила — ниже, классы свои.
+@use 'abstracts' as *;
+
+.slider {
+  &.swiper-initialized {
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  // Лента карточек выходит под поля контейнера до краёв экрана, первая карточка — по краю контента
+  &--lane.swiper-initialized {
+    padding-inline: var(--page-padding);
+    margin-inline: calc(-1 * var(--page-padding));
+  }
+}
+
+.slider.swiper-initialized > .slider__wrapper {
+  position: relative;
+  box-sizing: content-box;
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+  transition-property: transform;
+}
+
+// Ширина карточки — та же переменная, что у CSS-ленты: --scroll-item (на телефоне --scroll-item-xs)
+.slider.swiper-initialized .slider__slide {
+  flex-shrink: 0;
+  width: var(--scroll-item, 75%);
+
+  @include media-down(xs) {
+    width: var(--scroll-item-xs, var(--scroll-item, 75%));
+  }
+}
+
+// Панели табов: у сетки свой display, поэтому скрытие задаём явно
+.tab-panel[hidden] {
+  display: none;
+}

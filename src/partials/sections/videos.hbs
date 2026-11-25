@@ -2,8 +2,10 @@
 <section class="section section--divided" aria-labelledby="videos-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Видеоотзывы" href="#" tabs=false arrows=false id="videos-title"}}</div>
-    <div class="card-grid card-grid--cols-4 card-grid--wide card-grid--scroll-md" style="--scroll-item: 305px">
-      {{#each data.home.videos}}{{> components/video-card retina=false}}{{/each}}
+    <div class="slider slider--lane" data-slider="md">
+      <div class="card-grid card-grid--cols-4 card-grid--wide card-grid--scroll-md" style="--scroll-item: 305px">
+        {{#each data.home.videos}}{{> components/video-card retina=false}}{{/each}}
+      </div>
     </div>
   </div>
 </section>

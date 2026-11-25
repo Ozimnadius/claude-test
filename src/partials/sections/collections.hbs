@@ -2,8 +2,10 @@
 <section class="section" aria-labelledby="collections-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Коллекции" href="" tabs=false arrows=false id="collections-title"}}</div>
-    <div class="card-grid card-grid--cols-3 card-grid--wide card-grid--scroll-md" style="--scroll-item: 484px; --scroll-item-xs: 305px">
-      {{#each data.home.collections}}{{> components/collection-card href=""}}{{/each}}
+    <div class="slider slider--lane" data-slider="md">
+      <div class="card-grid card-grid--cols-3 card-grid--wide card-grid--scroll-md" style="--scroll-item: 484px; --scroll-item-xs: 305px">
+        {{#each data.home.collections}}{{> components/collection-card href=""}}{{/each}}
+      </div>
     </div>
   </div>
 </section>

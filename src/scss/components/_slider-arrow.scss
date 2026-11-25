@@ -22,8 +22,11 @@
     box-shadow: 0 5px 14px rgb(0 0 0 / 12%);
   }
 
-  &:disabled {
+  // swiper-button-lock — класс Swiper, когда все слайды помещаются и листать нечего
+  &:disabled,
+  &.swiper-button-lock {
     color: var(--color-text-muted);
+    pointer-events: none;
     cursor: default;
     box-shadow: none;
   }

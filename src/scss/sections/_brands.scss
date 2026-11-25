@@ -1,6 +1,8 @@
 // Слайдер брендов (Figma: Brands Section 46:2076).
 // Поля секции 60 px (Vertical Rythm 2); в строке — стрелки 40 px по краям и логотипы между ними,
-// с одинаковыми промежутками (~94 px на 1920) — и между логотипами, и до стрелок. Прокрутка — Swiper на этапе 6.
+// с одинаковыми промежутками (~94 px на 1920) — и между логотипами, и до стрелок.
+// Листается Swiper (modules/slider.js, data-slider="all"): если логотипы помещаются, Swiper «заблокирован»
+// и modules/slider.js делит свободное место поровну, как в макете; если нет — листаются с промежутком 40.
 @use 'abstracts' as *;
 
 .brands {
@@ -8,28 +10,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include media-down(md) {
+      gap: var(--space-16);
+    }
+  }
+
+  &__slider {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
   }
 
   &__list {
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: space-evenly;
-    min-width: 0;
-    overflow: hidden;
   }
 }
 
 .brands__item {
   display: flex;
+  flex-shrink: 0;
 }
 
-// ≤ 1000: логотипы листаются свайпом (вариантов в макете нет), на телефоне стрелки скрыты
+// Без JS на 1000 и ниже логотипы листаются свайпом (CSS-прокрутка)
 .brands__list {
   @include media-down(md) {
     gap: rem(40);
     justify-content: flex-start;
-    padding-inline: var(--space-16);
     overflow-x: auto;
     scrollbar-width: none;
 
@@ -39,8 +48,14 @@
   }
 }
 
-.brands__item {
-  flex-shrink: 0;
+// Со Swiper: расстановку задаёт скрипт, ширина логотипа — по содержимому
+.brands .swiper-initialized > .brands__list {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.brands .swiper-initialized .brands__item {
+  width: auto;
 }
 
 .brands .slider-arrow {

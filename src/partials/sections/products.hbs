@@ -1,9 +1,18 @@
-{{!-- Лучшие предложения (Figma: Products_Section 26:630): заголовок с табами и сетка 5 × 2 карточек товара. --}}
-<section class="section section--alt" aria-labelledby="products-title">
+{{!--
+  Лучшие предложения (Figma: Products_Section 26:630): заголовок с табами и сетка 5 × 2 карточек товара.
+  Каждому табу — своя панель (демо: те же товары в другом порядке, хелпер rotate); на телефоне — слайдер.
+--}}
+<section class="section section--alt" aria-labelledby="products-title" data-tabs>
   <div class="container">
-    <div class="section__head">{{> components/section-head title="Лучшие предложения" href="#" tabs=data.home.tabs arrows=false id="products-title"}}</div>
-    <div class="card-grid card-grid--cols-5 card-grid--md-cols-4 card-grid--sm-cols-3 card-grid--scroll-xs" style="--scroll-item: 160px">
-      {{#each data.home.products}}{{> components/product-card compact=false}}{{/each}}
-    </div>
+    <div class="section__head">{{> components/section-head title="Лучшие предложения" href="#" tabs=data.home.tabs arrows=false id="products-title" tabsId="products"}}</div>
+    {{#each data.home.tabs}}
+      <div class="tab-panel" role="tabpanel" id="products-panel-{{@index}}" aria-labelledby="products-tab-{{@index}}"{{#unless @first}} hidden{{/unless}}>
+        <div class="slider slider--lane" data-slider="xs">
+          <div class="card-grid card-grid--cols-5 card-grid--md-cols-4 card-grid--sm-cols-3 card-grid--scroll-xs" style="--scroll-item: 160px">
+            {{#each (rotate @root.data.home.products @index)}}{{> components/product-card compact=false}}{{/each}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
   </div>
 </section>

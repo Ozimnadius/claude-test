@@ -2,13 +2,14 @@
   Заголовок секции (scss/components/_section-head.scss).
   Параметры: title; href — ссылка «Все» (стрелка рядом с заголовком), moreLabel — её подпись;
   tabs — массив строк для табов справа; arrows — стрелки слайдера справа (prev / next);
-  id — id заголовка (для aria-labelledby секции); tabsDesktop — на телефоне табы скрыть.
+  id — id заголовка (для aria-labelledby секции); tabsDesktop — на телефоне табы скрыть;
+  tabsId — префикс id табов и их панелей (см. components/tabs.hbs).
 --}}
 <div class="section-head{{#if tabsDesktop}} section-head--tabs-desktop{{/if}}">
   <div class="section-head__title-wrap">
     <h2 class="section-head__title"{{#if id}} id="{{id}}"{{/if}}>{{title}}</h2>
     {{#if href}}<a class="section-head__more" href="{{href}}" aria-label="{{#if moreLabel}}{{moreLabel}}{{else}}Смотреть все: {{title}}{{/if}}">{{> components/icon name="chevron-right" size="24" label="" class=""}}</a>{{/if}}
   </div>
-  {{#if tabs}}{{> components/tabs items=tabs label=title active=0}}{{/if}}
+  {{#if tabs}}{{> components/tabs items=tabs label=title active=0 idPrefix=tabsId}}{{/if}}
   {{#if arrows}}<div class="section-head__arrows">{{> components/slider-arrow dir="prev" class="" disabled=true}}{{> components/slider-arrow dir="next" class="" disabled=false}}</div>{{/if}}
 </div>

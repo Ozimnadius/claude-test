@@ -1,7 +1,8 @@
 {{!--
   Карточка акции (scss/components/_sale-card.scss).
   Параметры: title, image, retina, href (по умолчанию #); dates — период («С 25 октября по 2 ноября»);
-  discount — плашка («до −50%»); timer — { days, hours, minutes } (отсчёт — JS на этапе 6).
+  discount — плашка («до −50%»); timer — { days, hours, minutes, end }: остаток до конца акции.
+  Отсчёт — modules/countdown.js: с end (дата ISO) — до этой даты, без него (демо) — от момента загрузки страницы.
   Пример: {{> components/sale-card data.cards.sale}}
 --}}
 <article class="sale-card">
@@ -10,9 +11,9 @@
     <div class="sale-card__badges">
       {{#if discount}}<span class="sale-card__discount">{{discount}}</span>{{/if}}
       {{#if timer}}
-        <span class="sale-card__timer" role="timer" aria-label="До конца акции {{timer.days}} д {{timer.hours}} ч {{timer.minutes}} мин">
+        <span class="sale-card__timer" role="timer" aria-label="До конца акции {{timer.days}} д {{timer.hours}} ч {{timer.minutes}} мин" data-countdown="{{timer.days}}:{{timer.hours}}:{{timer.minutes}}"{{#if timer.end}} data-countdown-end="{{timer.end}}"{{/if}}>
           {{> components/icon name="fire" class="sale-card__fire" size="18" label=""}}
-          <span aria-hidden="true">{{timer.days}}д</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true">{{timer.hours}}ч</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true">{{timer.minutes}}м</span>
+          <span aria-hidden="true"><span data-countdown-days>{{timer.days}}</span>д</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true"><span data-countdown-hours>{{timer.hours}}</span>ч</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true"><span data-countdown-minutes>{{timer.minutes}}</span>м</span>
         </span>
       {{/if}}
     </div>

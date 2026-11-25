@@ -1,10 +1,12 @@
-{{!-- Слайдер брендов (scss/sections/_brands.scss; Figma: Brands Section 46:2076). Прокрутка — этап 6. --}}
+{{!-- Слайдер брендов (scss/sections/_brands.scss; Figma: Brands Section 46:2076). Листается Swiper (modules/slider.js), стрелки по краям. --}}
 <section class="section section--space-2 brands" aria-label="Бренды">
   <div class="container brands__row">
-    {{> components/slider-arrow dir="prev" disabled=true class=""}}
-    <ul class="brands__list">
-      {{#each data.cards.brands}}{{#unless (eq image "brand-zherko")}}<li class="brands__item">{{> components/brand card=false}}</li>{{/unless}}{{/each}}
-    </ul>
-    {{> components/slider-arrow dir="next" disabled=false class=""}}
+    {{> components/slider-arrow dir="prev" disabled=true class="" slider=true}}
+    <div class="slider brands__slider" data-slider="all" data-slider-gap="40" data-slider-fit>
+      <ul class="brands__list">
+        {{#each data.cards.brands}}{{#unless (eq image "brand-zherko")}}<li class="brands__item">{{> components/brand card=false}}</li>{{/unless}}{{/each}}
+      </ul>
+    </div>
+    {{> components/slider-arrow dir="next" disabled=false class="" slider=true}}
   </div>
 </section>

@@ -1,8 +1,9 @@
 {{!--
   Стрелка слайдера (scss/components/_slider-arrow.scss).
-  Параметры: dir — prev | next; disabled; class — микс (например, хук для JS).
+  Параметры: dir — prev | next; disabled; class — микс;
+  slider — стрелка управляет ближайшим слайдером (хук data-slider-prev / data-slider-next для modules/slider.js).
   Пример: {{> components/slider-arrow dir="next"}}
 --}}
-<button class="slider-arrow{{#if class}} {{class}}{{/if}}" type="button" aria-label="{{#if (eq dir "prev")}}Назад{{else}}Вперёд{{/if}}"{{#if disabled}} disabled{{/if}}>
+<button class="slider-arrow{{#if class}} {{class}}{{/if}}" type="button" aria-label="{{#if (eq dir "prev")}}Назад{{else}}Вперёд{{/if}}"{{#if disabled}} disabled{{/if}}{{#if slider}} data-slider-{{dir}}{{/if}}>
   {{#if (eq dir "prev")}}{{> components/icon name="chevron-left" size="24" label="" class=""}}{{else}}{{> components/icon name="chevron-right" size="24" label="" class=""}}{{/if}}
 </button>

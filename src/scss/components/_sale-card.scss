@@ -1,0 +1,117 @@
+// Карточка акции (Figma: Sale 69:2357).
+// Фото 484 × 324 со скруглением темы; поверх (поля 10) — плашка «до −50%» и таймер до конца акции.
+// Ниже (поля 12) — заголовок 18 / 500 и даты 15 px. Отсчёт таймера — JS на этапе 6.
+@use 'abstracts' as *;
+
+.sale-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-14);
+
+  &__media {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    aspect-ratio: 484 / 324.27;
+    padding: var(--space-10);
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  @include hover {
+    .sale-card__img {
+      transform: scale(1.03);
+    }
+
+    .sale-card__title {
+      color: var(--color-main);
+    }
+  }
+
+  &__badges {
+    position: relative;
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  // Плашки поверх фото: цвета постоянные, текст тёмный в любой теме
+  &__discount,
+  &__timer {
+    display: inline-flex;
+    align-items: center;
+    height: rem(23);
+    font-size: rem(12);
+    color: var(--black);
+  }
+
+  &__discount {
+    padding-inline: var(--space-4);
+    font-weight: 500;
+    text-transform: uppercase;
+    background: var(--accent-yellow);
+  }
+
+  &__timer {
+    gap: var(--space-4);
+    padding: 0 var(--space-6) 0 var(--space-4);
+    font-weight: 700;
+    line-height: rem(16);
+    background: var(--grey-100);
+  }
+
+  &__fire {
+    color: var(--accent-red);
+  }
+
+  // Двоеточие между днями, часами и минутами — две точки 2 × 2 px
+  &__sep {
+    display: inline-block;
+    width: 2px;
+    height: 7px;
+
+    &::before {
+      display: block;
+      width: 2px;
+      height: 2px;
+      content: '';
+      background: currentcolor;
+      border-radius: 1px;
+      box-shadow: 0 5px 0 currentcolor;
+    }
+  }
+
+  &__body {
+    display: grid;
+    gap: var(--space-8);
+    padding-inline: var(--space-12);
+  }
+
+  &__title {
+    @include text(h5);
+
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+  }
+
+  &__dates {
+    @include text(body-15);
+
+    color: var(--color-text-body);
+  }
+}

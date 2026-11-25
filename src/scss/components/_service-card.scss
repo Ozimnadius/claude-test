@@ -1,0 +1,95 @@
+// Карточка услуги (Figma: Service 65:2080; на главной — секция Services 65:2208).
+// Белая карточка со скруглением темы: фото 484 × 324 с плашкой скидки внизу слева,
+// ниже (поля 18) — название 16 / 500, цена 18 / 600 и старая цена 12 px зачёркнутая, кнопка 36 px.
+@use 'abstracts' as *;
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+
+  &__media {
+    position: relative;
+    aspect-ratio: 484 / 324.28;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  @include hover {
+    .service-card__img {
+      transform: scale(1.03);
+    }
+  }
+
+  // Плашка скидки — цвет акцентный, текст всегда тёмный
+  &__badge {
+    position: absolute;
+    bottom: rem(11);
+    left: var(--space-10);
+    padding: rem(3) var(--space-6);
+
+    @include text(body-12);
+
+    color: var(--black);
+    background: var(--accent-yellow);
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-10);
+    align-items: flex-start;
+    padding: var(--space-18);
+  }
+
+  &__title {
+    @include text(h6);
+
+    color: var(--color-text);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+  }
+
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  &__price {
+    @include text(price-18);
+
+    color: var(--color-text);
+  }
+
+  &__old-price {
+    @include text(body-12);
+
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 1;
+    min-height: rem(36);
+    padding-inline: rem(20);
+    margin-top: auto;
+  }
+}

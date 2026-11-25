@@ -1,0 +1,15 @@
+{{!--
+  Карточка образа (scss/components/_vision-card.scss).
+  Параметры: title, eyebrow — рубрика, image, retina, href (по умолчанию #); plain — только фото.
+  Пример: {{> components/vision-card title="Кухня в стиле модерн" eyebrow="Кухня" image="vision-kitchen" retina=true}}
+--}}
+<article class="vision-card{{#if plain}} vision-card--plain{{/if}}">
+  {{> components/img name=image alt=(or alt "") width="726" height="588" retina=retina class="vision-card__img" eager=false}}
+  {{#unless plain}}
+    {{#if eyebrow}}<p class="vision-card__eyebrow">{{eyebrow}}</p>{{/if}}
+    <div class="vision-card__bar">
+      <a class="vision-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+      {{> components/icon name="chevron-right" size="24" label="" class=""}}
+    </div>
+  {{/unless}}
+</article>

@@ -1,0 +1,24 @@
+{{!--
+  Карточка акции (scss/components/_sale-card.scss).
+  Параметры: title, image, retina, href (по умолчанию #); dates — период («С 25 октября по 2 ноября»);
+  discount — плашка («до −50%»); timer — { days, hours, minutes } (отсчёт — JS на этапе 6).
+  Пример: {{> components/sale-card data.cards.sale}}
+--}}
+<article class="sale-card">
+  <div class="sale-card__media">
+    {{> components/img name=image alt="" width="484" height="324" retina=retina class="sale-card__img" eager=false}}
+    <div class="sale-card__badges">
+      {{#if discount}}<span class="sale-card__discount">{{discount}}</span>{{/if}}
+      {{#if timer}}
+        <span class="sale-card__timer" role="timer" aria-label="До конца акции {{timer.days}} д {{timer.hours}} ч {{timer.minutes}} мин">
+          {{> components/icon name="fire" class="sale-card__fire" size="18" label=""}}
+          <span aria-hidden="true">{{timer.days}}д</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true">{{timer.hours}}ч</span><span class="sale-card__sep" aria-hidden="true"></span><span aria-hidden="true">{{timer.minutes}}м</span>
+        </span>
+      {{/if}}
+    </div>
+  </div>
+  <div class="sale-card__body">
+    <a class="sale-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{#if dates}}<p class="sale-card__dates">{{dates}}</p>{{/if}}
+  </div>
+</article>

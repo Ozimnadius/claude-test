@@ -1,0 +1,19 @@
+{{!--
+  Карточка услуги (scss/components/_service-card.scss).
+  Параметры: title, image, retina, href (по умолчанию #); price; oldPrice — зачёркнутая; badge — плашка скидки («−1 000 ₽»).
+  Пример: {{> components/service-card title="Монтаж оборудования" price="от 1 000 ₽" oldPrice="от 2 000 ₽" badge="−1 000 ₽" image="service-mounting"}}
+--}}
+<article class="service-card">
+  <div class="service-card__media">
+    {{> components/img name=image alt="" width="484" height="324" retina=retina class="service-card__img" eager=false}}
+    {{#if badge}}<span class="service-card__badge">{{badge}}</span>{{/if}}
+  </div>
+  <div class="service-card__body">
+    <a class="service-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    <p class="service-card__prices">
+      <span class="service-card__price">{{price}}</span>
+      {{#if oldPrice}}<s class="service-card__old-price"><span class="visually-hidden">Старая цена </span>{{oldPrice}}</s>{{/if}}
+    </p>
+    {{> components/btn text="Заказать услугу" class="service-card__btn" size="" variant="" icon="" href="" disabled=false}}
+  </div>
+</article>

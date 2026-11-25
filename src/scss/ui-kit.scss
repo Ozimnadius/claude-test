@@ -408,6 +408,24 @@ code {
     grid-template-columns: rem(484);
   }
 
+  &--posts {
+    grid-template-columns: repeat(3, rem(357));
+  }
+
+  &--collection {
+    grid-template-columns: rem(480);
+  }
+
+  &--wide {
+    grid-template-columns: repeat(3, rem(484));
+    align-items: stretch;
+  }
+
+  &--visions {
+    grid-template-columns: repeat(2, rem(560));
+    gap: var(--gap);
+  }
+
   @include media-down(lg) {
     grid-template-columns: repeat(auto-fill, minmax(rem(180), 1fr));
   }

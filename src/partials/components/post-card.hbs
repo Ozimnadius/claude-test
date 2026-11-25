@@ -1,0 +1,17 @@
+{{!--
+  Карточка публикации — блог и галерея (scss/components/_post-card.scss).
+  Параметры: title, image, retina, href (по умолчанию #);
+  блог — category и date; галерея — gallery=true и photos («4 фото»); plain — только фото.
+  Пример: {{> components/post-card title="…" image="blog-powders" retina=true category="Новости" date="28 июня 2022"}}
+--}}
+<article class="post-card{{#if gallery}} post-card--gallery{{/if}}{{#if plain}} post-card--plain{{/if}}">
+  <div class="post-card__media">{{> components/img name=image alt="" width="357" height="239" retina=retina class="post-card__img" eager=false}}</div>
+  {{#unless plain}}
+    <div class="post-card__body">
+      <a class="post-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+      <p class="post-card__meta">
+        {{#if gallery}}<span class="post-card__meta-item">{{photos}}</span>{{else}}{{#if category}}<span class="post-card__meta-item">{{category}}</span>{{/if}}{{#if date}}<span class="post-card__meta-item">{{date}}</span>{{/if}}{{/if}}
+      </p>
+    </div>
+  {{/unless}}
+</article>

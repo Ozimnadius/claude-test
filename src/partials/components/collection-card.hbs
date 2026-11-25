@@ -1,0 +1,14 @@
+{{!--
+  Карточка коллекции (scss/components/_collection-card.scss).
+  Параметры: title, text, href (по умолчанию #); items — массив { image, retina, title } — превью товаров (6 шт.).
+  Пример: {{> components/collection-card data.cards.collection}}
+--}}
+<article class="collection-card">
+  <div class="collection-card__head">
+    <a class="collection-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{#if text}}<p class="collection-card__text">{{text}}</p>{{/if}}
+  </div>
+  <div class="collection-card__items">
+    {{#each items}}<a class="collection-card__item" href="#" title="{{title}}">{{> components/img name=image alt=title width="133" height="133" retina=retina class="collection-card__img" eager=false}}</a>{{/each}}
+  </div>
+</article>

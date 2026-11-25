@@ -8,10 +8,22 @@
       "rating": "3.5",
       "stock": "4000",
       "labels": [
-        { "type": "hit", "text": "Хит" },
-        { "type": "recommend", "text": "Советуем" },
-        { "type": "new", "text": "Новинка" },
-        { "type": "sale", "text": "Акция" }
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "new",
+          "text": "Новинка"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
       ]
     },
     {
@@ -20,12 +32,25 @@
       "image": "product-lipstick",
       "rating": "4.8",
       "stock": "12",
-      "labels": [{ "type": "sale", "text": "Акция" }]
+      "labels": [
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
     }
   ],
   "categories": [
-    { "title": "Одежда", "image": "category-clothes", "retina": true },
-    { "title": "Спорт и отдых", "image": "category-sport", "retina": true }
+    {
+      "title": "Одежда",
+      "image": "category-clothes",
+      "retina": true
+    },
+    {
+      "title": "Спорт и отдых",
+      "image": "category-sport",
+      "retina": true
+    }
   ],
   "categoryLarge": {
     "eyebrow": "Спорт и девайсы",
@@ -35,14 +60,119 @@
     "tags": ["Наушники", "Смарт-часы"]
   },
   "brands": [
-    { "name": "Сильвер", "image": "brand-silver" },
-    { "name": "Rosei", "image": "brand-rosei" },
-    { "name": "Losk", "image": "brand-losk" },
-    { "name": "Lindros", "image": "brand-lindros" },
-    { "name": "Нереус", "image": "brand-nereus" },
-    { "name": "KMI", "image": "brand-kmi" },
-    { "name": "Kolleri", "image": "brand-kolleri" },
-    { "name": "Misterio", "image": "brand-misterio" },
-    { "name": "Жерко", "image": "brand-zherko" }
-  ]
+    {
+      "name": "Сильвер",
+      "image": "brand-silver"
+    },
+    {
+      "name": "Rosei",
+      "image": "brand-rosei"
+    },
+    {
+      "name": "Losk",
+      "image": "brand-losk"
+    },
+    {
+      "name": "Lindros",
+      "image": "brand-lindros"
+    },
+    {
+      "name": "Нереус",
+      "image": "brand-nereus"
+    },
+    {
+      "name": "KMI",
+      "image": "brand-kmi"
+    },
+    {
+      "name": "Kolleri",
+      "image": "brand-kolleri"
+    },
+    {
+      "name": "Misterio",
+      "image": "brand-misterio"
+    },
+    {
+      "name": "Жерко",
+      "image": "brand-zherko"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Свежий взгляд на наш интернет-магазин!",
+      "image": "blog-powders",
+      "retina": true,
+      "category": "Новости",
+      "date": "28 июня 2022"
+    },
+    {
+      "title": "Производство новой линейки косметики",
+      "image": "blog-powders",
+      "retina": true,
+      "gallery": true,
+      "photos": "4 фото"
+    }
+  ],
+  "collection": {
+    "title": "Топ-10 бестселлеров электроники",
+    "text": "Электроника и бытовая техника — помощники и верные друзья в повседневной жизни. У нас вы найдёте то, что давно искали. Техника не только стильная, но и надёжная, а гарантия — до трёх лет.",
+    "items": [
+      {
+        "image": "collection-headphones",
+        "title": "Наушники"
+      },
+      {
+        "image": "collection-speaker",
+        "title": "Умная колонка"
+      },
+      {
+        "image": "collection-watch",
+        "title": "Смарт-часы"
+      },
+      {
+        "image": "collection-game",
+        "title": "Игра для приставки"
+      },
+      {
+        "image": "collection-console",
+        "retina": true,
+        "title": "Игровая приставка"
+      },
+      {
+        "image": "collection-tv",
+        "title": "Телевизор"
+      }
+    ]
+  },
+  "services": [
+    {
+      "title": "Монтаж оборудования",
+      "price": "от 1 000 ₽",
+      "oldPrice": "от 2 000 ₽",
+      "badge": "−1 000 ₽",
+      "image": "service-mounting"
+    },
+    {
+      "title": "Ремонт техники",
+      "price": "Цена по договорённости",
+      "image": "service-mounting"
+    }
+  ],
+  "sale": {
+    "title": "Чёрная пятница: скидки до 50%",
+    "dates": "С 25 октября по 2 ноября",
+    "discount": "до −50%",
+    "timer": {
+      "days": "831",
+      "hours": "19",
+      "minutes": "17"
+    },
+    "image": "sale-friday"
+  },
+  "vision": {
+    "title": "Кухня в стиле модерн",
+    "eyebrow": "Кухня",
+    "image": "vision-kitchen",
+    "retina": true
+  }
 }

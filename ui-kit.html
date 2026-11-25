@@ -432,6 +432,38 @@
           <div class="kit-demo">
             {{#each data.cards.brands}}{{> components/brand card=true}}{{/each}}
           </div>
+
+          <h3 class="text-h4">Блог и галерея</h3>
+          <p class="kit-note"><code>\{{> components/post-card title="…" image="…" category="…" date="…"}}</code>; галерея — <code>gallery=true photos="4 фото"</code>; только фото — <code>plain=true</code>.</p>
+          <div class="kit-cards kit-cards--posts">
+            {{#each data.cards.posts}}{{> components/post-card plain=false}}{{/each}}
+            {{> components/post-card image="blog-powders" retina=true plain=true gallery=false}}
+          </div>
+
+          <h3 class="text-h4">Коллекция</h3>
+          <p class="kit-note"><code>\{{> components/collection-card title="…" text="…" items=…}}</code> — описание обрезается на третьей строке.</p>
+          <div class="kit-cards kit-cards--collection">
+            {{> components/collection-card data.cards.collection}}
+          </div>
+
+          <h3 class="text-h4">Услуги</h3>
+          <p class="kit-note"><code>\{{> components/service-card title="…" price="…" oldPrice="…" badge="…" image="…"}}</code></p>
+          <div class="kit-cards kit-cards--wide">
+            {{#each data.cards.services}}{{> components/service-card}}{{/each}}
+          </div>
+
+          <h3 class="text-h4">Акция</h3>
+          <p class="kit-note"><code>\{{> components/sale-card title="…" dates="…" discount="…" timer=…}}</code> — отсчёт таймера появится на этапе 6.</p>
+          <div class="kit-cards kit-cards--wide">
+            {{> components/sale-card data.cards.sale}}
+          </div>
+
+          <h3 class="text-h4">Образ</h3>
+          <p class="kit-note"><code>\{{> components/vision-card title="…" eyebrow="…" image="…" plain=true}}</code></p>
+          <div class="kit-cards kit-cards--visions">
+            {{> components/vision-card data.cards.vision plain=false}}
+            {{> components/vision-card data.cards.vision plain=true}}
+          </div>
         </div>
       </section>
     </main>

@@ -1,0 +1,75 @@
+// Карточка образа (Figma: Vision 212:90049; на главной — секция Visions 88:25970).
+//   .vision-card          — фото 726 × 588 с затемнением снизу, поверх (поля 35) рубрика 13 px и заголовок 20 / 500 со стрелкой;
+//   .vision-card--plain   — только фото 726 × 708.
+// Скругление — от темы.
+@use 'abstracts' as *;
+
+.vision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(7);
+  justify-content: flex-end;
+  aspect-ratio: 725.98 / 587.84;
+  padding: var(--rhythm-3);
+  overflow: hidden;
+  color: var(--white);
+  border-radius: var(--radius);
+  isolation: isolate;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: '';
+    background: linear-gradient(to bottom, transparent 70%, rgb(0 0 0 / 40%));
+  }
+
+  @include hover {
+    .vision-card__img {
+      transform: scale(1.03);
+    }
+  }
+
+  &__eyebrow {
+    @include text(body-13);
+  }
+
+  &__bar {
+    display: flex;
+    gap: var(--space-16);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    max-width: rem(500);
+
+    @include text(h4);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+  }
+
+  &--plain {
+    aspect-ratio: 725.98 / 707.84;
+    padding: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}

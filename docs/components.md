@@ -64,11 +64,11 @@
 | Категория (фото + подпись) | `.category-card`, `--caption`                      | `31:9380`               | Category              | ✅     |
 | Категория большая (теги)   | `.category-card--large`                            | `47:2182`               | Category 2            | ✅     |
 | Бренд                      | `.brand-logo` (слайдер), `.brand-card` (на плашке) | `267:158695`            | Brands                | ✅     |
-| Блог / галерея             | `.post-card`                                       | `55:5374` (3 варианта)  | Blog, Gallery         | ⬜     |
-| Коллекция                  | `.collection-card`                                 | `59:5718`               | Collection            | ⬜     |
-| Услуга                     | `.service-card`                                    | `65:2080`               | Services              | ⬜     |
-| Акция                      | `.sale-card`                                       | `69:2357`               | Sales                 | ⬜     |
-| Образ                      | `.vision-card`                                     | `212:90049`             | Visions               | ⬜     |
+| Блог / галерея             | `.post-card`, `--gallery`, `--plain`               | `55:5374` (3 варианта)  | Blog, Gallery         | ✅     |
+| Коллекция                  | `.collection-card`                                 | `59:5718`               | Collection            | ✅     |
+| Услуга                     | `.service-card`                                    | `65:2080`               | Services              | ✅     |
+| Акция                      | `.sale-card` (таймер — JS на этапе 6)              | `69:2357`               | Sales                 | ✅     |
+| Образ                      | `.vision-card`, `--plain`                          | `212:90049`             | Visions               | ✅     |
 | Видеоотзыв                 | `.video-card`                                      | `69:2921`               | Videoreview           | ⬜     |
 | Текстовый отзыв            | `.review-card`                                     | `69:3114`               | Textreview            | ⬜     |
 | Преимущество               | `.feature`                                         | `72:3483`               | About                 | ⬜     |

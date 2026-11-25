@@ -1,0 +1,25 @@
+// Логотип (Figma: Logo 29:920). Разметка — partials/components/logo.hbs.
+@use 'abstracts' as *;
+
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--color-text);
+
+  &__img {
+    width: rem(170);
+    height: auto;
+  }
+
+  &__text {
+    fill: currentcolor;
+  }
+
+  &__badge {
+    fill: var(--color-main);
+  }
+
+  &__badge-text {
+    fill: var(--color-on-main);
+  }
+}

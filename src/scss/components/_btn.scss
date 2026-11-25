@@ -1,0 +1,82 @@
+// Кнопка интерфейса (Figma: Btn_Main 11:5, Btn_Small 22:9).
+//   .btn                 — основная: 44 px, основной цвет, текст 16-16;
+//   .btn--secondary      — светлая: заливка Grey 100, текст основного цвета;
+//   .btn--gray           — серая: заливка Grey 150, тёмный текст;
+//   .btn--size-sm        — малая: 34 px, текст 14-21.
+// С иконкой (.btn__icon) поля уже — 18 px вместо 24 (как в макете).
+// Кнопки контента со страницы «Кнопки» — отдельный блок, этап 2.4.
+@use 'abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  gap: var(--space-10);
+  align-items: center;
+  justify-content: center;
+  min-height: rem(44);
+
+  // Высоту держит min-height (как фиксированная высота в Figma), иначе иконка 24 px раздвинет кнопку
+  padding: 0 rem(24);
+
+  @include text(btn-16);
+
+  color: var(--color-on-main);
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  background: var(--color-main);
+  border: 0;
+  border-radius: var(--radius);
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+
+  @include hover {
+    color: var(--color-on-main);
+    background: var(--color-main-hover);
+  }
+
+  &:has(.btn__icon) {
+    padding-inline: rem(18);
+  }
+
+  &--secondary {
+    color: var(--color-main);
+    background: var(--color-fill);
+
+    @include hover {
+      color: var(--color-main);
+      background: var(--color-fill-strong);
+    }
+  }
+
+  &--gray {
+    color: var(--color-text);
+    background: var(--color-fill-strong);
+
+    @include hover {
+      color: var(--color-text);
+      background: var(--color-border-strong);
+    }
+  }
+
+  &--size-sm {
+    min-height: rem(34);
+    padding-inline: rem(17);
+
+    @include text(btn-14);
+
+    &:has(.btn__icon) {
+      padding-inline: rem(12);
+    }
+  }
+
+  // Неактивная: для <button disabled> и для ссылки с aria-disabled
+  &:disabled,
+  &[aria-disabled='true'] {
+    color: var(--color-text-muted);
+    pointer-events: none;
+    cursor: default;
+    background: var(--color-fill);
+  }
+}

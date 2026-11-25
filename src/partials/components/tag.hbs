@@ -1,0 +1,6 @@
+{{!--
+  Тег-чип (scss/components/_tag.scss).
+  Параметры: text; href (ссылка, иначе <button>); dark — для фона-фото; active — выбран.
+  Пример: {{> components/tag text="Наушники" href="#" dark=true}}
+--}}
+{{#if href}}<a class="tag{{#if dark}} tag--on-dark{{/if}}{{#if active}} is-active{{/if}}" href="{{href}}"{{#if active}} aria-current="true"{{/if}}>{{text}}</a>{{else}}<button class="tag{{#if dark}} tag--on-dark{{/if}}{{#if active}} is-active{{/if}}" type="button" aria-pressed="{{#if active}}true{{else}}false{{/if}}">{{text}}</button>{{/if}}

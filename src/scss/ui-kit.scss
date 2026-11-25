@@ -264,3 +264,43 @@ code {
     @include text(body-14);
   }
 }
+
+// --- Элементы ---
+.kit-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+  align-items: center;
+  padding: var(--gap);
+  margin-bottom: var(--space-16);
+  background: var(--color-bg);
+  border-radius: var(--radius);
+
+  // Подложка «под фото» для элементов, которые ставятся поверх картинок
+  &--photo {
+    background: linear-gradient(135deg, #3a3f4b, #1f2229);
+  }
+}
+
+.kit-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(rem(120), 1fr));
+  gap: var(--space-8);
+  margin-bottom: rem(48);
+
+  &__item {
+    display: grid;
+    gap: var(--space-8);
+    justify-items: center;
+    padding: var(--space-16) var(--space-8);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border-radius: var(--radius);
+
+    @include text(body-12);
+
+    code {
+      color: var(--color-text-secondary);
+    }
+  }
+}

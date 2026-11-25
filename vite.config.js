@@ -12,7 +12,7 @@ const root = fileURLToPath(new URL('.', import.meta.url));
 const r = (...p) => resolve(root, ...p);
 
 /**
- * Читает все JSON из src/data в объект { имяФайла: содержимое }.
+ * Читает все JSON из src/data в объект { имяФайла: содержимое } + список иконок.
  * Вызывается при каждой отрисовке страницы, поэтому правки данных
  * видны после перезагрузки без перезапуска сервера.
  */
@@ -23,6 +23,10 @@ function loadData() {
     if (extname(file) !== '.json') continue;
     data[basename(file, '.json')] = JSON.parse(readFileSync(resolve(dir, file), 'utf-8'));
   }
+  // Список иконок спрайта — для витрины UI-кита (data.icons)
+  data.icons = readdirSync(r('src/assets/icons'))
+    .filter((file) => extname(file) === '.svg')
+    .map((file) => basename(file, '.svg'));
   return data;
 }
 

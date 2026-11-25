@@ -1,0 +1,33 @@
+// Лейбл товара (Figma: Lable 24:44): Хит, Советуем, Новинка, Акция.
+// Скругление в макете фиксированное (6 px) и от темы не зависит.
+@use 'abstracts' as *;
+
+.label {
+  display: inline-block;
+  padding-inline: var(--space-6);
+
+  @include text(label);
+
+  // В макете текст обрезан по высоте прописных: лейбл 19 px = 6 + 7 + 6
+  line-height: rem(19);
+  color: var(--white);
+  white-space: nowrap;
+  border-radius: rem(6);
+
+  &--hit {
+    background: var(--accent-red);
+  }
+
+  &--recommend {
+    background: var(--accent-purple);
+  }
+
+  &--new {
+    background: var(--accent-green);
+  }
+
+  &--sale {
+    color: var(--black);
+    background: var(--accent-yellow);
+  }
+}

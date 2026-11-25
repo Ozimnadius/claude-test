@@ -15,6 +15,7 @@
           <a href="#colors">Цвета</a>
           <a href="#typography">Типографика</a>
           <a href="#spacing">Отступы</a>
+          <a href="#elements">Элементы</a>
         </nav>
 
         <div class="kit-bar__switches" data-kit-theme>
@@ -127,6 +128,65 @@
             </div>
           </div>
         {{/each}}
+      </section>
+      {{!-- Элементы --}}
+      <section class="section section--space-2 section--alt" id="elements">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Элементы</h2>
+
+          <h3 class="text-h4">Логотип</h3>
+          <p class="kit-note"><code>\{{> components/logo}}</code> — слово цвета текста, плашка PRO основного цвета.</p>
+          <div class="kit-demo">{{> components/logo}}</div>
+
+          <h3 class="text-h4">Иконки</h3>
+          <p class="kit-note"><code>\{{> components/icon name="heart"}}</code> — 24 px, цвет от текста (<code>currentColor</code>). Список собирается из <code>src/assets/icons/</code> автоматически.</p>
+          <ul class="kit-icons">
+            {{#each data.icons}}
+              <li class="kit-icons__item">{{> components/icon name=this}}<code>{{this}}</code></li>
+            {{/each}}
+          </ul>
+
+          <h3 class="text-h4">Кнопки</h3>
+          <p class="kit-note"><code>\{{> components/btn text="…" variant="secondary|gray" size="sm" icon="…" href="…" disabled=true}}</code></p>
+          <div class="kit-demo">
+            {{> components/btn text="Выбрать"}}
+            {{> components/btn text="Каталог" icon="catalog"}}
+            {{> components/btn text="Выбрать" variant="secondary"}}
+            {{> components/btn text="Выбрать" variant="gray"}}
+            {{> components/btn text="Ссылкой" href="#elements"}}
+            {{> components/btn text="Неактивная" disabled=true}}
+          </div>
+          <div class="kit-demo">
+            {{> components/btn text="В корзину" size="sm"}}
+            {{> components/btn text="В корзину" size="sm" variant="gray"}}
+            {{> components/btn text="В корзину" size="sm" variant="secondary"}}
+            {{> components/btn text="В корзину" size="sm" icon="cart"}}
+            {{> components/btn text="Неактивная" size="sm" disabled=true}}
+          </div>
+
+          <h3 class="text-h4">Лейблы товара</h3>
+          <p class="kit-note"><code>\{{> components/label type="hit|recommend|new|sale" text="…"}}</code> — цвета акцентные, одинаковые во всех темах.</p>
+          <div class="kit-demo">
+            {{> components/label type="hit" text="Хит"}}
+            {{> components/label type="recommend" text="Советуем"}}
+            {{> components/label type="new" text="Новинка"}}
+            {{> components/label type="sale" text="Акция"}}
+          </div>
+
+          <h3 class="text-h4">Теги</h3>
+          <p class="kit-note"><code>\{{> components/tag text="…" href="…" dark=true active=true}}</code> — на светлом фоне и поверх фото.</p>
+          <div class="kit-demo">
+            {{> components/tag text="А"}}
+            {{> components/tag text="Б" active=true}}
+            {{> components/tag text="В"}}
+            {{> components/tag text="Смартфоны" href="#elements"}}
+          </div>
+          <div class="kit-demo kit-demo--photo">
+            {{> components/tag text="Наушники" href="#elements" dark=true}}
+            {{> components/tag text="Колонки" href="#elements" dark=true}}
+            {{> components/tag text="Умные часы" href="#elements" dark=true}}
+          </div>
+        </div>
       </section>
     </main>
   </body>

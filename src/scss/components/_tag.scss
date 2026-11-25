@@ -1,0 +1,57 @@
+// Тег-чип с рамкой (Figma: Component 4, 285:280634).
+//   .tag            — на светлом фоне: рамка Grey 150, 36 px, скругление 6 (Border_letter);
+//   .tag--on-dark   — поверх фото: полупрозрачная белая рамка, скругление 8 (Border_Label);
+//   .tag.is-active  — выбранный (например, буква в фильтре брендов).
+// Скругления в макете фиксированные и от темы не зависят.
+@use 'abstracts' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(34);
+  min-height: rem(36);
+
+  // В Figma рамка внутри элемента, в CSS — снаружи: боковые поля на 1 px меньше (12 → 11)
+  padding: var(--space-6) rem(11);
+
+  @include text(body-14);
+
+  color: var(--color-text);
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: rem(6);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background-color var(--transition);
+
+  @include hover {
+    color: var(--color-main);
+    border-color: var(--color-main);
+  }
+
+  &.is-active {
+    color: var(--color-on-main);
+    background: var(--color-main);
+    border-color: var(--color-main);
+  }
+
+  &--on-dark {
+    min-height: rem(37);
+    padding: rem(7) rem(10);
+
+    @include text(btn-14);
+
+    color: var(--white);
+    border-color: rgb(255 255 255 / 35%);
+    border-radius: rem(8);
+
+    @include hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+  }
+}

@@ -12,3 +12,9 @@
 // Раскладка
 @use 'layout/container';
 @use 'layout/section';
+
+// Компоненты
+@use 'components/logo';
+@use 'components/btn';
+@use 'components/label';
+@use 'components/tag';

@@ -4,5 +4,7 @@
   size — размер в px (по умолчанию 24); label — подпись для экранных читалок
   (без неё иконка декоративная и скрыта от них).
   Пример: {{> components/icon name="chevron-right" class="btn__icon"}}
+  Внимание: партиал видит параметры родителя. Внутри других партиалов
+  передавайте size и label явно, иначе подхватятся чужие (например, size="sm" кнопки).
 --}}
 <svg class="icon{{#if class}} {{class}}{{/if}}" width="{{#if size}}{{size}}{{else}}24{{/if}}" height="{{#if size}}{{size}}{{else}}24{{/if}}"{{#if label}} role="img" aria-label="{{label}}"{{else}} aria-hidden="true"{{/if}} focusable="false"><use href="/__spritemap#icon-{{name}}"></use></svg>

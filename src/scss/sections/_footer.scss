@@ -195,3 +195,105 @@
     }
   }
 }
+
+// --- Адаптив (варианты Footer 90:27059 / 90:29334 / 90:31609 / 90:33886) ---
+// 1200: как десктоп, поле сверху 40 (= поля страницы). 1000: контакты под колонками.
+// 768: промежутки 30, низ подвала — две строки. Телефон: всё в одну колонку, промежутки 18–20.
+.footer {
+  @include media-down(lg) {
+    padding-top: var(--page-padding);
+  }
+
+  &__top {
+    @include media-down(md) {
+      flex-direction: column;
+    }
+
+    @include media-down(sm) {
+      gap: rem(30);
+      padding-bottom: rem(20);
+    }
+
+    @include media-down(xs) {
+      gap: rem(20);
+    }
+  }
+
+  &__main {
+    @include media-down(sm) {
+      gap: rem(30);
+    }
+
+    @include media-down(xs) {
+      gap: rem(20);
+    }
+  }
+
+  &__aside {
+    @include media-down(md) {
+      width: auto;
+    }
+  }
+
+  &__columns {
+    @include media-down(md) {
+      max-width: none;
+    }
+
+    @include media-down(xs) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &__subscribe {
+    @include media-down(xs) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__subscribe-label {
+    @include media-down(xs) {
+      width: 100%;
+    }
+  }
+
+  // Низ: на 1000 и 768 — копирайт и оплата в первой строке, документы и разработчик во второй
+  &__bottom {
+    @include media-down(md) {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: rem(18) var(--gap);
+      padding-block: rem(18);
+    }
+
+    @include media-down(xs) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: rem(10);
+      justify-content: stretch;
+      padding-block: rem(10);
+    }
+  }
+
+  &__payments {
+    @include media-down(md) {
+      justify-self: end;
+    }
+
+    @include media-down(xs) {
+      flex-wrap: wrap;
+      gap: rem(14);
+      justify-content: space-between;
+      justify-self: stretch;
+    }
+  }
+
+  &__dev {
+    @include media-down(md) {
+      justify-self: end;
+    }
+
+    @include media-down(xs) {
+      justify-self: start;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 <section class="section" aria-labelledby="reviews-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Отзывы" href="#" tabs=false arrows=false id="reviews-title"}}</div>
-    <div class="card-grid card-grid--cols-2 card-grid--wide">
+    <div class="card-grid card-grid--cols-2 card-grid--wide card-grid--scroll-sm" style="--scroll-item: min(639px, 87%)">
       {{#each data.home.reviews}}{{> components/review-card href=""}}{{/each}}
     </div>
   </div>

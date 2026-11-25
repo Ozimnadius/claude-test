@@ -1,9 +1,12 @@
 // Сетка карточек секций главной.
 //   .card-grid--cols-5 / -4 / -3 / -2  — число колонок на десктопе;
 //   .card-grid--wide                   — промежуток 24 px (на 1200 и ниже — 6, как в вариантах макета);
+//   .card-grid--wide-lg                — промежуток 24 px до 1001 px, на 1000 и ниже — 6 (акции);
 //   .card-grid--md-cols-N              — колонок на 1000 и ниже;
 //   .card-grid--sm-cols-N              — колонок на 768 и ниже;
+//   .card-grid--xs-cols-N              — колонок на телефоне;
 //   .card-grid--scroll-xs              — на телефоне (≤ 575) горизонтальная лента;
+//   .card-grid--scroll-sm              — лента с 768 и ниже;
 //   .card-grid--scroll-md              — лента уже с 1000 и ниже.
 // Ширина карточки в ленте задаётся переменной в разметке секции:
 //   style="--scroll-item: 238px; --scroll-item-xs: 160px" (вторая — только для телефона, по умолчанию = первой).
@@ -29,6 +32,14 @@
     }
   }
 
+  &--wide-lg {
+    gap: var(--gap);
+
+    @include media-down(md) {
+      gap: rem(6);
+    }
+  }
+
   @include media-down(md) {
     @each $n in (5, 4, 3, 2) {
       &--md-cols-#{$n} {
@@ -44,10 +55,21 @@
       }
     }
   }
+
+  @include media-down(xs) {
+    @each $n in (2, 1) {
+      &--xs-cols-#{$n} {
+        --cols: #{$n};
+      }
+    }
+  }
 }
 
 // Горизонтальная лента
 @mixin card-grid-scroll {
+  // Опорный блок для абсолютных потомков (например, .visually-hidden): иначе они
+  // позиционируются от body, не обрезаются лентой и растягивают страницу вширь
+  position: relative;
   grid-template-columns: none;
   grid-auto-columns: var(--scroll-item, 75%);
   grid-auto-flow: column;
@@ -74,6 +96,12 @@
   }
 }
 
+.card-grid--scroll-sm {
+  @include media-down(sm) {
+    @include card-grid-scroll;
+  }
+}
+
 .card-grid--scroll-xs {
   @include media-down(xs) {
     @include card-grid-scroll;
@@ -81,6 +109,7 @@
 }
 
 .card-grid--scroll-md,
+.card-grid--scroll-sm,
 .card-grid--scroll-xs {
   @include media-down(xs) {
     grid-auto-columns: var(--scroll-item-xs, var(--scroll-item, 75%));

@@ -139,6 +139,18 @@
     display: inline-flex;
   }
 
+  // --- 1001–1200 (варианта в макете нет): верхняя строка не помещается — пункты меню плотнее,
+  // «Заказать звонок» скрыт (телефон рядом остаётся) ---
+  @include media-down(lg) {
+    &__nav .menu-link {
+      padding-inline: var(--space-8);
+    }
+
+    &__contacts > .menu-link:not(.header__phone) {
+      display: none;
+    }
+  }
+
   // --- Планшет ---
   @include media-down(md) {
     &__inner {
@@ -158,6 +170,13 @@
     }
   }
 
+  // --- 768 и ниже: «Каталог» скрыт (откроется из меню), иначе строка не помещается уже ~690 px ---
+  @include media-down(sm) {
+    &__catalog {
+      display: none;
+    }
+  }
+
   // --- Телефон ---
   @include media-down(xs) {
     // Группы прижаты к краям (как в макете), промежуток 40 между ними не нужен
@@ -167,10 +186,6 @@
 
     &__inner {
       padding-block: var(--space-10) rem(9);
-    }
-
-    &__catalog {
-      display: none;
     }
 
     .logo__img {

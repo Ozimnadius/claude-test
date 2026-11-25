@@ -8,7 +8,7 @@
         {{#each data.home.visions.filters}}{{> components/btn text=this size="" variant="" icon="" href="" disabled=false class="visions__filter"}}{{/each}}
       </div>
     </div>
-    <div class="card-grid card-grid--cols-2 card-grid--wide">
+    <div class="card-grid card-grid--cols-2 card-grid--wide card-grid--xs-cols-1">
       {{#each data.home.visions.items}}{{> components/vision-card plain=false}}{{/each}}
     </div>
   </div>

@@ -9,3 +9,20 @@
     gap: var(--space-8);
   }
 }
+
+// На телефоне две кнопки-фильтра делят строку поровну (вариант 88:25484: по 173,5 px).
+// Поля кнопки уменьшены, иначе с полями 24 px две кнопки не входят в 355 px.
+.visions__filters {
+  @include media-down(xs) {
+    flex-wrap: nowrap;
+    align-self: stretch;
+  }
+}
+
+.visions__filter {
+  @include media-down(xs) {
+    flex: 1;
+    min-width: 0;
+    padding-inline: var(--space-8);
+  }
+}

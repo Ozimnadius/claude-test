@@ -48,6 +48,11 @@
     gap: rem(28);
     align-items: flex-start;
 
+    // На телефоне описание ближе к заголовку (вариант образов 88:25484)
+    @include media-down(xs) {
+      gap: rem(20);
+    }
+
     .section__lead {
       margin-top: 0;
     }

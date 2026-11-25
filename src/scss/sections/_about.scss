@@ -78,3 +78,38 @@
     border-radius: rem(12);
   }
 }
+
+// На 1000 и ниже (вариант 768 — 90:26852): карточка на всю ширину, фото под ней (340 px),
+// поля карточки 20, кнопка через 20; преимущества 2 × 2. На телефоне (90:26895) фото 180 px, преимущества в колонку.
+.about {
+  &__inner {
+    @include media-down(md) {
+      gap: rem(6);
+    }
+  }
+
+  &__row {
+    @include media-down(md) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: rem(6);
+    }
+  }
+
+  &__card {
+    @include media-down(md) {
+      gap: rem(20);
+      padding: rem(19);
+    }
+  }
+
+  &__img {
+    @include media-down(md) {
+      height: rem(340);
+      min-height: 0;
+    }
+
+    @include media-down(xs) {
+      height: rem(180);
+    }
+  }
+}

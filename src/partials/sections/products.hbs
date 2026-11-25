@@ -2,7 +2,7 @@
 <section class="section section--alt" aria-labelledby="products-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Лучшие предложения" href="#" tabs=data.home.tabs arrows=false id="products-title"}}</div>
-    <div class="card-grid card-grid--cols-5">
+    <div class="card-grid card-grid--cols-5 card-grid--md-cols-4 card-grid--sm-cols-3 card-grid--scroll-xs" style="--scroll-item: 160px">
       {{#each data.home.products}}{{> components/product-card compact=false}}{{/each}}
     </div>
   </div>

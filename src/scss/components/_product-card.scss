@@ -5,6 +5,41 @@
 // Лейблы слева сверху (не шире 160 px), справа — «Избранное» и «Сравнить».
 @use 'abstracts' as *;
 
+// Компактный вид: поля 6, цена 16, название 13 (до 2 строк), рейтинг 12, кнопка на всю ширину.
+// Используется модификатором --compact и автоматически на телефоне (≤ 575, Figma 85:30408).
+@mixin compact {
+  --pc-padding: #{rem(5)};
+  --pc-media-padding: var(--space-6);
+
+  gap: rem(9);
+
+  .product-card__price {
+    @include text(price-16);
+  }
+
+  .product-card__title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    @include text(body-13);
+  }
+
+  .product-card__meta {
+    @include text(body-12);
+  }
+
+  .product-card__star {
+    width: rem(20);
+    height: rem(20);
+  }
+
+  .product-card__btn {
+    align-self: stretch;
+  }
+}
+
 .product-card {
   // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
   --pc-padding: #{rem(15)};
@@ -17,9 +52,6 @@
   justify-content: space-between;
   min-width: rem(175);
   height: 100%;
-
-  // В макете карточка фиксированной высоты (500 при ширине 334), кнопка прижата к низу
-  min-height: rem(500);
   padding: var(--pc-padding);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -154,39 +186,24 @@
   }
 
   // --- Узкая ---
+  // В макете на 1920 карточка фиксированной высоты (500 при ширине 334), кнопка прижата к низу.
+  // На более узких экранах высота по содержимому (на 1000 — около 394).
+  @include media-up(lg) {
+    min-height: rem(500);
+  }
+
   &--compact {
-    --pc-padding: #{rem(5)};
-    --pc-media-padding: var(--space-6);
+    @include compact;
 
     width: rem(180);
     min-width: rem(160);
     max-width: rem(200);
     min-height: rem(325);
+  }
 
-    .product-card__price {
-      @include text(price-16);
-    }
+  @include media-down(xs) {
+    @include compact;
 
-    .product-card__title {
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-
-      @include text(body-13);
-    }
-
-    .product-card__meta {
-      @include text(body-12);
-    }
-
-    .product-card__star {
-      width: rem(20);
-      height: rem(20);
-    }
-
-    .product-card__btn {
-      align-self: stretch;
-    }
+    min-width: 0;
   }
 }

@@ -20,3 +20,34 @@
     object-fit: cover;
   }
 }
+
+// Высота по вариантам макета (Banner Section 91:25882): 180 до 1000, 130 на 768, 63 на телефоне.
+// Картинка одна, object-fit: cover оставляет текст и кнопку в кадре.
+.promo-banner {
+  @include media-down(sm) {
+    height: rem(130);
+  }
+
+  @include media-down(xs) {
+    height: rem(63);
+  }
+}
+
+// Поля секции рекламного баннера: 80 → 40 (1200) → 30 (1000) → 20 (768) → 10 (телефон)
+.promo-section {
+  @include media-down(lg) {
+    --section-space: #{rem(40)};
+  }
+
+  @include media-down(md) {
+    --section-space: #{rem(30)};
+  }
+
+  @include media-down(sm) {
+    --section-space: #{rem(20)};
+  }
+
+  @include media-down(xs) {
+    --section-space: #{rem(10)};
+  }
+}

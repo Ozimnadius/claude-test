@@ -2,7 +2,7 @@
 <section class="section section--fill" aria-labelledby="services-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Услуги" href="#" tabs=false arrows=false id="services-title"}}</div>
-    <div class="card-grid card-grid--cols-3 card-grid--wide">
+    <div class="card-grid card-grid--cols-3 card-grid--wide card-grid--scroll-xs" style="--scroll-item: 230px">
       {{#each data.home.services}}{{> components/service-card retina=false}}{{/each}}
     </div>
   </div>

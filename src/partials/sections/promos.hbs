@@ -1,8 +1,8 @@
 {{!-- Тематические подборки (Figma: Category Section 2, 47:2397): заголовок с табами и сетка 3 × 2 больших карточек категорий. --}}
 <section class="section" aria-labelledby="promos-title">
   <div class="container">
-    <div class="section__head">{{> components/section-head title="Тематические подборки" href="#" tabs=data.home.tabs arrows=false id="promos-title"}}</div>
-    <div class="card-grid card-grid--cols-3">
+    <div class="section__head">{{> components/section-head title="Тематические подборки" href="#" tabs=data.home.tabs arrows=false id="promos-title" tabsDesktop=true}}</div>
+    <div class="card-grid card-grid--cols-3 card-grid--md-cols-2 card-grid--scroll-xs" style="--scroll-item: 320px">
       {{#each data.home.promos}}{{> components/category-card large=true caption=false width="561" height="511" retina=false}}{{/each}}
     </div>
   </div>

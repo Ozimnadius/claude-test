@@ -23,3 +23,28 @@
 .brands__item {
   display: flex;
 }
+
+// ≤ 1000: логотипы листаются свайпом (вариантов в макете нет), на телефоне стрелки скрыты
+.brands__list {
+  @include media-down(md) {
+    gap: rem(40);
+    justify-content: flex-start;
+    padding-inline: var(--space-16);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.brands__item {
+  flex-shrink: 0;
+}
+
+.brands .slider-arrow {
+  @include media-down(xs) {
+    display: none;
+  }
+}

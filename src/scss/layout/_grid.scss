@@ -1,6 +1,13 @@
-// Сетка карточек секций главной. Карточки идут через 6 px (режим Gap = 6 в макете).
-//   .card-grid--cols-5 / --cols-4 / --cols-3 / --cols-2 — число колонок на 1920.
-// Перестройка колонок на узких экранах — этап 5.
+// Сетка карточек секций главной.
+//   .card-grid--cols-5 / -4 / -3 / -2  — число колонок на десктопе;
+//   .card-grid--wide                   — промежуток 24 px (на 1200 и ниже — 6, как в вариантах макета);
+//   .card-grid--md-cols-N              — колонок на 1000 и ниже;
+//   .card-grid--sm-cols-N              — колонок на 768 и ниже;
+//   .card-grid--scroll-xs              — на телефоне (≤ 575) горизонтальная лента;
+//   .card-grid--scroll-md              — лента уже с 1000 и ниже.
+// Ширина карточки в ленте задаётся переменной в разметке секции:
+//   style="--scroll-item: 238px; --scroll-item-xs: 160px" (вторая — только для телефона, по умолчанию = первой).
+// Лента выходит под поля контейнера до краёв экрана и листается свайпом; стрелки — этап 6.
 @use 'abstracts' as *;
 
 .card-grid {
@@ -8,24 +15,74 @@
   grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
   gap: rem(6);
 
-  &--cols-5 {
-    --cols: 5;
+  @each $n in (5, 4, 3, 2) {
+    &--cols-#{$n} {
+      --cols: #{$n};
+    }
   }
 
-  &--cols-4 {
-    --cols: 4;
+  &--wide {
+    gap: var(--gap);
+
+    @include media-down(lg) {
+      gap: rem(6);
+    }
   }
 
-  &--cols-3 {
-    --cols: 3;
+  @include media-down(md) {
+    @each $n in (5, 4, 3, 2) {
+      &--md-cols-#{$n} {
+        --cols: #{$n};
+      }
+    }
   }
 
-  &--cols-2 {
-    --cols: 2;
+  @include media-down(sm) {
+    @each $n in (4, 3, 2) {
+      &--sm-cols-#{$n} {
+        --cols: #{$n};
+      }
+    }
   }
 }
 
-// Карточки с промежутком 24 px (блог, галерея, коллекции, услуги)
-.card-grid--wide {
-  gap: var(--gap);
+// Горизонтальная лента
+@mixin card-grid-scroll {
+  grid-template-columns: none;
+  grid-auto-columns: var(--scroll-item, 75%);
+  grid-auto-flow: column;
+  padding-inline: var(--page-padding);
+  margin-inline: calc(-1 * var(--page-padding));
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--page-padding);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+  }
+}
+
+.card-grid--scroll-md {
+  @include media-down(md) {
+    @include card-grid-scroll;
+  }
+}
+
+.card-grid--scroll-xs {
+  @include media-down(xs) {
+    @include card-grid-scroll;
+  }
+}
+
+.card-grid--scroll-md,
+.card-grid--scroll-xs {
+  @include media-down(xs) {
+    grid-auto-columns: var(--scroll-item-xs, var(--scroll-item, 75%));
+  }
 }

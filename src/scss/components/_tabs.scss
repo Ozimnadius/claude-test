@@ -37,3 +37,21 @@
     }
   }
 }
+
+// На телефоне табы в одну строку с горизонтальной прокруткой (в макете 375 — один ряд)
+.tabs {
+  @include media-down(xs) {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.tabs__btn {
+  flex-shrink: 0;
+}

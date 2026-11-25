@@ -51,3 +51,10 @@
   display: flex;
   gap: var(--space-8);
 }
+
+// На телефоне у некоторых секций табы скрыты (Figma: категории и подборки на 375)
+.section-head--tabs-desktop .tabs {
+  @include media-down(xs) {
+    display: none;
+  }
+}

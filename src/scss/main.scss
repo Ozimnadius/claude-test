@@ -45,10 +45,12 @@
 @use 'components/promo-banner';
 @use 'components/search';
 @use 'components/theme-switch';
+@use 'components/dropdown';
 @use 'layout/grid';
 
 // Секции главной
 @use 'sections/header';
+@use 'sections/mobile-menu';
 @use 'sections/hero';
 @use 'sections/brands';
 @use 'sections/visions';

@@ -8,10 +8,11 @@
     icon      — имя иконки слева от подписи;
     type      — тип <button> (по умолчанию button);
     disabled  — неактивная;
-    class     — дополнительные классы (миксы).
+    class     — дополнительные классы (миксы);
+    ddControls — id панели выпадающего списка: кнопка становится его переключателем (modules/dropdown.js).
   Пример: {{> components/btn text="Каталог" icon="catalog"}}
 --}}
-{{#if href}}<a class="btn{{#if variant}} btn--{{variant}}{{/if}}{{#if size}} btn--size-{{size}}{{/if}}{{#if class}} {{class}}{{/if}}" href="{{href}}"{{#if disabled}} aria-disabled="true" tabindex="-1"{{/if}}>{{else}}<button class="btn{{#if variant}} btn--{{variant}}{{/if}}{{#if size}} btn--size-{{size}}{{/if}}{{#if class}} {{class}}{{/if}}" type="{{#if type}}{{type}}{{else}}button{{/if}}"{{#if disabled}} disabled{{/if}}>{{/if}}
+{{#if href}}<a class="btn{{#if variant}} btn--{{variant}}{{/if}}{{#if size}} btn--size-{{size}}{{/if}}{{#if class}} {{class}}{{/if}}" href="{{href}}"{{#if disabled}} aria-disabled="true" tabindex="-1"{{/if}}>{{else}}<button class="btn{{#if variant}} btn--{{variant}}{{/if}}{{#if size}} btn--size-{{size}}{{/if}}{{#if class}} {{class}}{{/if}}" type="{{#if type}}{{type}}{{else}}button{{/if}}"{{#if disabled}} disabled{{/if}}{{#if ddControls}} aria-expanded="false" aria-controls="{{ddControls}}" data-dropdown-toggle{{/if}}>{{/if}}
   {{#if icon}}{{> components/icon name=icon class="btn__icon" size="24" label=""}}{{/if}}
   <span class="btn__text">{{text}}</span>
 {{#if href}}</a>{{else}}</button>{{/if}}

@@ -60,7 +60,9 @@
 
 - ES-модули, без глобальных переменных и jQuery.
 - Модуль = поведение: `tabs.js`, `slider.js`, `countdown.js`, `header.js`, `theme-switcher.js`.
-- Каждый модуль экспортирует функцию `init…(root = document)`; `main.js` вызывает их по наличию `data-*` атрибутов.
+- Каждый модуль экспортирует функцию `init…()`; `main.js` вызывает её, только если на странице есть нужные `data-*` атрибуты.
+- Состояние открытых и выбранных элементов — через доступные атрибуты (`aria-expanded`, `aria-pressed`, `hidden`), а не классы `is-*`: так его видят и экранные дикторы, и CSS.
+- Модули: `theme.js` (тема, `[data-theme-switch]`), `dropdown.js` (выпадающие списки, `[data-dropdown]`), `header.js` (мобильное меню `[data-mobile-menu]` и панель поиска `[data-search-panel]`).
 - Без лишних зависимостей. Для слайдеров — решение в [decisions.md](decisions.md).
 
 ## HTML

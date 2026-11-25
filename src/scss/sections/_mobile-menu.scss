@@ -1,0 +1,174 @@
+// Мобильное меню (макета нет — собрано на токенах, см. decisions). Разметка — partials/sections/mobile-menu.hbs.
+// <dialog> во всю высоту экрана, выезжает слева; ширина до 360 px. Фон за окном — затемнение 40 %.
+// Блоки: шапка (логотип и закрытие), разделы (подменю на <details>), кабинет, контакты, тема.
+@use 'abstracts' as *;
+
+.mobile-menu {
+  width: min(#{rem(360)}, 100%);
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  padding: 0 var(--space-16) var(--space-18);
+  margin: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 0;
+  transform: translateX(-100%);
+  transition:
+    transform var(--transition),
+    overlay var(--transition) allow-discrete,
+    display var(--transition) allow-discrete;
+
+  &[open] {
+    transform: none;
+
+    @starting-style {
+      transform: translateX(-100%);
+    }
+  }
+
+  &::backdrop {
+    background: rgb(0 0 0 / 40%);
+  }
+
+  // --- Шапка меню ---
+  &__head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-14);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+
+    .logo__img {
+      width: rem(120);
+    }
+  }
+
+  &__close {
+    display: inline-flex;
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Разделы ---
+  &__nav,
+  &__user,
+  &__contacts {
+    display: grid;
+    padding-block: var(--space-12);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__link {
+    display: flex;
+    gap: var(--space-10);
+    align-items: center;
+    padding-block: var(--space-10);
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--transition);
+
+    @include text(btn-15);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__arrow {
+    margin-left: auto;
+    transition: transform var(--transition);
+  }
+
+  &__group[open] &__arrow {
+    transform: rotate(180deg);
+  }
+
+  &__sub {
+    display: grid;
+    padding: 0 0 var(--space-8) var(--space-16);
+  }
+
+  &__sublink {
+    display: block;
+    padding-block: var(--space-6);
+
+    @include text(body-14);
+
+    color: var(--color-text-secondary);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Кабинет ---
+  &__user-link {
+    display: flex;
+    gap: var(--space-10);
+    align-items: center;
+    padding-block: var(--space-8);
+
+    @include text(btn-14);
+
+    color: var(--color-text);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Контакты ---
+  &__contacts {
+    gap: var(--space-6);
+    justify-items: start;
+  }
+
+  &__phone {
+    @include text(body-16-bold);
+
+    color: var(--color-text);
+  }
+
+  &__note {
+    @include text(body-14);
+
+    color: var(--color-text-secondary);
+  }
+
+  &__contacts .btn {
+    margin-top: var(--space-8);
+  }
+
+  // --- Тема ---
+  &__theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-14);
+
+    @include text(body-14);
+
+    color: var(--color-text-secondary);
+  }
+}
+
+// Пока меню открыто, страница под ним не прокручивается
+html:has(.mobile-menu[open]) {
+  overflow: hidden;
+}

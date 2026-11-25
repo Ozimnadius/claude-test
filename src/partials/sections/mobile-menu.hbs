@@ -1,0 +1,51 @@
+{{!--
+  Мобильное меню (scss/sections/_mobile-menu.scss; макета нет — собрано на токенах, см. decisions).
+  Модальное окно <dialog>, выезжает слева на 1000 и ниже по кнопке [data-menu-toggle] (modules/header.js).
+  Пункты с подменю — <details>: раскрываются без JS. Данные — src/data/header.json.
+--}}
+<dialog class="mobile-menu" id="mobile-menu" aria-label="Меню сайта" data-mobile-menu>
+  <div class="mobile-menu__head">
+    {{> components/logo class="mobile-menu__logo" href="/"}}
+    <button class="mobile-menu__close" type="button" aria-label="Закрыть меню" data-mobile-menu-close>{{> components/icon name="close" size="24" label="" class=""}}</button>
+  </div>
+
+  <nav class="mobile-menu__nav" aria-label="Меню сайта">
+    <details class="mobile-menu__group">
+      <summary class="mobile-menu__link">{{> components/icon name="catalog" size="24" label="" class="mobile-menu__icon"}}Каталог{{> components/icon name="chevron-down" size="16" label="" class="mobile-menu__arrow"}}</summary>
+      <ul class="mobile-menu__sub">
+        {{#each data.header.catalog}}<li><a class="mobile-menu__sublink" href="#">{{this}}</a></li>{{/each}}
+      </ul>
+    </details>
+    {{#each data.header.nav}}
+      {{#if children}}
+        <details class="mobile-menu__group">
+          <summary class="mobile-menu__link">{{text}}{{> components/icon name="chevron-down" size="16" label="" class="mobile-menu__arrow"}}</summary>
+          <ul class="mobile-menu__sub">
+            {{#each children}}<li><a class="mobile-menu__sublink" href="#">{{this}}</a></li>{{/each}}
+          </ul>
+        </details>
+      {{else}}
+        <a class="mobile-menu__link" href="#">{{text}}</a>
+      {{/if}}
+    {{/each}}
+  </nav>
+
+  <nav class="mobile-menu__user" aria-label="Личный кабинет">
+    {{#each data.header.user}}
+      <a class="mobile-menu__user-link" href="#">{{> components/icon name=icon size="24" label="" class=""}}{{text}}</a>
+    {{/each}}
+  </nav>
+
+  <div class="mobile-menu__contacts">
+    <a class="mobile-menu__phone" href="{{data.header.phoneHref}}">{{data.header.phone}}</a>
+    <p class="mobile-menu__note">{{data.header.hours}}</p>
+    <a class="mobile-menu__note" href="mailto:{{data.header.email}}">{{data.header.email}}</a>
+    <p class="mobile-menu__note">{{data.header.city}}</p>
+    {{> components/btn text="Заказать звонок" size="sm" variant="secondary" icon="" href="" disabled=false class="" ddControls=""}}
+  </div>
+
+  <div class="mobile-menu__theme">
+    <span>Тема оформления</span>
+    {{> components/theme-switch}}
+  </div>
+</dialog>

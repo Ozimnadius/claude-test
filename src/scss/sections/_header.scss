@@ -8,6 +8,9 @@
 @use 'abstracts' as *;
 
 .header {
+  // Выше контента страницы, чтобы выпадающие списки шапки перекрывали секции
+  position: relative;
+  z-index: var(--z-header);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border-strong);
 
@@ -60,7 +63,7 @@
     align-items: center;
   }
 
-  &__catalog {
+  &__catalog .btn {
     @include text(body-16);
   }
 
@@ -160,7 +163,7 @@
     &__top,
     &__cats,
     &__user,
-    .search {
+    &__main .search {
       display: none;
     }
 
@@ -211,5 +214,61 @@
     &__compact-link--compare {
       display: none;
     }
+  }
+}
+
+// --- Панель телефона (выпадающий список у номера в верхней строке) ---
+.header__phone-panel {
+  display: grid;
+  gap: var(--space-8);
+  justify-items: start;
+  min-width: rem(280);
+  padding: var(--space-16);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.header__phone-big {
+  @include text(body-16-bold);
+
+  color: var(--color-text);
+
+  @include hover {
+    color: var(--color-main);
+  }
+}
+
+.header__phone-note,
+.header__phone-mail {
+  @include text(body-14);
+
+  color: var(--color-text-secondary);
+}
+
+.header__phone-mail {
+  @include hover {
+    color: var(--color-main);
+  }
+}
+
+.header__phone-panel .btn {
+  margin-top: var(--space-4);
+}
+
+// --- Панель поиска узких экранов (открывается лупой в header__compact) ---
+.header__search-panel {
+  &[hidden] {
+    display: none;
+  }
+
+  // Шире 1000 поиск всегда в строке шапки — панель не нужна
+  @include media-up(md) {
+    display: none;
+  }
+
+  .search {
+    flex: none;
   }
 }

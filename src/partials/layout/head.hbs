@@ -1,8 +1,12 @@
 {{!--
-  Общая часть <head>. Параметры: title, description.
+  Общая часть <head>. Параметры: title, description; themeScript — применить сохранённую тему до отрисовки.
 --}}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{title}}{{#if data.site.name}} — {{data.site.name}}{{/if}}</title>
 {{#if description}}<meta name="description" content="{{description}}">{{/if}}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+{{#if themeScript}}
+{{!-- Сохранённая тема ставится до отрисовки, чтобы страница не «мигала» светлой (src/js/modules/theme.js) --}}
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+{{/if}}

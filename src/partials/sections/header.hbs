@@ -2,29 +2,58 @@
   Шапка сайта (scss/sections/_header.scss; Figma: Header 30:1248). Данные — src/data/header.json.
   Три строки: город, меню, телефон, тема · логотип, каталог, поиск, кабинет · популярные категории.
   На 1000 и ниже — одна строка: кнопка меню, логотип, «Каталог» и компактные иконки (header__compact).
-  Открытие меню и поиска на узких экранах — JS на этапе 6.
+  Поведение (src/js/modules): выпадающие списки [data-dropdown] — dropdown.js, тема [data-theme-switch] — theme.js,
+  мобильное меню [data-menu-toggle] и панель поиска [data-search-toggle] — header.js.
 --}}
 <header class="header">
   <div class="container header__inner">
     <div class="header__top">
       <a class="header__city" href="#">{{> components/icon name="navigation" size="20" label="" class=""}}{{data.header.city}}</a>
       <nav class="header__nav" aria-label="Основное меню">
-        {{#each data.header.nav}}{{> components/menu-link text=text href="#" arrow=arrow inline=false lg=false active=false}}{{/each}}
+        {{#each data.header.nav}}
+          {{#if children}}
+            <div class="dropdown" data-dropdown data-dropdown-hover>
+              {{> components/menu-link text=text href="" arrow=true inline=false lg=false active=false ddControls=(concat "header-nav-" @index) mix=""}}
+              <div class="dropdown__panel" id="header-nav-{{@index}}" hidden data-dropdown-panel>
+                <ul class="dropdown__list">
+                  {{#each children}}<li><a class="dropdown__link" href="#">{{this}}</a></li>{{/each}}
+                </ul>
+              </div>
+            </div>
+          {{else}}
+            {{> components/menu-link text=text href="#" arrow=false inline=false lg=false active=false ddControls="" mix=""}}
+          {{/if}}
+        {{/each}}
       </nav>
       <div class="header__contacts">
-        <a class="menu-link header__phone" href="{{data.header.phoneHref}}">{{data.header.phone}}{{> components/icon name="chevron-down" class="menu-link__arrow" size="16" label=""}}</a>
-        {{> components/menu-link text="Заказать звонок" arrow=false inline=false lg=false active=false href=""}}
+        <div class="dropdown" data-dropdown>
+          {{> components/menu-link text=data.header.phone href="" arrow=true inline=false lg=false active=false ddControls="header-phone" mix="header__phone"}}
+          <div class="dropdown__panel header__phone-panel" id="header-phone" hidden data-dropdown-panel>
+            <a class="header__phone-big" href="{{data.header.phoneHref}}">{{data.header.phone}}</a>
+            <p class="header__phone-note">{{data.header.hours}}</p>
+            <a class="header__phone-mail" href="mailto:{{data.header.email}}">{{data.header.email}}</a>
+            {{> components/btn text="Заказать звонок" size="sm" variant="secondary" icon="" href="" disabled=false class="" ddControls=""}}
+          </div>
+        </div>
+        {{> components/menu-link text="Заказать звонок" arrow=false inline=false lg=false active=false href="" ddControls="" mix=""}}
       </div>
       {{> components/theme-switch}}
     </div>
 
     <div class="header__main">
       <div class="header__brand">
-        <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>{{> components/icon name="menu" size="24" label="" class=""}}</button>
+        <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>{{> components/icon name="menu" size="24" label="" class=""}}</button>
         {{> components/logo class="header__logo" href="/"}}
       </div>
-      {{> components/btn text="Каталог" icon="catalog" class="header__catalog" size="" variant="" href="" disabled=false}}
-      {{> components/search}}
+      <div class="dropdown header__catalog" data-dropdown>
+        {{> components/btn text="Каталог" icon="catalog" class="" size="" variant="" href="" disabled=false ddControls="header-catalog"}}
+        <div class="dropdown__panel dropdown__panel--wide" id="header-catalog" hidden data-dropdown-panel>
+          <ul class="dropdown__list dropdown__list--cols">
+            {{#each data.header.catalog}}<li><a class="dropdown__link" href="#">{{this}}</a></li>{{/each}}
+          </ul>
+        </div>
+      </div>
+      {{> components/search id="header-search"}}
       <nav class="header__user" aria-label="Личный кабинет">
         {{#each data.header.user}}
           <a class="header__user-link" href="#">{{> components/icon name=icon size="24" label="" class=""}}<span>{{text}}</span></a>
@@ -32,13 +61,19 @@
       </nav>
       <div class="header__compact">
         <a class="header__compact-link" href="{{data.header.phoneHref}}" aria-label="Позвонить: {{data.header.phone}}">{{> components/icon name="phone" size="24" label="" class=""}}</a>
-        <button class="header__compact-link" type="button" aria-label="Поиск" data-search-toggle>{{> components/icon name="search" size="24" label="" class=""}}</button>
+        <button class="header__compact-link" type="button" aria-label="Поиск" aria-expanded="false" aria-controls="header-search-panel" data-search-toggle>{{> components/icon name="search" size="24" label="" class=""}}</button>
         {{#each data.header.user}}<a class="header__compact-link header__compact-link--{{icon}}" href="#" aria-label="{{text}}">{{> components/icon name=icon size="24" label="" class=""}}</a>{{/each}}
       </div>
+    </div>
+
+    {{!-- Панель поиска узких экранов: открывается кнопкой-лупой в header__compact --}}
+    <div class="header__search-panel" id="header-search-panel" hidden data-search-panel>
+      {{> components/search id="header-search-m"}}
     </div>
 
     <nav class="header__cats" aria-label="Популярные категории">
       {{#each data.header.categories}}<a class="header__cat" href="#">{{this}}</a>{{/each}}
     </nav>
   </div>
+  {{> sections/mobile-menu}}
 </header>

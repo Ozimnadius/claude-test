@@ -70,6 +70,11 @@
   // --- Прочее ---
   --transition: 0.2s ease;
 
+  // Тень всплывающих панелей и слои (в макете нет — для выпадающих списков и меню этапа 6)
+  --shadow-popup: 0 #{rem(8)} #{rem(24)} rgb(0 0 0 / 12%);
+  --z-header: 50;
+  --z-dropdown: 60;
+
   color-scheme: light;
 
   // Адаптив по режимам переменных Figma (Main Padding, Vertical Rythm, Typography/Size 28)

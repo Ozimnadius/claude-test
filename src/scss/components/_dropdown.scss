@@ -1,0 +1,72 @@
+// Выпадающий список (макета нет — собран на токенах, см. decisions). Разметка:
+//   .dropdown[data-dropdown] > кнопка [data-dropdown-toggle] + .dropdown__panel[data-dropdown-panel][hidden].
+// Открытие и закрытие — modules/dropdown.js (атрибут hidden у панели, aria-expanded у кнопки).
+//   .dropdown__panel--end   — панель прижата к правому краю кнопки;
+//   .dropdown__panel--wide  — широкая панель (меню «Каталог»), список в две колонки (.dropdown__list--cols).
+@use 'abstracts' as *;
+
+.dropdown {
+  position: relative;
+
+  &__panel {
+    position: absolute;
+    top: calc(100% + var(--space-4));
+    left: 0;
+    z-index: var(--z-dropdown);
+    min-width: rem(220);
+    padding: var(--space-8);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-popup);
+
+    &[hidden] {
+      display: none;
+    }
+
+    &--end {
+      right: 0;
+      left: auto;
+      min-width: rem(160);
+    }
+
+    &--wide {
+      min-width: rem(440);
+    }
+  }
+
+  &__list {
+    display: grid;
+
+    &--cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-8);
+    }
+  }
+
+  // Пункт: ссылка или кнопка-вариант (выбранный — aria-pressed="true")
+  &__link {
+    display: block;
+    width: 100%;
+    padding: var(--space-8) var(--space-12);
+
+    @include text(btn-14);
+
+    color: var(--color-text);
+    text-align: left;
+    white-space: nowrap;
+    border-radius: var(--radius);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+      background: var(--color-fill);
+    }
+
+    &[aria-pressed='true'] {
+      color: var(--color-main);
+    }
+  }
+}

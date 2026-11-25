@@ -1,10 +1,12 @@
 {{!--
   Пункт меню (scss/components/_menu-link.scss).
   Параметры: text, href (иначе <button>); arrow — стрелка вниз (пункт с подменю);
-  inline — без полей; lg — текст 15 px; active — текущий раздел.
+  inline — без полей; lg — текст 15 px; active — текущий раздел;
+  ddControls — id панели выпадающего списка: кнопка становится его переключателем (scripts: modules/dropdown.js);
+  mix — дополнительные классы.
   Пример: {{> components/menu-link text="Услуги" href="#" arrow=true}}
 --}}
-{{#if href}}<a class="menu-link{{#if inline}} menu-link--inline{{/if}}{{#if lg}} menu-link--lg{{/if}}{{#if active}} is-active{{/if}}" href="{{href}}"{{#if active}} aria-current="page"{{/if}}>{{else}}<button class="menu-link{{#if inline}} menu-link--inline{{/if}}{{#if lg}} menu-link--lg{{/if}}" type="button"{{#if arrow}} aria-expanded="false"{{/if}}>{{/if}}
+{{#if href}}<a class="menu-link{{#if inline}} menu-link--inline{{/if}}{{#if lg}} menu-link--lg{{/if}}{{#if active}} is-active{{/if}}{{#if mix}} {{mix}}{{/if}}" href="{{href}}"{{#if active}} aria-current="page"{{/if}}>{{else}}<button class="menu-link{{#if inline}} menu-link--inline{{/if}}{{#if lg}} menu-link--lg{{/if}}{{#if mix}} {{mix}}{{/if}}" type="button"{{#if arrow}} aria-expanded="false"{{/if}}{{#if ddControls}} aria-controls="{{ddControls}}" data-dropdown-toggle{{/if}}>{{/if}}
   <span class="menu-link__text">{{text}}</span>
   {{#if arrow}}{{> components/icon name="chevron-down" class="menu-link__arrow" size="16" label=""}}{{/if}}
 {{#if href}}</a>{{else}}</button>{{/if}}

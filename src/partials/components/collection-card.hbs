@@ -9,6 +9,6 @@
     {{#if text}}<p class="collection-card__text">{{text}}</p>{{/if}}
   </div>
   <div class="collection-card__items">
-    {{#each items}}<a class="collection-card__item" href="#" title="{{title}}">{{> components/img name=image alt=title width="133" height="133" retina=retina class="collection-card__img" eager=false}}</a>{{/each}}
+    {{#each items}}<a class="collection-card__item" href="#" title="{{title}}">{{> components/img name=image alt=title width="133" height="133" sizes="(max-width: 575px) 75px, (max-width: 1000px) 135px, (max-width: 1200px) 95px, 155px" retina=retina class="collection-card__img" eager=false}}</a>{{/each}}
   </div>
 </article>

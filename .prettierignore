@@ -6,3 +6,5 @@ package-lock.json
 *.hbs
 # SCSS проверяет Stylelint
 *.scss
+# Генерируется npm run images
+src/assets/images/manifest.json

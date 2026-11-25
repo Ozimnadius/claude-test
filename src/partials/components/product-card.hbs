@@ -7,7 +7,7 @@
 <article class="product-card{{#if compact}} product-card--compact{{/if}}">
   <div class="product-card__main">
     <div class="product-card__media">
-      {{> components/img name=image alt="" width="249" height="249" retina=retina class="product-card__img" eager=false}}
+      {{> components/img name=image alt="" width="249" height="249" sizes="(max-width: 575px) 148px, (max-width: 768px) 27vw, (max-width: 1000px) 20vw, 16vw" retina=retina class="product-card__img" eager=false}}
       {{#if labels}}
         <div class="product-card__labels">
           {{#each labels}}{{> components/label type=type text=text}}{{/each}}

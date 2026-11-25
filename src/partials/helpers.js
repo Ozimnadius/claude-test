@@ -1,16 +1,37 @@
 /**
  * Хелперы Handlebars. Каждый экспорт регистрируется под своим именем.
  */
-import { existsSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-const IMAGES = fileURLToPath(new URL('../assets/images/', import.meta.url));
+const MANIFEST = fileURLToPath(new URL('../assets/images/manifest.json', import.meta.url));
+let manifestCache = { mtime: 0, data: {} };
+
+/** Манифест ширин картинок (создаёт npm run images); перечитывается, если файл изменился. */
+function readManifest() {
+  try {
+    const { mtimeMs } = statSync(MANIFEST);
+    if (mtimeMs !== manifestCache.mtime) {
+      manifestCache = { mtime: mtimeMs, data: JSON.parse(readFileSync(MANIFEST, 'utf8')) };
+    }
+  } catch {
+    manifestCache = { mtime: 0, data: {} };
+  }
+  return manifestCache.data;
+}
 
 /**
- * Есть ли у картинки двойная версия имя@2x.webp (её создаёт npm run images из исходника 2x).
- * Партиал components/img сам добавляет srcset, если файл есть: {{#if (has2x name)}}.
+ * srcset с описанием ширинами для картинки name: «/src/assets/images/имя-320w.webp 320w, …».
+ * Пустая строка, если файл один (тогда srcset не нужен). Используется в партиале components/img.
  */
-export const has2x = (name) => typeof name === 'string' && existsSync(`${IMAGES}${name}@2x.webp`);
+export const srcset = (name) => {
+  const files = readManifest()[name];
+  if (!Array.isArray(files) || files.length < 2) return '';
+  return files.map(({ file, width }) => `/src/assets/images/${file} ${width}w`).join(', ');
+};
+
+/** Выбор по условию: {{iif large "A" "B"}} */
+export const iif = (cond, a, b) => (cond ? a : b);
 
 /** Сравнение: {{#if (eq a b)}} */
 export const eq = (a, b) => a === b;

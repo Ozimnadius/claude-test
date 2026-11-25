@@ -1,0 +1,1160 @@
+{
+  "about": [
+    {
+      "file": "about-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "about-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "about-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "about-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "about.webp",
+      "width": 960
+    },
+    {
+      "file": "about-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "about-1600w.webp",
+      "width": 1600
+    },
+    {
+      "file": "about@2x.webp",
+      "width": 1920
+    }
+  ],
+  "avatar-home": [
+    {
+      "file": "avatar-home.webp",
+      "width": 120
+    }
+  ],
+  "avatar-marina": [
+    {
+      "file": "avatar-marina.webp",
+      "width": 120
+    }
+  ],
+  "banner-audio": [
+    {
+      "file": "banner-audio-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "banner-audio-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "banner-audio-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "banner-audio-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "banner-audio-1024w.webp",
+      "width": 1024
+    },
+    {
+      "file": "banner-audio-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "banner-audio-1600w.webp",
+      "width": 1600
+    },
+    {
+      "file": "banner-audio.webp",
+      "width": 1919
+    }
+  ],
+  "blog-1": [
+    {
+      "file": "blog-1.webp",
+      "width": 350
+    },
+    {
+      "file": "blog-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "blog-1@2x.webp",
+      "width": 700
+    }
+  ],
+  "blog-2": [
+    {
+      "file": "blog-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "blog-2.webp",
+      "width": 400
+    }
+  ],
+  "blog-3": [
+    {
+      "file": "blog-3-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "blog-3.webp",
+      "width": 400
+    }
+  ],
+  "blog-4": [
+    {
+      "file": "blog-4-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "blog-4.webp",
+      "width": 400
+    }
+  ],
+  "blog-5": [
+    {
+      "file": "blog-5-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "blog-5.webp",
+      "width": 459
+    },
+    {
+      "file": "blog-5-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "blog-5@2x.webp",
+      "width": 918
+    }
+  ],
+  "blog-powders": [
+    {
+      "file": "blog-powders-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "blog-powders-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "blog-powders.webp",
+      "width": 585
+    },
+    {
+      "file": "blog-powders-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "blog-powders@2x.webp",
+      "width": 1170
+    }
+  ],
+  "brand-kmi": [
+    {
+      "file": "brand-kmi.webp",
+      "width": 150
+    }
+  ],
+  "brand-kolleri": [
+    {
+      "file": "brand-kolleri.webp",
+      "width": 150
+    }
+  ],
+  "brand-lindros": [
+    {
+      "file": "brand-lindros.webp",
+      "width": 150
+    }
+  ],
+  "brand-losk": [
+    {
+      "file": "brand-losk.webp",
+      "width": 150
+    }
+  ],
+  "brand-misterio": [
+    {
+      "file": "brand-misterio.webp",
+      "width": 150
+    }
+  ],
+  "brand-nereus": [
+    {
+      "file": "brand-nereus.webp",
+      "width": 150
+    }
+  ],
+  "brand-rosei": [
+    {
+      "file": "brand-rosei.webp",
+      "width": 150
+    }
+  ],
+  "brand-silver": [
+    {
+      "file": "brand-silver.webp",
+      "width": 132
+    }
+  ],
+  "brand-zherko": [
+    {
+      "file": "brand-zherko.webp",
+      "width": 150
+    }
+  ],
+  "category-clothes": [
+    {
+      "file": "category-clothes-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "category-clothes.webp",
+      "width": 427
+    },
+    {
+      "file": "category-clothes-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "category-clothes@2x.webp",
+      "width": 854
+    }
+  ],
+  "category-sport": [
+    {
+      "file": "category-sport-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "category-sport.webp",
+      "width": 480
+    },
+    {
+      "file": "category-sport-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "category-sport-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "category-sport@2x.webp",
+      "width": 960
+    }
+  ],
+  "col-1": [
+    {
+      "file": "col-1.webp",
+      "width": 133
+    }
+  ],
+  "col-2": [
+    {
+      "file": "col-2.webp",
+      "width": 133
+    }
+  ],
+  "col-3": [
+    {
+      "file": "col-3.webp",
+      "width": 133
+    }
+  ],
+  "col-4": [
+    {
+      "file": "col-4.webp",
+      "width": 133
+    }
+  ],
+  "col-5": [
+    {
+      "file": "col-5.webp",
+      "width": 133
+    },
+    {
+      "file": "col-5@2x.webp",
+      "width": 266
+    }
+  ],
+  "col-6": [
+    {
+      "file": "col-6.webp",
+      "width": 133
+    }
+  ],
+  "col-7": [
+    {
+      "file": "col-7.webp",
+      "width": 133
+    }
+  ],
+  "col-8": [
+    {
+      "file": "col-8.webp",
+      "width": 133
+    }
+  ],
+  "collection-console": [
+    {
+      "file": "collection-console.webp",
+      "width": 133
+    },
+    {
+      "file": "collection-console@2x.webp",
+      "width": 266
+    }
+  ],
+  "collection-game": [
+    {
+      "file": "collection-game.webp",
+      "width": 133
+    }
+  ],
+  "collection-headphones": [
+    {
+      "file": "collection-headphones.webp",
+      "width": 133
+    }
+  ],
+  "collection-speaker": [
+    {
+      "file": "collection-speaker.webp",
+      "width": 133
+    }
+  ],
+  "collection-tv": [
+    {
+      "file": "collection-tv.webp",
+      "width": 133
+    }
+  ],
+  "collection-watch": [
+    {
+      "file": "collection-watch.webp",
+      "width": 133
+    }
+  ],
+  "gallery-1": [
+    {
+      "file": "gallery-1-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "gallery-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "gallery-1.webp",
+      "width": 585
+    },
+    {
+      "file": "gallery-1-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "gallery-1@2x.webp",
+      "width": 1170
+    }
+  ],
+  "gallery-2": [
+    {
+      "file": "gallery-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "gallery-2-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "gallery-2.webp",
+      "width": 585
+    },
+    {
+      "file": "gallery-2-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "gallery-2@2x.webp",
+      "width": 1170
+    }
+  ],
+  "gallery-3": [
+    {
+      "file": "gallery-3-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "gallery-3-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "gallery-3.webp",
+      "width": 585
+    },
+    {
+      "file": "gallery-3-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "gallery-3@2x.webp",
+      "width": 1170
+    }
+  ],
+  "gallery-4": [
+    {
+      "file": "gallery-4-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "gallery-4-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "gallery-4.webp",
+      "width": 585
+    },
+    {
+      "file": "gallery-4-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "gallery-4@2x.webp",
+      "width": 1170
+    }
+  ],
+  "hero-active": [
+    {
+      "file": "hero-active-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "hero-active-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "hero-active.webp",
+      "width": 696
+    }
+  ],
+  "hero-bg": [
+    {
+      "file": "hero-bg-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "hero-bg-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "hero-bg-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "hero-bg-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "hero-bg-1024w.webp",
+      "width": 1024
+    },
+    {
+      "file": "hero-bg-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "hero-bg-1600w.webp",
+      "width": 1600
+    },
+    {
+      "file": "hero-bg.webp",
+      "width": 1920
+    }
+  ],
+  "home-category-1": [
+    {
+      "file": "home-category-1-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-1.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-1-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-1@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-10": [
+    {
+      "file": "home-category-10-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-10.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-10-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-10@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-2": [
+    {
+      "file": "home-category-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-2.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-2-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-2@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-3": [
+    {
+      "file": "home-category-3-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-3.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-3-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-3@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-4": [
+    {
+      "file": "home-category-4-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-4.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-4-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-4@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-5": [
+    {
+      "file": "home-category-5-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-5.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-5-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-5@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-6": [
+    {
+      "file": "home-category-6-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-6.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-6-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-6@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-7": [
+    {
+      "file": "home-category-7-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-7.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-7-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-7@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-category-8": [
+    {
+      "file": "home-category-8-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-8.webp",
+      "width": 480
+    },
+    {
+      "file": "home-category-8-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-8-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "home-category-8@2x.webp",
+      "width": 960
+    }
+  ],
+  "home-category-9": [
+    {
+      "file": "home-category-9-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-category-9.webp",
+      "width": 427
+    },
+    {
+      "file": "home-category-9-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "home-category-9@2x.webp",
+      "width": 854
+    }
+  ],
+  "home-product-1": [
+    {
+      "file": "home-product-1.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-1@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-10": [
+    {
+      "file": "home-product-10-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-product-10.webp",
+      "width": 400
+    }
+  ],
+  "home-product-2": [
+    {
+      "file": "home-product-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-product-2.webp",
+      "width": 400
+    }
+  ],
+  "home-product-3": [
+    {
+      "file": "home-product-3.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-3-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-3@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-4": [
+    {
+      "file": "home-product-4.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-4-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-4@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-5": [
+    {
+      "file": "home-product-5.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-5-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-5@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-6": [
+    {
+      "file": "home-product-6.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-6-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-6@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-7": [
+    {
+      "file": "home-product-7.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-7-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-7@2x.webp",
+      "width": 700
+    }
+  ],
+  "home-product-8": [
+    {
+      "file": "home-product-8-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "home-product-8.webp",
+      "width": 400
+    }
+  ],
+  "home-product-9": [
+    {
+      "file": "home-product-9.webp",
+      "width": 350
+    },
+    {
+      "file": "home-product-9-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "home-product-9@2x.webp",
+      "width": 700
+    }
+  ],
+  "product-lipstick": [
+    {
+      "file": "product-lipstick-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "product-lipstick.webp",
+      "width": 400
+    }
+  ],
+  "product-watch": [
+    {
+      "file": "product-watch.webp",
+      "width": 350
+    },
+    {
+      "file": "product-watch-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "product-watch@2x.webp",
+      "width": 700
+    }
+  ],
+  "promo-1": [
+    {
+      "file": "promo-1-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-1-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-1-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-1.webp",
+      "width": 960
+    }
+  ],
+  "promo-2": [
+    {
+      "file": "promo-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-2-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-2-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-2-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-2.webp",
+      "width": 960
+    }
+  ],
+  "promo-3": [
+    {
+      "file": "promo-3-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-3-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-3-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-3-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-3.webp",
+      "width": 960
+    }
+  ],
+  "promo-4": [
+    {
+      "file": "promo-4-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-4-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-4-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-4-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-4.webp",
+      "width": 960
+    }
+  ],
+  "promo-5": [
+    {
+      "file": "promo-5-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-5-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-5-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-5-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-5.webp",
+      "width": 960
+    }
+  ],
+  "promo-6": [
+    {
+      "file": "promo-6-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "promo-6-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "promo-6-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "promo-6-800w.webp",
+      "width": 800
+    },
+    {
+      "file": "promo-6.webp",
+      "width": 960
+    }
+  ],
+  "sale-friday": [
+    {
+      "file": "sale-friday-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "sale-friday-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "sale-friday.webp",
+      "width": 700
+    }
+  ],
+  "sale-home": [
+    {
+      "file": "sale-home-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "sale-home-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "sale-home.webp",
+      "width": 700
+    }
+  ],
+  "service-1": [
+    {
+      "file": "service-1-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "service-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "service-1.webp",
+      "width": 700
+    }
+  ],
+  "service-2": [
+    {
+      "file": "service-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "service-2-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "service-2.webp",
+      "width": 700
+    }
+  ],
+  "service-3": [
+    {
+      "file": "service-3-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "service-3-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "service-3.webp",
+      "width": 700
+    }
+  ],
+  "service-mounting": [
+    {
+      "file": "service-mounting-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "service-mounting-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "service-mounting.webp",
+      "width": 700
+    }
+  ],
+  "video-1": [
+    {
+      "file": "video-1.webp",
+      "width": 320
+    }
+  ],
+  "video-2": [
+    {
+      "file": "video-2.webp",
+      "width": 320
+    }
+  ],
+  "video-3": [
+    {
+      "file": "video-3.webp",
+      "width": 320
+    }
+  ],
+  "video-4": [
+    {
+      "file": "video-4.webp",
+      "width": 320
+    }
+  ],
+  "video-ctr": [
+    {
+      "file": "video-ctr.webp",
+      "width": 320
+    }
+  ],
+  "vision-1": [
+    {
+      "file": "vision-1-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "vision-1-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "vision-1-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "vision-1.webp",
+      "width": 848
+    },
+    {
+      "file": "vision-1-1024w.webp",
+      "width": 1024
+    },
+    {
+      "file": "vision-1-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "vision-1@2x.webp",
+      "width": 1696
+    }
+  ],
+  "vision-2": [
+    {
+      "file": "vision-2-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "vision-2-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "vision-2-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "vision-2.webp",
+      "width": 848
+    },
+    {
+      "file": "vision-2-1024w.webp",
+      "width": 1024
+    },
+    {
+      "file": "vision-2-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "vision-2@2x.webp",
+      "width": 1696
+    }
+  ],
+  "vision-kitchen": [
+    {
+      "file": "vision-kitchen-320w.webp",
+      "width": 320
+    },
+    {
+      "file": "vision-kitchen-480w.webp",
+      "width": 480
+    },
+    {
+      "file": "vision-kitchen-640w.webp",
+      "width": 640
+    },
+    {
+      "file": "vision-kitchen.webp",
+      "width": 848
+    },
+    {
+      "file": "vision-kitchen-1024w.webp",
+      "width": 1024
+    },
+    {
+      "file": "vision-kitchen-1280w.webp",
+      "width": 1280
+    },
+    {
+      "file": "vision-kitchen@2x.webp",
+      "width": 1696
+    }
+  ]
+}

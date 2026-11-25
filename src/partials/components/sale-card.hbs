@@ -7,7 +7,7 @@
 --}}
 <article class="sale-card">
   <div class="sale-card__media">
-    {{> components/img name=image alt="" width="484" height="324" retina=retina class="sale-card__img" eager=false}}
+    {{> components/img name=image alt="" width="484" height="324" sizes="(max-width: 575px) 286px, 31vw" retina=retina class="sale-card__img" eager=false}}
     <div class="sale-card__badges">
       {{#if discount}}<span class="sale-card__discount">{{discount}}</span>{{/if}}
       {{#if timer}}

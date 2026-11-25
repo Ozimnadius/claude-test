@@ -4,7 +4,7 @@
   Пример: {{> components/vision-card title="Кухня в стиле модерн" eyebrow="Кухня" image="vision-kitchen" retina=true}}
 --}}
 <article class="vision-card{{#if plain}} vision-card--plain{{/if}}">
-  {{> components/img name=image alt=(or alt "") width="726" height="588" retina=retina class="vision-card__img" eager=false}}
+  {{> components/img name=image alt=(or alt "") width="726" height="588" sizes="(max-width: 575px) 139vw, 68vw" retina=retina class="vision-card__img" eager=false}}
   {{#unless plain}}
     {{#if eyebrow}}<p class="vision-card__eyebrow">{{eyebrow}}</p>{{/if}}
     <div class="vision-card__bar">

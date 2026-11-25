@@ -4,5 +4,5 @@
   Пример: {{> components/promo-banner image="banner-audio" alt="Аудиотехника: наслаждайтесь любимой музыкой. Подробности"}}
 --}}
 <a class="promo-banner" href="{{#if href}}{{href}}{{else}}#{{/if}}">
-  {{> components/img name=image alt=alt width="1696" height="180" retina=retina class="promo-banner__img" eager=false}}
+  {{> components/img name=image alt=alt width="1696" height="180" sizes="(max-width: 575px) 672px, (max-width: 768px) 1386px, 1919px" retina=retina class="promo-banner__img" eager=false}}
 </a>

@@ -1,9 +1,12 @@
 {{!--
   Картинка WebP из src/assets/images (готовятся командой npm run images).
-  Параметры: name — имя файла без .webp; alt; width, height — размер в CSS-пикселях;
-  eager — грузить сразу (первый экран). Вариант name@2x.webp, если он есть, добавляется в srcset
-  автоматически (хелпер has2x); параметр retina больше не нужен и игнорируется;
-  class — классы.
-  Пример: {{> components/img name="product-watch" alt="Умные часы" width="249" height="249" class="product-card__img"}}
+  Параметры: name — имя файла без .webp; alt; width, height — размер рамки из макета (CSS-пиксели,
+  резерв места до загрузки); sizes — какой ширины картинка на экране (атрибут sizes, по умолчанию
+  ширина рамки); eager — грузить сразу (первый экран); class — классы.
+  srcset с описанием ширинами собирается сам по манифесту (хелпер srcset): браузер берёт файл
+  по фактической ширине и плотности экрана. Параметр retina больше не нужен и игнорируется.
+  sizes считаются по месту использования: для object-fit: cover — ширина, до которой картинка
+  растягивается по высоте рамки (замеры — docs/decisions.md).
+  Пример: {{> components/img name="product-watch" alt="Умные часы" width="249" height="249" sizes="20vw" class="product-card__img"}}
 --}}
-<img{{#if class}} class="{{class}}"{{/if}} src="/src/assets/images/{{name}}.webp"{{#if (has2x name)}} srcset="/src/assets/images/{{name}}.webp 1x, /src/assets/images/{{name}}@2x.webp 2x"{{/if}} alt="{{alt}}"{{#if width}} width="{{width}}"{{/if}}{{#if height}} height="{{height}}"{{/if}}{{#if eager}} fetchpriority="high"{{else}} loading="lazy"{{/if}} decoding="async">
+<img{{#if class}} class="{{class}}"{{/if}} src="/src/assets/images/{{name}}.webp"{{#with (srcset name)}} srcset="{{this}}" sizes="{{or ../sizes (concat ../width "px")}}"{{/with}} alt="{{alt}}"{{#if width}} width="{{width}}"{{/if}}{{#if height}} height="{{height}}"{{/if}}{{#if eager}} fetchpriority="high"{{else}} loading="lazy"{{/if}} decoding="async">

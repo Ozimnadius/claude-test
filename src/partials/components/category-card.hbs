@@ -5,7 +5,7 @@
   Пример: {{> components/category-card title="Одежда" image="category-clothes" retina=true}}
 --}}
 <article class="category-card{{#if caption}} category-card--caption{{/if}}{{#if large}} category-card--large{{/if}}">
-  {{> components/img name=image alt="" width=(or width "334") height=(or height "271") retina=retina class="category-card__img" eager=false}}
+  {{> components/img name=image alt="" width=(or width "334") height=(or height "271") sizes=(iif large "(max-width: 575px) 437px, (max-width: 768px) 76vw, (max-width: 1000px) 64vw, 41vw" "(max-width: 575px) 344px, (max-width: 1000px) 45vw, 26vw") retina=retina class="category-card__img" eager=false}}
   {{#if large}}
     {{#if eyebrow}}<p class="category-card__eyebrow">{{eyebrow}}</p>{{/if}}
     <a class="category-card__title category-card__link" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>

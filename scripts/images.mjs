@@ -9,12 +9,17 @@
  * Если оригинал назван с суффиксом @1x (имя@1x.png) — создаётся только имя.webp
  * без уменьшения (для мелких картинок, где 2x не нужен).
  *
+ * Дополнительно для адаптивного srcset создаются промежуточные ширины имя-<ширина>w.webp
+ * (WIDTHS, только меньше исходника и не ближе 15 % к уже готовым файлам), а в конце —
+ * манифест src/assets/images/manifest.json: { имя: [{ file, width }, …] } по возрастанию ширины.
+ * Его читает хелпер srcset (src/partials/helpers.js), чтобы собрать srcset с описанием ширинами.
+ *
  * Пропускает файлы, у которых результат новее оригинала. Флаг --force
  * пересобирает всё.
  *
  * Запуск: npm run images [-- --force] [-- --quality=80]
  */
-import { mkdir, readdir, stat } from 'node:fs/promises';
+import { mkdir, readdir, stat, writeFile } from 'node:fs/promises';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,6 +29,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(root, 'src/images-src');
 const OUT = join(root, 'src/assets/images');
 const EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp']);
+// Промежуточные ширины для srcset (px)
+const WIDTHS = [320, 480, 640, 800, 1024, 1280, 1600];
+const MANIFEST = join(OUT, 'manifest.json');
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
@@ -62,6 +70,14 @@ async function convert(src) {
   const { width } = await sharp(src).metadata();
   const done = [];
 
+  // Промежуточные ширины: меньше исходника и не ближе 15 % к основным файлам
+  const mainWidths = targets.map(({ scale }) => Math.round(width * scale));
+  for (const w of WIDTHS) {
+    if (w >= width * 0.9) continue;
+    if (mainWidths.some((m) => Math.abs(m - w) / m < 0.15)) continue;
+    targets.push({ out: `${name}-${w}w.webp`, scale: w / width });
+  }
+
   for (const { out, scale } of targets) {
     const outPath = join(OUT, out);
     if (await isFresh(src, outPath)) continue;
@@ -82,3 +98,21 @@ for await (const file of walk(SRC)) {
   count += done.length;
 }
 console.log(count ? `Готово: ${count} файл(ов) WebP.` : 'Нечего конвертировать — всё актуально.');
+
+// Манифест ширин по всем готовым WebP: имя.webp, имя@2x.webp, имя-<ширина>w.webp
+const manifest = {};
+for await (const file of walk(OUT)) {
+  if (extname(file) !== '.webp') continue;
+  const rel = relative(OUT, file).replaceAll('\\', '/');
+  const name = rel.replace(/(@2x|-\d+w)?\.webp$/, '');
+  const { width } = await sharp(file).metadata();
+  (manifest[name] ??= []).push({ file: rel, width });
+}
+for (const list of Object.values(manifest)) list.sort((a, b) => a.width - b.width);
+const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
+await writeFile(
+  MANIFEST,
+  `${JSON.stringify(sorted, null, 2)}
+`,
+);
+console.log(`Манифест: ${Object.keys(sorted).length} картинок → ${relative(root, MANIFEST)}`);

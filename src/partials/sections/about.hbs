@@ -12,7 +12,7 @@
         </div>
         <a class="about__btn" href="#">О компании</a>
       </div>
-      {{> components/img name=data.home.about.image alt="" width="836" height="442" retina=true class="about__img" eager=false}}
+      {{> components/img name=data.home.about.image alt="" width="836" height="442" sizes="(max-width: 1000px) 100vw, (max-width: 1200px) 84vw, 46vw" retina=true class="about__img" eager=false}}
     </div>
     <div class="card-grid card-grid--cols-4 card-grid--wide card-grid--md-cols-2 card-grid--xs-cols-1">
       {{#each data.home.about.advantages}}{{> components/advantage-card}}{{/each}}

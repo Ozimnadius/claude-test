@@ -5,7 +5,7 @@
   Пример: {{> components/post-card title="…" image="blog-powders" retina=true category="Новости" date="28 июня 2022"}}
 --}}
 <article class="post-card{{#if gallery}} post-card--gallery{{/if}}{{#if plain}} post-card--plain{{/if}}">
-  <div class="post-card__media">{{> components/img name=image alt="" width="357" height="239" retina=retina class="post-card__img" eager=false}}</div>
+  <div class="post-card__media">{{> components/img name=image alt="" width="357" height="239" sizes="(max-width: 575px) 279px, 23vw" retina=retina class="post-card__img" eager=false}}</div>
   {{#unless plain}}
     <div class="post-card__body">
       <a class="post-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>

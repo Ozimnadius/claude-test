@@ -1,0 +1,26 @@
+// Сетка карточек секций главной. Карточки идут через 6 px (режим Gap = 6 в макете).
+//   .card-grid--cols-5 / --cols-4 / --cols-3 / --cols-2 — число колонок на 1920.
+// Перестройка колонок на узких экранах — этап 5.
+@use 'abstracts' as *;
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+  gap: rem(6);
+
+  &--cols-5 {
+    --cols: 5;
+  }
+
+  &--cols-4 {
+    --cols: 4;
+  }
+
+  &--cols-3 {
+    --cols: 3;
+  }
+
+  &--cols-2 {
+    --cols: 2;
+  }
+}

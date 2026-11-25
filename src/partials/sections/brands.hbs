@@ -1,0 +1,10 @@
+{{!-- Слайдер брендов (scss/sections/_brands.scss; Figma: Brands Section 46:2076). Прокрутка — этап 6. --}}
+<section class="section section--space-2 brands" aria-label="Бренды">
+  <div class="container brands__row">
+    {{> components/slider-arrow dir="prev" disabled=true class=""}}
+    <ul class="brands__list">
+      {{#each data.cards.brands}}{{#unless (eq image "brand-zherko")}}<li class="brands__item">{{> components/brand card=false}}</li>{{/unless}}{{/each}}
+    </ul>
+    {{> components/slider-arrow dir="next" disabled=false class=""}}
+  </div>
+</section>

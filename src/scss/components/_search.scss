@@ -1,0 +1,71 @@
+// Поиск в шапке (Figma: Search bar I30:1248;29:943).
+// Рамка Grey 200, скругление темы, высота 47. Поле 16 px, справа — выбор области «Каталог» (пункт меню
+// со стрелкой) и кнопка-лупа 50 × 47. Между полем и областью — 24 px.
+@use 'abstracts' as *;
+
+.search {
+  display: flex;
+  flex: 1 0 0;
+  gap: var(--gap);
+  align-items: center;
+  min-width: 0;
+  height: rem(47);
+
+  // В Figma рамка внутри элемента, в CSS — снаружи: левое поле на 1 px меньше
+  padding-left: rem(15);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+
+  &:focus-within {
+    border-color: var(--color-main);
+    box-shadow: inset 0 0 0 1px var(--color-main);
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    color: var(--color-text);
+    outline: none;
+    background: none;
+    border: 0;
+
+    @include text(body-16);
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+      opacity: 1;
+    }
+
+    // Убираем системный «крестик» очистки
+    &::-webkit-search-cancel-button {
+      appearance: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    height: 100%;
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(50);
+    height: 100%;
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}

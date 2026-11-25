@@ -1,0 +1,26 @@
+// Переключатель светлой и тёмной темы (Figma: Day_Night I30:1248;30:975).
+// Две кнопки 34 × 24 с иконкой 24 px; выбранная — на серой подложке (Grey 150), скругление 6 px.
+@use 'abstracts' as *;
+
+.theme-switch {
+  display: flex;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: rem(5);
+    color: var(--color-text);
+    border-radius: rem(6);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+
+    &[aria-pressed='true'] {
+      background: var(--color-fill-strong);
+    }
+  }
+}

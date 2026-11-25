@@ -1,0 +1,12 @@
+{{!--
+  Поиск в шапке (scss/components/_search.scss): поле, выбор области поиска и кнопка-лупа.
+  Параметры: placeholder (по умолчанию «Найти»), scope — подпись области (по умолчанию «Каталог»).
+  Выпадающий список областей — JS на этапе 6.
+--}}
+<form class="search" action="#" role="search">
+  <input class="search__input" type="search" name="q" placeholder="{{#if placeholder}}{{placeholder}}{{else}}Найти{{/if}}" aria-label="Поиск по сайту">
+  <div class="search__actions">
+    {{> components/menu-link text=(or scope "Каталог") arrow=true inline=true href="" lg=false active=false}}
+    <button class="search__submit" type="submit" aria-label="Найти">{{> components/icon name="search" size="24" label="" class=""}}</button>
+  </div>
+</form>

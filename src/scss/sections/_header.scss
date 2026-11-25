@@ -1,0 +1,104 @@
+// Шапка сайта (Figma: Header 30:1248, вариант 1920).
+// Три строки через 10 px, снизу поле 18 px и граница Grey 200:
+//   верх (50 px)  — город, основное меню, телефон и «Заказать звонок», переключатель темы;
+//   середина (47) — логотип, кнопка «Каталог», поиск, ссылки кабинета (через 40 px);
+//   низ (26)      — популярные категории 15 / 600 через 30 px.
+// Мобильная и планшетная версии — этап 5.
+@use 'abstracts' as *;
+
+.header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-strong);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    // В Figma граница внутри высоты шапки (161 px), в CSS — снаружи: нижнее поле на 1 px меньше
+    padding-bottom: rem(17);
+  }
+
+  // --- Верхняя строка ---
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__city {
+    display: inline-flex;
+    gap: var(--space-4);
+    align-items: center;
+
+    @include text(btn-14);
+
+    color: var(--color-text);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__nav,
+  &__contacts {
+    display: flex;
+    align-items: center;
+  }
+
+  &__phone {
+    padding-right: var(--space-6);
+
+    @include text(btn-15-bold);
+  }
+
+  // --- Средняя строка ---
+  &__main {
+    display: flex;
+    gap: rem(40);
+    align-items: center;
+  }
+
+  &__catalog {
+    @include text(body-16);
+  }
+
+  &__user {
+    display: flex;
+    gap: rem(32);
+    align-items: center;
+  }
+
+  &__user-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+    font-size: rem(14);
+    line-height: rem(19);
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  // --- Нижняя строка: популярные категории ---
+  &__cats {
+    display: flex;
+    gap: rem(30);
+    padding-block: rem(2);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__cat {
+    @include text(btn-15-bold);
+
+    color: var(--color-text);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}

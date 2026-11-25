@@ -43,3 +43,11 @@
 @use 'components/review-card';
 @use 'components/advantage-card';
 @use 'components/promo-banner';
+@use 'components/search';
+@use 'components/theme-switch';
+@use 'layout/grid';
+
+// Секции главной
+@use 'sections/header';
+@use 'sections/hero';
+@use 'sections/brands';

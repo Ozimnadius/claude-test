@@ -1,0 +1,9 @@
+{{!-- Лучшие предложения (Figma: Products_Section 26:630): заголовок с табами и сетка 5 × 2 карточек товара. --}}
+<section class="section section--alt" aria-labelledby="products-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Лучшие предложения" href="#" tabs=data.home.tabs arrows=false id="products-title"}}</div>
+    <div class="card-grid card-grid--cols-5">
+      {{#each data.home.products}}{{> components/product-card compact=false}}{{/each}}
+    </div>
+  </div>
+</section>

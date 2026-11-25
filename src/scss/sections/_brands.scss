@@ -1,0 +1,25 @@
+// Слайдер брендов (Figma: Brands Section 46:2076).
+// Поля секции 60 px (Vertical Rythm 2); в строке — стрелки 40 px по краям и логотипы между ними,
+// с одинаковыми промежутками (~94 px на 1920) — и между логотипами, и до стрелок. Прокрутка — Swiper на этапе 6.
+@use 'abstracts' as *;
+
+.brands {
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+.brands__item {
+  display: flex;
+}

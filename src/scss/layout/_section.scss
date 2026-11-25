@@ -19,3 +19,8 @@
     background: var(--color-bg-alt);
   }
 }
+
+// Заголовок секции отделён от содержимого на 35 px (Vertical Rythm 3)
+.section__head {
+  margin-bottom: var(--rhythm-3);
+}

@@ -1,0 +1,9 @@
+{{!-- Популярные категории (Figma: Category Section 46:1911): заголовок с табами и сетка 5 × 2 категорий. --}}
+<section class="section" aria-labelledby="categories-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Популярные категории" href="#" tabs=data.home.tabs arrows=false id="categories-title"}}</div>
+    <div class="card-grid card-grid--cols-5">
+      {{#each data.home.categories}}{{> components/category-card caption=false large=false}}{{/each}}
+    </div>
+  </div>
+</section>

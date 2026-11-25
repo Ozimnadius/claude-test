@@ -1,0 +1,281 @@
+{
+  "hero": {
+    "title": "Велосипеды для движения в городе",
+    "text": "Покоряйте новые территории на велосипедах! Горные, складные, городские или двухподвесные — найдётся всё."
+  },
+  "tabs": ["Хит", "Советуем", "Новинка", "Акция"],
+  "products": [
+    {
+      "title": "Умные часы Bambo-900",
+      "price": "1 900 ₽",
+      "image": "home-product-1",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "new",
+          "text": "Новинка"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Классическая помада Fior 133 Беспечный розовый",
+      "price": "1 900 ₽",
+      "image": "home-product-2",
+      "retina": false,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "new",
+          "text": "Новинка"
+        }
+      ]
+    },
+    {
+      "title": "Обеденная тарелка Shouldplat",
+      "price": "1 900 ₽",
+      "image": "home-product-3",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Катушка безынерционная For",
+      "price": "1 900 ₽",
+      "image": "home-product-4",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Заварочный чайник YellowGlass",
+      "price": "1 900 ₽",
+      "image": "home-product-5",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Модульный диван",
+      "price": "1 900 ₽",
+      "image": "home-product-6",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Амортизатор Lutis",
+      "price": "1 900 ₽",
+      "image": "home-product-7",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Босоножки женские 39",
+      "price": "1 900 ₽",
+      "image": "home-product-8",
+      "retina": false,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Лейка",
+      "price": "1 900 ₽",
+      "image": "home-product-9",
+      "retina": true,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "hit",
+          "text": "Хит"
+        },
+        {
+          "type": "new",
+          "text": "Новинка"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    },
+    {
+      "title": "Кроссовки для бега 43 размер",
+      "price": "1 900 ₽",
+      "image": "home-product-10",
+      "retina": false,
+      "rating": "3.5",
+      "stock": "4000",
+      "labels": [
+        {
+          "type": "recommend",
+          "text": "Советуем"
+        },
+        {
+          "type": "new",
+          "text": "Новинка"
+        },
+        {
+          "type": "sale",
+          "text": "Акция"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "title": "Одежда",
+      "image": "home-category-1",
+      "retina": true
+    },
+    {
+      "title": "Генераторы",
+      "image": "home-category-2",
+      "retina": true
+    },
+    {
+      "title": "Орехи и снеки",
+      "image": "home-category-3",
+      "retina": true
+    },
+    {
+      "title": "Хобби и творчество",
+      "image": "home-category-4",
+      "retina": true
+    },
+    {
+      "title": "Телефоны и смарт-часы",
+      "image": "home-category-5",
+      "retina": true
+    },
+    {
+      "title": "Автотовары",
+      "image": "home-category-6",
+      "retina": true
+    },
+    {
+      "title": "Товары для дома",
+      "image": "home-category-7",
+      "retina": true
+    },
+    {
+      "title": "Посуда",
+      "image": "home-category-8",
+      "retina": true
+    },
+    {
+      "title": "Инструменты",
+      "image": "home-category-9",
+      "retina": true
+    },
+    {
+      "title": "Сантехника",
+      "image": "home-category-10",
+      "retina": true
+    }
+  ]
+}

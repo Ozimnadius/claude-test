@@ -1,0 +1,34 @@
+{{!--
+  Шапка сайта (scss/sections/_header.scss; Figma: Header 30:1248). Данные — src/data/header.json.
+  Три строки: город, меню, телефон, тема · логотип, каталог, поиск, кабинет · популярные категории.
+--}}
+<header class="header">
+  <div class="container header__inner">
+    <div class="header__top">
+      <a class="header__city" href="#">{{> components/icon name="navigation" size="20" label="" class=""}}{{data.header.city}}</a>
+      <nav class="header__nav" aria-label="Основное меню">
+        {{#each data.header.nav}}{{> components/menu-link text=text href="#" arrow=arrow inline=false lg=false active=false}}{{/each}}
+      </nav>
+      <div class="header__contacts">
+        <a class="menu-link header__phone" href="{{data.header.phoneHref}}">{{data.header.phone}}{{> components/icon name="chevron-down" class="menu-link__arrow" size="16" label=""}}</a>
+        {{> components/menu-link text="Заказать звонок" arrow=false inline=false lg=false active=false href=""}}
+      </div>
+      {{> components/theme-switch}}
+    </div>
+
+    <div class="header__main">
+      {{> components/logo class="header__logo" href="/"}}
+      {{> components/btn text="Каталог" icon="catalog" class="header__catalog" size="" variant="" href="" disabled=false}}
+      {{> components/search}}
+      <nav class="header__user" aria-label="Личный кабинет">
+        {{#each data.header.user}}
+          <a class="header__user-link" href="#">{{> components/icon name=icon size="24" label="" class=""}}<span>{{text}}</span></a>
+        {{/each}}
+      </nav>
+    </div>
+
+    <nav class="header__cats" aria-label="Популярные категории">
+      {{#each data.header.categories}}<a class="header__cat" href="#">{{this}}</a>{{/each}}
+    </nav>
+  </div>
+</header>

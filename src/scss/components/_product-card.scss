@@ -160,8 +160,8 @@
 
     width: rem(180);
     min-width: rem(160);
-    min-height: rem(325);
     max-width: rem(200);
+    min-height: rem(325);
 
     .product-card__price {
       @include text(price-16);

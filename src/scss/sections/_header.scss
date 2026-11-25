@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-10);
+
     // В Figma граница внутри высоты шапки (161 px), в CSS — снаружи: нижнее поле на 1 px меньше
     padding-bottom: rem(17);
   }

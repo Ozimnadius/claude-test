@@ -1,7 +1,11 @@
 // Секция главной: вертикальный ритм и фон.
 //   .section                — отступы 80 (Vertical Rythm 1), белый фон;
 //   .section--space-2 / -3  — отступы 60 / 35;
-//   .section--alt           — серый фон (Grey 50), секции на главной чередуются.
+//   .section--alt           — серый фон (Grey 50), секции на главной чередуются;
+//   .section--fill          — фон Grey 100 (секция услуг);
+//   .section--divided       — граница снизу (галерея).
+
+@use 'abstracts' as *;
 
 .section {
   padding-block: var(--section-space, var(--rhythm-1));
@@ -18,9 +22,31 @@
   &--alt {
     background: var(--color-bg-alt);
   }
+
+  &--fill {
+    background: var(--color-fill);
+  }
+
+  &--divided {
+    border-bottom: 1px solid var(--color-border);
+  }
 }
 
 // Заголовок секции отделён от содержимого на 35 px (Vertical Rythm 3)
 .section__head {
   margin-bottom: var(--rhythm-3);
+
+  // Блог и галерея: заголовок ближе к карточкам — 20 px
+  &--tight {
+    margin-bottom: rem(20);
+  }
+}
+
+// Описание под заголовком секции (галерея): 16 px серым, через 22 px от заголовка
+.section__lead {
+  margin-top: rem(22);
+
+  @include text(body-16);
+
+  color: var(--color-text-secondary);
 }

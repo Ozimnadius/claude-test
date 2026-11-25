@@ -1,0 +1,9 @@
+{{!-- Блог (Figma: Blog Section 55:5562): заголовок со стрелкой и 5 публикаций в ряд через 24 px. --}}
+<section class="section" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section__head section__head--tight">{{> components/section-head title="Блог" href="#" tabs=false arrows=false id="blog-title"}}</div>
+    <div class="card-grid card-grid--cols-5 card-grid--wide">
+      {{#each data.home.posts}}{{> components/post-card gallery=false plain=false}}{{/each}}
+    </div>
+  </div>
+</section>

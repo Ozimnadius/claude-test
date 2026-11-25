@@ -1,0 +1,12 @@
+{{!-- Галерея (Figma: Gallery Section 55:5480): заголовок, описание и 4 альбома в ряд через 24 px; серый фон и граница снизу. --}}
+<section class="section section--alt section--divided" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section__head section__head--tight">
+      {{> components/section-head title="Галерея" href="#" tabs=false arrows=false id="gallery-title"}}
+      <p class="section__lead">{{data.home.gallery.lead}}</p>
+    </div>
+    <div class="card-grid card-grid--cols-4 card-grid--wide">
+      {{#each data.home.gallery.items}}{{> components/post-card plain=false}}{{/each}}
+    </div>
+  </div>
+</section>

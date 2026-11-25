@@ -1,6 +1,7 @@
 // Карточка коллекции (Figma: Collection 59:5718, превью товара — Item Collection 65:1774).
 // Рамка Grey 150, скругление 12 px (фиксированное — так во всех режимах макета), поля 32.
 // Заголовок 18 / 500 и описание 14 px серым (не больше 3 строк), ниже — сетка 3 × 2 превью товаров через 8 px.
+// Пропорция 480 : 489 (как на главной), превью прижаты к низу; у превью скругление темы.
 @use 'abstracts' as *;
 
 .collection-card {
@@ -9,7 +10,7 @@
   flex-direction: column;
   gap: rem(59);
   justify-content: space-between;
-  height: 100%;
+  aspect-ratio: 480 / 488.67;
 
   // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
   padding: rem(31);
@@ -40,7 +41,7 @@
 
     @include text(body-14);
 
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
   }
 
   &__items {
@@ -54,6 +55,7 @@
     aspect-ratio: 1;
     overflow: hidden;
     background: var(--white);
+    border-radius: var(--radius);
     transition: opacity var(--transition);
 
     @include hover {

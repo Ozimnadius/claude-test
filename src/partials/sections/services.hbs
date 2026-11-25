@@ -1,0 +1,9 @@
+{{!-- Услуги (Figma: Services Section 65:2208): фон Grey 100, заголовок со стрелкой и 3 услуги через 24 px. --}}
+<section class="section section--fill" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Услуги" href="#" tabs=false arrows=false id="services-title"}}</div>
+    <div class="card-grid card-grid--cols-3 card-grid--wide">
+      {{#each data.home.services}}{{> components/service-card retina=false}}{{/each}}
+    </div>
+  </div>
+</section>

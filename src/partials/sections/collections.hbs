@@ -1,0 +1,9 @@
+{{!-- Коллекции (Figma: Collection Section 65:1895): заголовок без стрелки и 3 коллекции через 24 px. --}}
+<section class="section" aria-labelledby="collections-title">
+  <div class="container">
+    <div class="section__head">{{> components/section-head title="Коллекции" href="" tabs=false arrows=false id="collections-title"}}</div>
+    <div class="card-grid card-grid--cols-3 card-grid--wide">
+      {{#each data.home.collections}}{{> components/collection-card href=""}}{{/each}}
+    </div>
+  </div>
+</section>

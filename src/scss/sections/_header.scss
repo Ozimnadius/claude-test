@@ -3,7 +3,8 @@
 //   верх (50 px)  — город, основное меню, телефон и «Заказать звонок», переключатель темы;
 //   середина (47) — логотип, кнопка «Каталог», поиск, ссылки кабинета (через 40 px);
 //   низ (26)      — популярные категории 15 / 600 через 30 px.
-// Мобильная и планшетная версии — этап 5.
+// Планшет (≤ 1000, Figma 87:24700): одна строка 80 px — меню, логотип, «Каталог» (через 40) и 6 иконок через 26.
+// Телефон (≤ 575, Figma 87:25344): строка 44 px — меню, логотип 102 px и 6 иконок 20 px через 14; «Каталог» скрыт.
 @use 'abstracts' as *;
 
 .header {
@@ -100,6 +101,100 @@
 
     @include hover {
       color: var(--color-main);
+    }
+  }
+
+  // --- Элементы узких экранов (на десктопе скрыты) ---
+  &__brand {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  &__burger,
+  &__compact {
+    display: none;
+  }
+
+  &__burger,
+  &__compact-link {
+    align-items: center;
+    padding: 0;
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__compact {
+    gap: rem(26);
+    align-items: center;
+    margin-left: auto;
+  }
+
+  &__compact-link {
+    display: inline-flex;
+  }
+
+  // --- Планшет ---
+  @include media-down(md) {
+    &__inner {
+      padding-block: var(--space-18) rem(17);
+    }
+
+    &__top,
+    &__cats,
+    &__user,
+    .search {
+      display: none;
+    }
+
+    &__burger,
+    &__compact {
+      display: flex;
+    }
+  }
+
+  // --- Телефон ---
+  @include media-down(xs) {
+    // Группы прижаты к краям (как в макете), промежуток 40 между ними не нужен
+    &__main {
+      gap: var(--space-10);
+    }
+
+    &__inner {
+      padding-block: var(--space-10) rem(9);
+    }
+
+    &__catalog {
+      display: none;
+    }
+
+    .logo__img {
+      width: rem(102);
+    }
+
+    &__compact {
+      gap: var(--space-14);
+    }
+
+    &__compact-link .icon {
+      width: rem(20);
+      height: rem(20);
+    }
+  }
+
+  // --- Узкие телефоны (уже 375): иконки плотнее, «Сравнение» убрано в меню ---
+  @media (width < 375px) {
+    &__compact {
+      gap: var(--space-8);
+    }
+
+    &__compact-link--compare {
+      display: none;
     }
   }
 }

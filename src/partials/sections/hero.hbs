@@ -1,14 +1,21 @@
 {{!--
-  Большой баннер (scss/sections/_hero.scss; Figma: Banner_Section 26:279).
-  Текст баннера в макете скрыт — заголовок h1 страницы доступен только читалкам и поисковикам.
+  Большой баннер (scss/sections/_hero.scss; Figma: Banner_Section 26:279 и вариант 1000 — 86:25325).
+  На десктопе текст баннера скрыт (как в макете, opacity: 0) и доступен только читалкам;
+  на 1000 и ниже он показан под картинкой: заголовок h1 страницы, описание и две кнопки.
 --}}
 <section class="hero" aria-labelledby="hero-title">
   <div class="container">
-    <h1 class="visually-hidden" id="hero-title">{{data.home.hero.title}}</h1>
-    <a class="hero__banner" href="#" aria-describedby="hero-text">
+    <a class="hero__banner" href="#" tabindex="-1" aria-hidden="true">
       {{> components/img name="hero-bg" alt="" width="1696" height="550" retina=false class="hero__bg" eager=true}}
       {{> components/img name="hero-active" alt="" width="832" height="550" retina=false class="hero__active" eager=true}}
-      <span class="visually-hidden" id="hero-text">{{data.home.hero.title}}. {{data.home.hero.text}}</span>
     </a>
+    <div class="hero__content">
+      <h1 class="hero__title" id="hero-title">{{data.home.hero.title}}</h1>
+      <p class="hero__text">{{data.home.hero.text}}</p>
+      <div class="hero__buttons">
+        {{> components/btn text="Выбрать" href="#" size="" variant="" icon="" disabled=false class=""}}
+        {{> components/btn text="Узнать о скидках" href="#" variant="secondary" size="" icon="" disabled=false class=""}}
+      </div>
+    </div>
   </div>
 </section>

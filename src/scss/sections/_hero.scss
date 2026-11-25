@@ -1,7 +1,8 @@
-// Большой баннер (Figma: Banner_Section 26:279).
-// Поля секции 35 px сверху и снизу, баннер 1696 × 550 (пропорция 1767 : 573) со скруглением темы:
-// фоновое фото и поверх справа — фото с велосипедистом (696 : 460, во всю высоту).
-// Текстовый блок в макете прозрачный (opacity: 0), поэтому заголовок есть только для читалок и поисковиков.
+// Большой баннер (Figma: Banner_Section 26:279; вариант 1000 — 86:25325).
+// 1920: поля секции 35 px, баннер 1696 × 550 (пропорция 1767 : 573) со скруглением темы — фоновое фото
+// и поверх справа фото с велосипедистом (696 : 460, во всю высоту). Текстовый блок в макете прозрачный,
+// поэтому на десктопе он скрыт визуально (заголовок h1 остаётся для читалок и поисковиков).
+// ≤ 1000: баннер 960 × 380, под ним через 20 px — заголовок 28 / 1.1, описание 16 и две кнопки по центру.
 // Слайдер ли это — открытый вопрос 5.
 @use 'abstracts' as *;
 
@@ -32,5 +33,62 @@
     height: 100%;
     aspect-ratio: 696 / 460;
     object-fit: cover;
+  }
+
+  &__content {
+    @include visually-hidden;
+  }
+
+  @include media-down(md) {
+    &__banner {
+      aspect-ratio: 960 / 380;
+    }
+
+    // Текст баннера показан под картинкой
+    &__content {
+      position: static;
+      display: grid;
+      gap: var(--space-14);
+      justify-items: center;
+      width: auto;
+      height: auto;
+      padding-inline: rem(30);
+      margin: rem(20) 0 0;
+      overflow: visible;
+      text-align: center;
+      white-space: normal;
+      clip-path: none;
+    }
+
+    &__title {
+      font-size: rem(28);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+
+    &__text {
+      @include text(body-16);
+
+      color: var(--color-text);
+    }
+
+    &__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(20);
+      justify-content: center;
+      margin-top: var(--space-6);
+    }
+  }
+
+  @include media-down(xs) {
+    &__content {
+      padding-inline: 0;
+    }
+
+    &__title {
+      font-size: rem(24);
+    }
   }
 }

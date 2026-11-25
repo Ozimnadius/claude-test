@@ -20,6 +20,11 @@
     @include text(h2);
 
     color: var(--color-text);
+
+    // На 1000 и ниже заголовок секции 20 px (режим Typography/Size 28 = 20)
+    @include media-down(md) {
+      font-size: rem(20);
+    }
   }
 
   &__more {

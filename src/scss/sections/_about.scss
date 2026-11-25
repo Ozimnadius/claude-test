@@ -38,6 +38,10 @@
     @include text(h2);
 
     color: var(--color-text);
+
+    @include media-down(md) {
+      font-size: rem(20);
+    }
   }
 
   &__paragraph {

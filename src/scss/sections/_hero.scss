@@ -92,3 +92,37 @@
     }
   }
 }
+
+// Десктоп: текст баннера скрыт, но его кнопки доступны с клавиатуры. Когда фокус внутри,
+// текст показывается карточкой поверх картинки — иначе фокус уходил бы на невидимые кнопки.
+.hero {
+  @include media-up(md) {
+    .container {
+      position: relative;
+    }
+
+    &__content:focus-within {
+      bottom: rem(24);
+      left: calc(var(--page-padding) + #{rem(24)});
+      display: grid;
+      gap: var(--space-12);
+      width: auto;
+      max-width: rem(520);
+      height: auto;
+      padding: rem(24);
+      margin: 0;
+      overflow: visible;
+      white-space: normal;
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-popup);
+      clip-path: none;
+
+      .hero__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-12);
+      }
+    }
+  }
+}

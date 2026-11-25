@@ -1,0 +1,63 @@
+// Окно видео (макета нет — собрано на токенах, см. decisions). Разметка — partials/components/video-modal.hbs.
+// По центру экрана, ширина до 1000 px; сверху название ролика и закрытие, ниже плеер 16 : 9.
+// Фон за окном — затемнение 70 %.
+@use 'abstracts' as *;
+
+.video-modal {
+  width: min(#{rem(1000)}, calc(100% - 2 * var(--page-padding)));
+  max-width: none;
+  padding: var(--space-16);
+
+  // Сброс * { margin: 0 } убирает у <dialog> центрирование — возвращаем
+  margin: auto;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 0;
+  border-radius: var(--radius);
+
+  &::backdrop {
+    background: rgb(0 0 0 / 70%);
+  }
+
+  &__head {
+    display: flex;
+    gap: var(--space-16);
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-12);
+  }
+
+  &__title {
+    @include text(h6);
+  }
+
+  &__close {
+    display: inline-flex;
+    flex-shrink: 0;
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--black);
+    border-radius: var(--radius);
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+// Пока окно открыто, страница под ним не прокручивается
+html:has(.video-modal[open]) {
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-{{!-- Видеоотзывы (Figma: Videoreview Section 69:3018): заголовок со стрелкой и 4 видео через 24 px; граница снизу. Слайдер и открытие видео — этап 6. --}}
+{{!-- Видеоотзывы (Figma: Videoreview Section 69:3018): заголовок со стрелкой и 4 видео через 24 px; граница снизу. Слайдер — modules/slider.js, открытие видео — modules/video.js. --}}
 <section class="section section--divided" aria-labelledby="videos-title">
   <div class="container">
     <div class="section__head">{{> components/section-head title="Видеоотзывы" href="#" tabs=false arrows=false id="videos-title"}}</div>
@@ -8,4 +8,5 @@
       </div>
     </div>
   </div>
+  {{> components/video-modal}}
 </section>

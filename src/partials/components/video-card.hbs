@@ -1,6 +1,8 @@
 {{!--
   Карточка видеоотзыва (scss/components/_video-card.scss).
-  Параметры: title, date, duration («09:50»), image, retina, href (по умолчанию #).
+  Параметры: title, date, duration («09:50»), image, retina, href (по умолчанию #);
+  youtube — id ролика: заголовок становится ссылкой на YouTube, а со скриптом открывает
+  всплывающее окно с плеером (modules/video.js, окно — components/video-modal.hbs).
   Пример: {{> components/video-card data.cards.video}}
 --}}
 <article class="video-card">
@@ -10,7 +12,11 @@
     {{#if duration}}<span class="video-card__duration"><span class="visually-hidden">Длительность </span>{{duration}}</span>{{/if}}
   </div>
   <div class="video-card__body">
-    <a class="video-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{#if youtube}}
+      <a class="video-card__title" href="https://www.youtube.com/watch?v={{youtube}}" aria-haspopup="dialog" data-video="{{youtube}}">{{title}}</a>
+    {{else}}
+      <a class="video-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{/if}}
     {{#if date}}<p class="video-card__date">{{date}}</p>{{/if}}
   </div>
 </article>

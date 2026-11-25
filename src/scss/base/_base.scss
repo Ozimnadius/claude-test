@@ -44,6 +44,28 @@ a {
 }
 
 // Скрыть визуально, оставив доступным для экранных читалок (подписи таблиц, кнопок-иконок).
+// Ссылка «Перейти к содержимому»: первая в порядке табуляции, видна только в фокусе
+.skip-link {
+  position: fixed;
+  top: var(--space-8);
+  left: var(--space-8);
+  z-index: 100;
+  padding: var(--space-10) var(--space-16);
+  color: var(--color-on-main);
+  background: var(--color-main);
+  border-radius: var(--radius);
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+// Цель ссылки — <main tabindex="-1">: фокус принимает, но рамку не показывает
+main:focus {
+  outline: none;
+}
+
 .visually-hidden {
   @include visually-hidden;
 }

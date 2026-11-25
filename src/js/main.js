@@ -8,6 +8,7 @@ import { initHeader } from './modules/header.js';
 import { initTabs } from './modules/tabs.js';
 import { initSliders } from './modules/slider.js';
 import { initCountdowns } from './modules/countdown.js';
+import { initVideo } from './modules/video.js';
 
 /**
  * Модули поведения подключаются по наличию data-атрибутов на странице,
@@ -20,6 +21,7 @@ function init() {
   if (document.querySelector('[data-tabs]')) initTabs();
   if (document.querySelector('[data-slider]')) initSliders();
   if (document.querySelector('[data-countdown]')) initCountdowns();
+  if (document.querySelector('[data-video-modal]')) initVideo();
 }
 
 init();

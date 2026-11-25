@@ -15,7 +15,8 @@
     "lint": "npm run lint:styles && npm run lint:format",
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:format": "prettier --check .",
-    "format": "prettier --write . && stylelint \"src/**/*.scss\" --fix"
+    "format": "prettier --write . && stylelint \"src/**/*.scss\" --fix",
+    "validate": "html-validate \"dist/*.html\""
   },
   "dependencies": {
     "@fontsource-variable/geologica": "^5.3.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@spiriit/vite-plugin-svg-spritemap": "^7.2.0",
+    "html-validate": "^11.22.1",
     "postcss": "^8.5.33",
     "prettier": "^3.10.1",
     "sass-embedded": "^1.108.2",

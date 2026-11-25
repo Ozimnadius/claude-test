@@ -107,7 +107,8 @@ function createSlider(el) {
       observer: true,
       observeParents: true,
       navigation: prevEl && nextEl ? { prevEl, nextEl } : false,
-      a11y: A11Y,
+      // У слайдов-пунктов списка (<ul> брендов) роль listitem, иначе ломается семантика списка
+      a11y: { ...A11Y, slideRole: /^(UL|OL)$/.test(wrapper.tagName) ? 'listitem' : 'group' },
       on: fit
         ? {
             init: (instance) => distribute(instance, gap),

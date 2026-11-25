@@ -10,7 +10,8 @@
   <div class="search__actions">
     <div class="dropdown search__scope" data-dropdown>
       <input type="hidden" name="scope" value="{{@root.data.header.searchScopes.[0]}}" data-dropdown-input>
-      <button class="menu-link menu-link--inline" type="button" aria-expanded="false" aria-controls="{{or id "search"}}-scopes" aria-label="Область поиска" data-dropdown-toggle>
+      <button class="menu-link menu-link--inline" type="button" aria-expanded="false" aria-controls="{{or id "search"}}-scopes" data-dropdown-toggle>
+        <span class="visually-hidden">Область поиска: </span>
         <span class="menu-link__text" data-dropdown-value>{{@root.data.header.searchScopes.[0]}}</span>
         {{> components/icon name="chevron-down" class="menu-link__arrow" size="16" label=""}}
       </button>

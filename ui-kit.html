@@ -464,6 +464,30 @@
             {{> components/vision-card data.cards.vision plain=false}}
             {{> components/vision-card data.cards.vision plain=true}}
           </div>
+
+          <h3 class="text-h4">Видеоотзыв</h3>
+          <p class="kit-note"><code>\{{> components/video-card title="…" date="…" duration="09:50" image="…"}}</code> — открытие видео решим на этапе 6.</p>
+          <div class="kit-cards kit-cards--posts">
+            {{> components/video-card data.cards.video}}
+          </div>
+
+          <h3 class="text-h4">Текстовый отзыв</h3>
+          <p class="kit-note"><code>\{{> components/review-card name="…" avatar="…" rating="4" product="…" date="…" text="…"}}</code></p>
+          <div class="kit-cards kit-cards--review">
+            {{> components/review-card data.cards.review}}
+          </div>
+
+          <h3 class="text-h4">Преимущества</h3>
+          <p class="kit-note"><code>\{{> components/advantage-card icon="adv-…" title="…" text="…"}}</code> — иконка основного цвета.</p>
+          <div class="kit-cards kit-cards--advantages">
+            {{#each data.cards.advantages}}{{> components/advantage-card}}{{/each}}
+          </div>
+
+          <h3 class="text-h4">Рекламный баннер</h3>
+          <p class="kit-note"><code>\{{> components/promo-banner image="…" alt="…"}}</code> — текст впечатан в картинку, поэтому он же — в <code>alt</code>.</p>
+          <div class="kit-cards">
+            {{> components/promo-banner data.cards.banner}}
+          </div>
         </div>
       </section>
     </main>

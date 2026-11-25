@@ -1,0 +1,23 @@
+{{!--
+  Карточка текстового отзыва (scss/components/_review-card.scss).
+  Параметры: name, avatar (картинка), rating, product, date, text, href — ссылка «Отзыв полностью».
+  Пример: {{> components/review-card data.cards.review}}
+--}}
+<article class="review-card">
+  <div class="review-card__head">
+    {{> components/img name=avatar alt="" width="80" height="80" retina=false class="review-card__avatar" eager=false}}
+    <div class="review-card__info">
+      <div class="review-card__row">
+        <p class="review-card__name">{{name}}</p>
+        {{#if rating}}<p class="review-card__rating">{{> components/icon name="star" class="review-card__star" size="14" label=""}}<span><span class="visually-hidden">Оценка </span>{{rating}}</span></p>{{/if}}
+      </div>
+      <p class="review-card__meta">
+        {{#if product}}<span class="review-card__meta-item">{{product}}</span>{{/if}}
+        {{#if date}}<span class="review-card__meta-item">{{date}}</span>{{/if}}
+      </p>
+    </div>
+  </div>
+  <hr class="review-card__divider">
+  <p class="review-card__text">{{text}}</p>
+  <a class="review-card__more" href="{{#if href}}{{href}}{{else}}#{{/if}}">Отзыв полностью</a>
+</article>

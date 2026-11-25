@@ -1,0 +1,8 @@
+{{!--
+  Рекламный баннер (scss/components/_promo-banner.scss).
+  Параметры: image; alt — текст, впечатанный в картинку (обязателен); href (по умолчанию #); retina.
+  Пример: {{> components/promo-banner image="banner-audio" alt="Аудиотехника: наслаждайтесь любимой музыкой. Подробности"}}
+--}}
+<a class="promo-banner" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+  {{> components/img name=image alt=alt width="1696" height="180" retina=retina class="promo-banner__img" eager=false}}
+</a>

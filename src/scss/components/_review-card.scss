@@ -1,0 +1,116 @@
+// Карточка текстового отзыва (Figma: Textreview 69:3114).
+// Рамка Grey 150, поля 18, блоки через 17. Шапка: аватар 80 px, имя 20 / 500, оценка (звезда 14 px + число 18 / 500),
+// под именем — товар · дата 13 px. Разделитель, текст 16 px серым, ссылка «Отзыв полностью» 15 px с подчёркиванием.
+@use 'abstracts' as *;
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(17);
+  height: 100%;
+
+  // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
+  padding: rem(17);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-18);
+    align-items: center;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: rem(80);
+    height: rem(80);
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: grid;
+    flex: 1 0 0;
+    gap: var(--space-6);
+    min-width: rem(220);
+  }
+
+  &__row {
+    display: flex;
+    gap: var(--space-16);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include text(h4);
+
+    color: var(--color-text);
+  }
+
+  &__rating {
+    display: inline-flex;
+    gap: var(--space-10);
+    align-items: center;
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: rem(26);
+    color: var(--color-text);
+  }
+
+  &__star {
+    color: var(--accent-yellow-2);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    align-items: center;
+
+    @include text(body-13);
+
+    color: var(--color-text-secondary);
+  }
+
+  // Точка 2 × 2 px между товаром и датой
+  &__meta-item + &__meta-item::before {
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    margin-right: var(--space-6);
+    vertical-align: middle;
+    content: '';
+    background: currentcolor;
+    border-radius: 1px;
+  }
+
+  &__divider {
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__text {
+    @include text(body-16);
+
+    color: var(--color-text-secondary);
+  }
+
+  &__more {
+    align-self: flex-start;
+
+    @include text(btn-15);
+
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}

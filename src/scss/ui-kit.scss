@@ -421,6 +421,16 @@ code {
     align-items: stretch;
   }
 
+  &--review {
+    grid-template-columns: rem(690);
+  }
+
+  &--advantages {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gap);
+    align-items: stretch;
+  }
+
   &--visions {
     grid-template-columns: repeat(2, rem(560));
     gap: var(--gap);

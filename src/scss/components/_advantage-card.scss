@@ -1,0 +1,33 @@
+// Карточка преимущества (Figma: Background+Shadow 72:3483; на главной — блок «О компании» 73:3517).
+// Рамка Grey 150, скругление 12 px (фиксированное, как во всех режимах макета), поля 18, блоки через 18.
+// Иконка 40 px основного цвета, заголовок 16 / 500, текст 14 px.
+@use 'abstracts' as *;
+
+.advantage-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-18);
+  height: 100%;
+
+  // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
+  padding: rem(17);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: rem(12);
+
+  &__icon {
+    color: var(--color-main);
+  }
+
+  &__title {
+    @include text(h6);
+
+    color: var(--color-text);
+  }
+
+  &__text {
+    @include text(body-14);
+
+    color: var(--color-text-body);
+  }
+}

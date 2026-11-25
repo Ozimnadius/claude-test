@@ -1,0 +1,10 @@
+{{!--
+  Карточка преимущества (scss/components/_advantage-card.scss).
+  Параметры: icon (adv-delivery | adv-support | adv-percent | adv-sale), title, text.
+  Пример: {{> components/advantage-card icon="adv-delivery" title="Быстрая доставка" text="…"}}
+--}}
+<div class="advantage-card">
+  {{> components/icon name=icon class="advantage-card__icon" size="40" label=""}}
+  <p class="advantage-card__title">{{title}}</p>
+  {{#if text}}<p class="advantage-card__text">{{text}}</p>{{/if}}
+</div>

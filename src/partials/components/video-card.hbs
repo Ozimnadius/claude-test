@@ -1,0 +1,16 @@
+{{!--
+  Карточка видеоотзыва (scss/components/_video-card.scss).
+  Параметры: title, date, duration («09:50»), image, retina, href (по умолчанию #).
+  Пример: {{> components/video-card data.cards.video}}
+--}}
+<article class="video-card">
+  <div class="video-card__media">
+    {{> components/img name=image alt="" width="357" height="201" retina=retina class="video-card__img" eager=false}}
+    <span class="video-card__play" aria-hidden="true"></span>
+    {{#if duration}}<span class="video-card__duration"><span class="visually-hidden">Длительность </span>{{duration}}</span>{{/if}}
+  </div>
+  <div class="video-card__body">
+    <a class="video-card__title" href="{{#if href}}{{href}}{{else}}#{{/if}}">{{title}}</a>
+    {{#if date}}<p class="video-card__date">{{date}}</p>{{/if}}
+  </div>
+</article>

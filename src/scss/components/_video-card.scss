@@ -1,0 +1,96 @@
+// Карточка видеоотзыва (Figma: Videoreview 69:2921).
+// Превью 357 × 201 со скруглением темы; поверх (поля 12) — кнопка воспроизведения 40 px
+// (тёмный круг 48 %) слева и длительность справа. Ниже через 12 — заголовок 16 / 500 и дата 13 px.
+// Открытие видео — открытый вопрос 7 (docs/decisions.md), поведение — этап 6.
+@use 'abstracts' as *;
+
+.video-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  &__media {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    aspect-ratio: 357 / 200.81;
+    padding: var(--space-12);
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Кнопка воспроизведения: полупрозрачный круг и белый треугольник
+  &__play {
+    position: relative;
+    width: rem(40);
+    height: rem(40);
+    background: rgb(34 34 34 / 48%);
+    border-radius: 50%;
+    transition: background-color var(--transition);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      content: '';
+      border-color: transparent transparent transparent var(--white);
+      border-style: solid;
+      border-width: rem(6) 0 rem(6) rem(10);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @include hover {
+    .video-card__play {
+      background: var(--color-main);
+    }
+
+    .video-card__title {
+      color: var(--color-main);
+    }
+  }
+
+  &__duration {
+    position: relative;
+    padding: rem(2) rem(5);
+    font-size: rem(13);
+    line-height: rem(18);
+    color: var(--white);
+    background: var(--black);
+    border-radius: rem(4);
+  }
+
+  &__body {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  &__title {
+    @include text(h6);
+
+    color: var(--color-text);
+    transition: color var(--transition);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+  }
+
+  &__date {
+    @include text(body-13);
+
+    color: var(--color-text-muted);
+  }
+}

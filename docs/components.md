@@ -49,7 +49,7 @@
 | Цитата | `.quote` | ⬜ |
 | Таблицы (5 видов: без рамки, с рамкой, адаптивная, с границей снизу, простая) | `.table` | ⬜ |
 | Боковое меню | `.aside-menu` | ⬜ |
-| Контентные кнопки (Default, Primary, Success, Info, Warning, Danger, Transparent…, Link; 5 размеров) | `.content-btn`? | ⬜ ждёт решения (см. decisions.md) |
+| Контентные кнопки (Default, Primary, Success, Info, Warning, Danger, Transparent…, Link; 5 размеров) | `.content-btn` | ⬜ |
 | Обёртка текста из редактора | `.content` | ⬜ |
 
 ## 5. Карточки (Components, `264:114807`)

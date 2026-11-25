@@ -1,0 +1,151 @@
+// Кнопки контента (Figma: страница «Кнопки», 74:27675) — для текста из визуального редактора.
+// Отдельный блок от кнопок интерфейса (.btn): свои цвета, 5 размеров, жирный текст.
+// По решению пользователя шрифт Geologica вместо Inter из макета.
+//   Цвет:     --default (основной цвет темы), --primary, --success, --info, --warning, --danger.
+//   Вид:      залитая (по умолчанию), --transparent (подложка 10 %), --outline (рамка),
+//             --outline-soft (рамка 35 %), --link (серая подложка). Вид комбинируется с цветом.
+//   Размер:   --size-xl 51, --size-lg 47, по умолчанию 42, --size-sm 35, --size-xs 29.
+//   Неактивная: серая рамка и текст (Grey 250).
+// Скругление фиксированное (8 px), как во всех режимах макета.
+@use 'abstracts' as *;
+
+.content-btn {
+  --cb-color: var(--color-main);
+  --cb-text: var(--white);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: rem(42);
+
+  // В Figma рамка внутри элемента, в CSS — снаружи: поля на 1 px меньше макетных
+  padding: 0 rem(20);
+  font-size: rem(15);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cb-text);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--cb-color);
+  border: 1px solid var(--cb-color);
+  border-radius: rem(8);
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+
+  @include hover {
+    color: var(--cb-text);
+    background: color-mix(in srgb, var(--cb-color) 85%, #000);
+    border-color: color-mix(in srgb, var(--cb-color) 85%, #000);
+  }
+
+  // --- Цвета ---
+  &--default {
+    --cb-color: var(--color-main);
+  }
+
+  &--primary {
+    --cb-color: #0a8;
+  }
+
+  &--success {
+    --cb-color: #8b2;
+  }
+
+  &--info {
+    --cb-color: #1ad;
+  }
+
+  &--warning {
+    --cb-color: #e80;
+  }
+
+  &--danger {
+    --cb-color: #d11;
+  }
+
+  // --- Виды ---
+  &--transparent,
+  &--outline,
+  &--outline-soft,
+  &--link {
+    --cb-text: var(--cb-color);
+  }
+
+  &--transparent {
+    background: color-mix(in srgb, var(--cb-color) 10%, transparent);
+    border-color: transparent;
+
+    @include hover {
+      background: color-mix(in srgb, var(--cb-color) 18%, transparent);
+      border-color: transparent;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+
+    @include hover {
+      color: var(--white);
+      background: var(--cb-color);
+      border-color: var(--cb-color);
+    }
+  }
+
+  &--outline-soft {
+    background: transparent;
+    border-color: color-mix(in srgb, var(--cb-color) 35%, transparent);
+
+    @include hover {
+      background: transparent;
+      border-color: var(--cb-color);
+    }
+  }
+
+  &--link {
+    background: var(--color-fill);
+    border-color: var(--color-bg);
+
+    @include hover {
+      background: var(--color-fill-strong);
+      border-color: var(--color-bg);
+    }
+  }
+
+  // --- Размеры ---
+  &--size-xl {
+    min-height: rem(51);
+    padding-inline: rem(24);
+    font-size: rem(17);
+  }
+
+  &--size-lg {
+    min-height: rem(47);
+    padding-inline: rem(24);
+    font-size: rem(16);
+  }
+
+  &--size-sm {
+    min-height: rem(35);
+    padding-inline: rem(16);
+    font-size: rem(14);
+  }
+
+  &--size-xs {
+    min-height: rem(29);
+    padding-inline: rem(13);
+    font-size: rem(13);
+  }
+
+  // --- Неактивная ---
+  &:disabled,
+  &[aria-disabled='true'] {
+    color: var(--grey-250);
+    pointer-events: none;
+    cursor: default;
+    background: transparent;
+    border-color: var(--grey-250);
+  }
+}

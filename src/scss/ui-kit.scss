@@ -364,3 +364,27 @@ code {
     color: var(--color-text-secondary);
   }
 }
+
+// --- Контент ---
+.kit-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: rem(48);
+  margin-bottom: rem(48);
+
+  @include media-down(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kit-tables {
+  display: grid;
+  gap: var(--space-16);
+  margin-bottom: rem(48);
+
+  &__title {
+    margin-top: var(--space-16);
+
+    @include text(h4);
+  }
+}

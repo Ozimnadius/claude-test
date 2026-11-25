@@ -18,6 +18,7 @@
           <a href="#elements">Элементы</a>
           <a href="#forms">Формы</a>
           <a href="#navigation">Навигация</a>
+          <a href="#content">Контент</a>
         </nav>
 
         <div class="kit-bar__switches" data-kit-theme>
@@ -143,7 +144,7 @@
           <h3 class="text-h4">Иконки</h3>
           <p class="kit-note"><code>\{{> components/icon name="heart"}}</code> — 24 px, цвет от текста (<code>currentColor</code>). Список собирается из <code>src/assets/icons/</code> автоматически.</p>
           <ul class="kit-icons">
-            {{#each data.icons}}
+            {{#each data.icons.base}}
               <li class="kit-icons__item">{{> components/icon name=this}}<code>{{this}}</code></li>
             {{/each}}
           </ul>
@@ -301,6 +302,103 @@
           <div class="kit-demo kit-demo--main">
             {{#each data.kit.advantages}}<span class="kit-adv">{{> components/icon name=icon size="40" label="" class=""}}<code>{{icon}}</code></span>{{/each}}
           </div>
+        </div>
+      </section>
+      {{!-- Контент --}}
+      <section class="section section--space-2" id="content">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Контент</h2>
+
+          <h3 class="text-h4">Текст из редактора: обёртка .content</h3>
+          <p class="kit-note">Теги без классов внутри <code>&lt;div class="content"&gt;</code> оформляются сами: заголовки, абзацы, списки, цитата, таблица, разделитель.</p>
+          <div class="kit-columns">
+            <div class="content">
+              <h1>Заголовок H1</h1>
+              <p>Интернет-магазин работает ежедневно. Заказы, оформленные до 18:00, отправляем в тот же день, а <a href="#content">условия доставки</a> зависят от региона и способа получения.</p>
+              <p>Второй абзац идёт сразу за первым с отступом 8 px.</p>
+              <h2>Заголовок H2</h2>
+              <h3>Заголовок H3</h3>
+              <h4>Заголовок H4</h4>
+              <p>Текст после заголовка четвёртого уровня.</p>
+              <h5>Заголовок H5</h5>
+              <p>Текст после заголовка пятого уровня.</p>
+              <h6>Заголовок H6</h6>
+              <p>Текст после заголовка шестого уровня.</p>
+              <hr>
+              <blockquote>
+                <p>Качество товара и скорость доставки превзошли ожидания: заказ пришёл на следующий день, упаковка целая, всё как на фото.</p>
+                <footer>— <cite>Константин, покупатель</cite></footer>
+              </blockquote>
+            </div>
+            <div class="content">
+              <h2>Списки</h2>
+              <h3>Маркированный</h3>
+              <ul>
+                <li>Гарантия качества на все товары</li>
+                <li>Лёгкий возврат в течение 14 дней — даже если пункт списка длинный и переносится на вторую строку, чёрточка остаётся у первой</li>
+                <li>Быстрая доставка</li>
+              </ul>
+              <h3>Нумерованный</h3>
+              <ol>
+                <li>Очистите поверхности</li>
+                <li>Точно измерьте</li>
+                <li>Равномерно приложите давление</li>
+              </ol>
+              <h3>Без маркеров</h3>
+              <ul class="content__list content__list--unstyled">
+                <li>Широкий ассортимент</li>
+                <li>Бонусы и скидки</li>
+                <li>Техподдержка 24/7</li>
+              </ul>
+              <h3>Список описаний</h3>
+              <dl>
+                <dt>Примеры использования списков</dt>
+                <dd>Различные типы списков и их описание</dd>
+                <dt>Преимущества применения списков</dt>
+                <dd>Как списки упрощают восприятие информации</dd>
+              </dl>
+            </div>
+          </div>
+
+          <h3 class="text-h4">Таблицы</h3>
+          <p class="kit-note"><code>\{{> components/table head=… rows=… view="bordered|underlined|simple" scroll=true}}</code>; <code>&lt;table&gt;</code> без класса внутри <code>.content</code> выглядит как первая.</p>
+          <div class="kit-tables">
+            <p class="kit-tables__title">Без рамки</p>
+            {{> components/table head=data.kit.table.head rows=data.kit.table.rows caption="Без рамки"}}
+            <p class="kit-tables__title">С рамкой</p>
+            {{> components/table head=data.kit.table.head rows=data.kit.table.rows view="bordered" caption="С рамкой"}}
+            <p class="kit-tables__title">Адаптивная (прокрутка на узком экране)</p>
+            {{> components/table head=data.kit.tableWide.head rows=data.kit.tableWide.rows view="bordered" scroll=true caption="Адаптивная"}}
+            <p class="kit-tables__title">С границей снизу</p>
+            {{> components/table head=data.kit.tableShort.head rows=data.kit.tableShort.rows view="underlined" caption="С границей снизу"}}
+            <p class="kit-tables__title">Простая</p>
+            {{> components/table head=data.kit.tableShort.head rows=data.kit.tableShort.rows view="simple" caption="Простая"}}
+          </div>
+
+          <h3 class="text-h4">Кнопки контента</h3>
+          <p class="kit-note"><code>\{{> components/content-btn text="…" color="…" view="…" size="…" disabled=true}}</code> — для текста из редактора; отдельно от кнопок интерфейса.</p>
+          <div class="kit-demo">
+            {{#each data.kit.contentColors}}{{> components/content-btn text=this color=this view="" size=""}}{{/each}}
+          </div>
+          <div class="kit-demo">
+            {{#each data.kit.contentViews}}{{> components/content-btn text=text view=view color="" size=""}}{{/each}}
+            {{> components/content-btn text="Success с рамкой" color="success" view="outline" size=""}}
+            {{> components/content-btn text="Неактивная" disabled=true color="" view="" size=""}}
+          </div>
+          <div class="kit-demo">
+            {{#each data.kit.contentSizes}}{{> components/content-btn text=text size=size color="" view=""}}{{/each}}
+          </div>
+          <div class="kit-demo">
+            {{#each data.kit.contentSizes}}{{> components/content-btn text=text size=size disabled=true color="" view=""}}{{/each}}
+          </div>
+
+          <h3 class="text-h4">Иконки документов</h3>
+          <p class="kit-note"><code>\{{> components/icon name="doc-pdf" size="40"}}</code> — цветные, цвета свои в любой теме.</p>
+          <ul class="kit-icons">
+            {{#each data.icons.doc}}
+              <li class="kit-icons__item">{{> components/icon name=this size="40" label="" class=""}}<code>{{this}}</code></li>
+            {{/each}}
+          </ul>
         </div>
       </section>
     </main>

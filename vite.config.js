@@ -23,10 +23,16 @@ function loadData() {
     if (extname(file) !== '.json') continue;
     data[basename(file, '.json')] = JSON.parse(readFileSync(resolve(dir, file), 'utf-8'));
   }
-  // Список иконок спрайта — для витрины UI-кита (data.icons)
-  data.icons = readdirSync(r('src/assets/icons'))
+  // Иконки спрайта по группам — для витрины UI-кита:
+  // data.icons.base (24 px), data.icons.adv (преимущества, adv-*), data.icons.doc (документы, doc-*)
+  const icons = readdirSync(r('src/assets/icons'))
     .filter((file) => extname(file) === '.svg')
     .map((file) => basename(file, '.svg'));
+  data.icons = {
+    base: icons.filter((name) => !/^(adv|doc)-/.test(name)),
+    adv: icons.filter((name) => name.startsWith('adv-')),
+    doc: icons.filter((name) => name.startsWith('doc-')),
+  };
   return data;
 }
 

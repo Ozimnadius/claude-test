@@ -1,0 +1,114 @@
+// Таблица (Figma: страница «Оформление», раздел «Таблицы»).
+//   .table               — без рамки: тёмная шапка, строки через одну на сером фоне;
+//   .table--bordered     — с рамкой у всех ячеек (Grey 150), без полос;
+//   .table--underlined   — с границей снизу: светлая шапка, линии под строками, без боковых полей;
+//   .table--simple       — простая: светлая шапка 14 px, поля ячеек 20 px, рамка вокруг;
+//   .table-wrap          — обёртка «адаптивной» таблицы: горизонтальная прокрутка на узком экране.
+// Шапка тёмная (#222) во всех темах. В макете шрифт Inter — заменён на Geologica.
+@use 'abstracts' as *;
+
+.table,
+.content table:not([class]) {
+  width: 100%;
+
+  @include text(body-16);
+
+  color: var(--color-text);
+  text-align: left;
+  border-collapse: collapse;
+
+  th {
+    padding: rem(12) rem(11);
+    font-size: rem(14);
+    font-weight: 600;
+    line-height: rem(20);
+    vertical-align: middle;
+    color: var(--white);
+    background: var(--black);
+  }
+
+  td {
+    padding: rem(11);
+    vertical-align: middle;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: var(--color-bg-alt);
+  }
+}
+
+.table {
+  &--bordered {
+    th,
+    td {
+      border: 1px solid var(--color-border);
+    }
+
+    th {
+      border-color: var(--black);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: none;
+    }
+  }
+
+  &--underlined {
+    th,
+    td {
+      padding: rem(11) var(--space-16) rem(11) 0;
+    }
+
+    th {
+      font-size: rem(16);
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--color-text);
+      background: var(--color-bg-alt);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    td {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: none;
+    }
+  }
+
+  &--simple {
+    border: 1px solid var(--color-border);
+
+    th,
+    td {
+      padding-inline: rem(20);
+    }
+
+    th {
+      padding-block: rem(11.5);
+      font-weight: 400;
+      color: var(--color-text);
+      background: var(--color-bg-alt);
+    }
+
+    td {
+      padding-block: rem(15);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: none;
+    }
+  }
+}
+
+// Широкая таблица прокручивается по горизонтали, ячейки не переносятся
+.table-wrap {
+  overflow-x: auto;
+
+  th,
+  td {
+    white-space: nowrap;
+  }
+}

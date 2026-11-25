@@ -1,0 +1,16 @@
+{{!--
+  Таблица (scss/components/_table.scss).
+  Параметры: head — массив заголовков столбцов; rows — массив строк (каждая — массив ячеек);
+  view — bordered | underlined | simple (без него — с тёмной шапкой и полосами);
+  scroll — обернуть в .table-wrap (горизонтальная прокрутка); caption — подпись для читалок.
+  Пример: {{> components/table head=data.kit.table.head rows=data.kit.table.rows view="bordered"}}
+--}}
+{{#if scroll}}<div class="table-wrap">{{/if}}
+<table class="table{{#if view}} table--{{view}}{{/if}}">
+  {{#if caption}}<caption class="visually-hidden">{{caption}}</caption>{{/if}}
+  <thead><tr>{{#each head}}<th scope="col">{{this}}</th>{{/each}}</tr></thead>
+  <tbody>
+    {{#each rows}}<tr>{{#each this}}<td>{{this}}</td>{{/each}}</tr>{{/each}}
+  </tbody>
+</table>
+{{#if scroll}}</div>{{/if}}

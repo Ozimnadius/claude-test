@@ -1,0 +1,7 @@
+{{!--
+  Кнопка контента (scss/components/_content-btn.scss).
+  Параметры: text; href (иначе <button>); color — default | primary | success | info | warning | danger;
+  view — transparent | outline | outline-soft | link; size — xl | lg | sm | xs; disabled.
+  Пример: {{> components/content-btn text="Подробнее" color="success" view="outline" size="sm"}}
+--}}
+{{#if href}}<a class="content-btn{{#if color}} content-btn--{{color}}{{/if}}{{#if view}} content-btn--{{view}}{{/if}}{{#if size}} content-btn--size-{{size}}{{/if}}" href="{{href}}"{{#if disabled}} aria-disabled="true" tabindex="-1"{{/if}}>{{text}}</a>{{else}}<button class="content-btn{{#if color}} content-btn--{{color}}{{/if}}{{#if view}} content-btn--{{view}}{{/if}}{{#if size}} content-btn--size-{{size}}{{/if}}" type="button"{{#if disabled}} disabled{{/if}}>{{text}}</button>{{/if}}

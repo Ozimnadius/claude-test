@@ -1,0 +1,160 @@
+// Обёртка текста из визуального редактора (Figma: страница «Оформление», 164:65301).
+// Оформляет «голые» теги без классов: заголовки, абзацы, списки, цитату, таблицу, разделитель.
+//   Блоки идут через 18 px, абзац после абзаца — 8 px, заголовок h2 после текста — 35 px (Vertical Rythm 3).
+//   Маркированный список — чёрточка 11 × 1 px, нумерованный — «1.», пункты через 4 px, отступ до текста 10 px.
+//   Цитата — полоса 3 px основного цвета слева, текст через 38 px, подпись через 12 px.
+// Таблица без класса получает вид .table (см. _table.scss).
+@use 'abstracts' as *;
+
+.content {
+  @include text(body-16);
+
+  color: var(--color-text);
+
+  > * + * {
+    margin-top: var(--space-18);
+  }
+
+  > p + p {
+    margin-top: var(--space-8);
+  }
+
+  > h2:not(:first-child) {
+    margin-top: var(--rhythm-3);
+  }
+
+  h1 {
+    @include text(h1);
+  }
+
+  h2 {
+    @include text(h2);
+  }
+
+  h3 {
+    @include text(h3);
+  }
+
+  h4 {
+    @include text(h4);
+  }
+
+  h5 {
+    @include text(h5);
+  }
+
+  h6 {
+    @include text(h6);
+  }
+
+  a:not([class]) {
+    color: var(--color-main);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentcolor 35%, transparent);
+    text-underline-offset: 0.2em;
+
+    @include hover {
+      color: var(--color-main-hover);
+      text-decoration-color: currentcolor;
+    }
+  }
+
+  // --- Списки ---
+  ul,
+  ol {
+    display: grid;
+    gap: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+
+  ul > li {
+    position: relative;
+    padding-left: rem(21);
+
+    // Чёрточка 11 × 1 px по центру первой строки
+    &::before {
+      position: absolute;
+      top: 0.71em;
+      left: 0;
+      width: rem(11);
+      height: 1px;
+      content: '';
+      background: var(--color-text-secondary);
+    }
+  }
+
+  ol {
+    counter-reset: content-list;
+  }
+
+  ol > li {
+    display: flex;
+    gap: var(--space-10);
+    counter-increment: content-list;
+
+    &::before {
+      flex-shrink: 0;
+      content: counter(content-list) '.';
+    }
+  }
+
+  // Список без маркеров: <ul class="content__list content__list--unstyled">
+  .content__list--unstyled > li {
+    padding-left: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  // Список описаний
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  // dt и dd одной пары идут вплотную, пары — через 8 px
+  dd + dt {
+    margin-top: var(--space-8);
+  }
+
+  // --- Цитата ---
+  blockquote {
+    position: relative;
+    padding-left: rem(41);
+
+    &::before {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: rem(3);
+      content: '';
+      background: var(--color-main);
+      border-radius: rem(3);
+    }
+
+    > * + * {
+      margin-top: var(--space-12);
+    }
+
+    cite,
+    footer {
+      font-style: normal;
+    }
+  }
+
+  // --- Разделитель (Figma: Separator, 2 px) ---
+  hr {
+    height: 0;
+    border: 0;
+    border-top: 2px solid var(--color-border);
+  }
+
+  img {
+    height: auto;
+    border-radius: var(--radius);
+  }
+}

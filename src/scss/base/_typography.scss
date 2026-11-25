@@ -1,0 +1,11 @@
+// Утилитарные классы текстовых стилей: .text-h1, .text-body-15, .text-price-18…
+// Для разметки, где нет своего BEM-блока (контент, витрина). В компонентах
+// вместо классов используйте миксин: @include text(h4);
+@use 'sass:map';
+@use 'abstracts' as *;
+
+@each $name in map.keys($text-styles) {
+  .text-#{$name} {
+    @include text($name);
+  }
+}

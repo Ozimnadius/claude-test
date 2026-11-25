@@ -1,0 +1,21 @@
+// Секция главной: вертикальный ритм и фон.
+//   .section                — отступы 80 (Vertical Rythm 1), белый фон;
+//   .section--space-2 / -3  — отступы 60 / 35;
+//   .section--alt           — серый фон (Grey 50), секции на главной чередуются.
+
+.section {
+  padding-block: var(--section-space, var(--rhythm-1));
+  background: var(--color-bg);
+
+  &--space-2 {
+    --section-space: var(--rhythm-2);
+  }
+
+  &--space-3 {
+    --section-space: var(--rhythm-3);
+  }
+
+  &--alt {
+    background: var(--color-bg-alt);
+  }
+}

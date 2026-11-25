@@ -1,11 +1,41 @@
-// Базовые стили документа. Токены (цвета, шрифты) появятся на этапе 1.
+// Базовые стили документа на токенах.
+@use 'abstracts' as *;
 
 body {
-  font-family: Geologica, system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.42;
-  color: #222;
-  background: #fff;
+  font-family: var(--font-family);
+
+  @include text(body-16);
+
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+// Заголовки не несут оформления сами по себе: размер задаёт класс (.text-h2)
+// или компонент. Так семантика (h2/h3) не привязана к внешнему виду.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+a {
+  transition: color var(--transition);
+}
+
+// Видимый фокус только при навигации с клавиатуры.
+:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: var(--color-on-main);
+  background: var(--color-main);
 }
 
 // Иконки из спрайта красятся через currentColor — цвет берут от color родителя.

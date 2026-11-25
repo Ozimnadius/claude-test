@@ -1,37 +1,266 @@
 // Стили только для страницы-витрины UI-кита (подключаются после main.scss).
+// Блоки витрины имеют префикс kit-, на сайте не используются.
 @use 'abstracts' as *;
 
-.kit {
-  max-width: rem(1696);
-  padding: rem(40) rem(24) rem(80);
-  margin-inline: auto;
+// --- Верхняя панель с переключателями темы ---
+.kit-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 
-  &__title {
-    margin-bottom: rem(8);
-    font-size: rem(32);
-    font-weight: 500;
-  }
-
-  &__lead {
-    margin-bottom: rem(40);
-    color: #888;
-  }
-
-  &__section {
-    padding-block: rem(32);
-    border-top: 1px solid #ddd;
-  }
-
-  &__section-title {
-    margin-bottom: rem(24);
-    font-size: rem(24);
-    font-weight: 500;
-  }
-
-  &__row {
+  &__inner {
     display: flex;
     flex-wrap: wrap;
-    gap: rem(16);
+    gap: var(--space-12) var(--gap);
     align-items: center;
+    padding-block: var(--space-12);
+  }
+
+  &__home {
+    color: var(--color-text-secondary);
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+
+  &__title {
+    @include text(h5);
+  }
+
+  &__nav {
+    display: flex;
+    gap: var(--space-16);
+
+    @include text(body-15);
+
+    a {
+      @include hover {
+        color: var(--color-main);
+      }
+    }
+  }
+
+  &__switches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    margin-left: auto;
+  }
+}
+
+.kit-switch {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--color-fill);
+  border: 0;
+  border-radius: var(--radius);
+
+  &__legend {
+    float: left;
+    padding-inline: var(--space-8);
+    color: var(--color-text-secondary);
+
+    @include text(body-13);
+  }
+
+  &__option {
+    padding: var(--space-4) var(--space-10);
+    cursor: pointer;
+    border-radius: var(--radius);
+
+    @include text(btn-14);
+
+    &:has(:checked) {
+      color: var(--color-on-main);
+      background: var(--color-main);
+    }
+
+    &:has(:focus-visible) {
+      outline: 2px solid var(--color-main);
+      outline-offset: 2px;
+    }
+
+    input {
+      @include visually-hidden;
+    }
+  }
+}
+
+// --- Общие элементы витрины ---
+.kit-intro {
+  padding-block: var(--rhythm-2) 0;
+
+  &__lead {
+    max-width: rem(760);
+    margin-top: var(--space-16);
+    color: var(--color-text-secondary);
+  }
+}
+
+.kit-heading {
+  margin-bottom: var(--gap);
+}
+
+.kit-note {
+  margin-block: var(--space-4) var(--space-16);
+  color: var(--color-text-secondary);
+
+  @include text(body-14);
+}
+
+// Заголовок группы образцов отделяем от предыдущей группы
+.kit-swatches,
+.kit-types,
+.kit-spaces,
+.kit-radius {
+  margin-bottom: rem(48);
+}
+
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+// --- Цвета ---
+.kit-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(rem(200), 1fr));
+  gap: var(--gap);
+}
+
+.kit-swatch {
+  display: grid;
+  gap: var(--space-4);
+
+  @include text(body-13);
+
+  &__color {
+    height: rem(88);
+    margin-bottom: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  &__var,
+  &__figma {
+    color: var(--color-text-secondary);
+  }
+
+  &__value {
+    text-transform: uppercase;
+  }
+}
+
+// --- Типографика ---
+.kit-types {
+  display: grid;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+}
+
+.kit-type {
+  display: grid;
+  grid-template-columns: rem(280) 1fr;
+  gap: var(--gap);
+  align-items: center;
+  padding: var(--space-16) var(--gap);
+
+  & + & {
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__meta {
+    display: grid;
+    color: var(--color-text-secondary);
+
+    @include text(body-13);
+  }
+
+  &__class {
+    color: var(--color-text);
+  }
+
+  @include media-down(sm) {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+// --- Отступы ---
+.kit-spaces {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.kit-space {
+  display: grid;
+  grid-template-columns: rem(120) rem(24) 1fr;
+  gap: var(--space-16);
+  align-items: center;
+
+  @include text(body-13);
+
+  &__bar {
+    height: rem(24);
+    background: var(--color-main);
+    border-radius: 2px;
+  }
+
+  &__px {
+    grid-column: 3;
+    color: var(--color-text-secondary);
+  }
+}
+
+.kit-radius {
+  display: flex;
+  gap: var(--gap);
+
+  &__box {
+    width: rem(120);
+    height: rem(80);
+    background: var(--color-fill-strong);
+    border-radius: var(--radius);
+
+    &--main {
+      background: var(--color-main);
+    }
+  }
+}
+
+.kit-container-demo {
+  margin-bottom: rem(48);
+
+  // Поля контейнера показываем штриховкой
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-fill) 0 6px,
+    var(--color-bg) 6px 12px
+  );
+
+  &__content {
+    padding: var(--space-16);
+    color: var(--color-on-main);
+    text-align: center;
+    background: var(--color-main);
+  }
+}
+
+.kit-rhythm {
+  & + & {
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__content {
+    padding-block: var(--space-12);
+    outline: 1px dashed var(--color-main);
+    background: var(--color-main-soft);
+
+    @include text(body-14);
   }
 }

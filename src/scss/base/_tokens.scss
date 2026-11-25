@@ -1,0 +1,83 @@
+// Дизайн-токены как CSS-переменные (значения — docs/design-tokens.md).
+// Два слоя:
+// 1. Палитра (--grey-*, --accent-*) — сырые цвета из Figma, тема их не меняет.
+// 2. Смысловые токены (--color-*) — их используют компоненты. Темы переопределяют
+//    только смысловой слой, поэтому компоненты не должны брать цвета палитры напрямую
+//    (исключение — акцентные цвета лейблов и рейтинга).
+@use 'abstracts' as *;
+
+:root {
+  // --- Палитра ---
+  --black: #222;
+  --white: #fff;
+  --grey-50: #f8f8f8;
+  --grey-100: #f4f4f4;
+  --grey-150: #ededed;
+  --grey-200: #ddd;
+  --grey-250: #bbb;
+  --grey-300: #999;
+  --grey-400: #888;
+  --grey-500: #666;
+  --grey-600: #555;
+  --accent-red: #f66;
+  --accent-purple: #a7f;
+  --accent-green: #3c5;
+  --accent-yellow: #fe8;
+  --accent-yellow-2: #ffd600;
+
+  // --- Бренд (переопределяется в _themes.scss через data-brand) ---
+  --brand-main: #3153d3;
+  --brand-main-dark: #5b78e6; // основной цвет в тёмной теме — светлее ради контраста
+  --radius: #{rem(8)};
+
+  // --- Смысловые цвета: светлая тема ---
+  --color-main: var(--brand-main);
+  --color-main-hover: color-mix(in srgb, var(--color-main) 85%, #000);
+  --color-main-soft: color-mix(in srgb, var(--color-main) 10%, var(--color-bg));
+  --color-on-main: var(--white); // текст и иконки на основном цвете
+  --color-text: var(--black); // основной текст, заголовки
+  --color-text-body: var(--grey-600); // текст абзацев в контенте
+  --color-text-secondary: var(--grey-400); // подписи, даты, второстепенное
+  --color-text-muted: var(--grey-300); // плейсхолдеры, неактивное
+  --color-bg: var(--white); // фон страницы и карточек
+  --color-bg-alt: var(--grey-50); // фон чередующихся секций
+  --color-fill: var(--grey-100); // плашки, табы, полосы
+  --color-fill-strong: var(--grey-150); // поля Solid, нажатые плашки
+  --color-border: var(--grey-150);
+  --color-border-strong: var(--grey-200);
+
+  // --- Шрифт ---
+  --font-family: 'Geologica', system-ui, sans-serif;
+
+  // --- Отступы (Indents) ---
+  --space-4: #{rem(4)};
+  --space-6: #{rem(6)};
+  --space-8: #{rem(8)};
+  --space-10: #{rem(10)};
+  --space-12: #{rem(12)};
+  --space-14: #{rem(14)};
+  --space-16: #{rem(16)};
+  --space-18: #{rem(18)};
+
+  // --- Сетка и ритм ---
+  --gap: #{rem(24)}; // шаг сетки карточек
+  --rhythm-1: #{rem(80)}; // вертикальный отступ секции (большой)
+  --rhythm-2: #{rem(60)}; // средний
+  --rhythm-3: #{rem(35)}; // малый
+  --container-width: #{rem(1696)};
+  --page-padding: #{rem(112)}; // боковые поля (Figma: Main Padding / Theme Width)
+
+  // --- Прочее ---
+  --transition: 0.2s ease;
+
+  color-scheme: light;
+
+  // Поля на меньших экранах — временные значения, уточним по фреймам на этапе 5.
+  @include media-down(lg) {
+    --page-padding: #{rem(32)};
+  }
+
+  @include media-down(sm) {
+    --page-padding: #{rem(16)};
+  }
+}

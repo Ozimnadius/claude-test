@@ -6,20 +6,127 @@
     <script type="module" src="/src/js/ui-kit.js"></script>
   </head>
   <body>
-    <main class="kit">
-      <h1 class="kit__title">UI-кит</h1>
-      <p class="kit__lead">Живая витрина дизайн-системы. Разделы наполняются по этапам плана (docs/PLAN.md).</p>
+    <header class="kit-bar">
+      <div class="container kit-bar__inner">
+        <a class="kit-bar__home" href="/">← Главная</a>
+        <span class="kit-bar__title">UI-кит</span>
 
-      <section class="kit__section">
-        <h2 class="kit__section-title">Проверка каркаса</h2>
-        <div class="kit__row">
-          <span>Иконка из спрайта:</span>
-          {{> components/icon name="chevron-right"}}
-          <span style="color: #3153d3">{{> components/icon name="chevron-right" label="Далее"}}</span>
+        <nav class="kit-bar__nav" aria-label="Разделы">
+          <a href="#colors">Цвета</a>
+          <a href="#typography">Типографика</a>
+          <a href="#spacing">Отступы</a>
+        </nav>
+
+        <div class="kit-bar__switches" data-kit-theme>
+          <fieldset class="kit-switch">
+            <legend class="kit-switch__legend">Бренд</legend>
+            <label class="kit-switch__option"><input type="radio" name="brand" value="blue" checked> Синий</label>
+            <label class="kit-switch__option"><input type="radio" name="brand" value="red"> Красный</label>
+          </fieldset>
+          <fieldset class="kit-switch">
+            <legend class="kit-switch__legend">Тема</legend>
+            <label class="kit-switch__option"><input type="radio" name="theme" value="light" checked> Светлая</label>
+            <label class="kit-switch__option"><input type="radio" name="theme" value="dark"> Тёмная</label>
+          </fieldset>
         </div>
-        <p>Шрифт Geologica: <b style="font-weight: 400">400</b> · <b style="font-weight: 500">500</b> · <b style="font-weight: 600">600</b></p>
-        <p>Хелпер bem: <code>{{bem "btn" "primary size-sm"}}</code></p>
-        <p><a href="/">← На главную</a></p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container kit-intro">
+        <h1 class="text-hero">Дизайн-система</h1>
+        <p class="kit-intro__lead">Живая витрина токенов и компонентов. Разделы наполняются по этапам плана (docs/PLAN.md). Переключатели вверху меняют бренд и тему — образцы перекрашиваются сами.</p>
+      </div>
+
+      {{!-- Цвета --}}
+      <section class="section section--space-2" id="colors">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Цвета</h2>
+          {{#each data.tokens.colorGroups}}
+            <h3 class="text-h4">{{title}}</h3>
+            <p class="kit-note">{{note}}</p>
+            <ul class="kit-swatches">
+              {{#each items}}
+                <li class="kit-swatch">
+                  <span class="kit-swatch__color" style="background: var({{var}})"></span>
+                  <span class="kit-swatch__name text-body-16-bold">{{name}}</span>
+                  <code class="kit-swatch__var">{{var}}</code>
+                  <span class="kit-swatch__value" data-kit-color="{{var}}"></span>
+                  <span class="kit-swatch__figma">{{figma}}</span>
+                </li>
+              {{/each}}
+            </ul>
+          {{/each}}
+        </div>
+      </section>
+
+      {{!-- Типографика --}}
+      <section class="section section--space-2 section--alt" id="typography">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Типографика</h2>
+          <p class="kit-note">Шрифт Geologica: 400, 500, 600. В компонентах — миксин <code>@include text(h4)</code>, в разметке — класс <code>.text-h4</code>.</p>
+          {{#each data.tokens.textGroups}}
+            <h3 class="text-h4">{{title}}</h3>
+            <ul class="kit-types">
+              {{#each items}}
+                <li class="kit-type">
+                  <div class="kit-type__meta">
+                    <code class="kit-type__class">.text-{{key}}</code>
+                    <span>{{figma}}</span>
+                    <span>{{spec}}</span>
+                  </div>
+                  <p class="kit-type__sample text-{{key}}">{{#if sample}}{{sample}}{{else}}Съешь же ещё этих мягких французских булок{{/if}}</p>
+                </li>
+              {{/each}}
+            </ul>
+          {{/each}}
+        </div>
+      </section>
+
+      {{!-- Отступы --}}
+      <section class="section section--space-2" id="spacing">
+        <div class="container">
+          <h2 class="text-h1 kit-heading">Отступы и сетка</h2>
+
+          <h3 class="text-h4">Отступы внутри компонентов (Indents) и шаг сетки</h3>
+          <ul class="kit-spaces">
+            {{#each data.tokens.spaces}}
+              <li class="kit-space">
+                <code class="kit-space__var">{{var}}</code>
+                <span class="kit-space__bar" style="width: var({{var}})"></span>
+                <span class="kit-space__px">{{px}} px{{#if figma}} · {{figma}}{{/if}}</span>
+              </li>
+            {{/each}}
+          </ul>
+
+          <h3 class="text-h4">Скругление темы</h3>
+          <p class="kit-note"><code>--radius</code>: 8 px у синего бренда, 0 у красного.</p>
+          <div class="kit-radius">
+            <span class="kit-radius__box"></span>
+            <span class="kit-radius__box kit-radius__box--main"></span>
+          </div>
+
+          <h3 class="text-h4">Контейнер</h3>
+          <p class="kit-note">Контент до 1696 px, поля <code>--page-padding</code>: 112 px на широком экране (на узких — временно 32 и 16, уточним на этапе 5). Шире 1920 контейнер встаёт по центру.</p>
+        </div>
+
+        <div class="kit-container-demo">
+          <div class="container">
+            <div class="kit-container-demo__content">.container — область контента</div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h3 class="text-h4">Вертикальный ритм секций</h3>
+          <p class="kit-note">Отступ сверху и снизу секции: <code>.section</code>, <code>.section--space-2</code>, <code>.section--space-3</code>; серый фон — <code>.section--alt</code>.</p>
+        </div>
+        {{#each data.tokens.rhythm}}
+          <div class="section section--alt{{#if mod}} section--{{mod}}{{/if}} kit-rhythm">
+            <div class="container kit-rhythm__content">
+              <code>.section{{#if mod}}.section--{{mod}}{{/if}}</code> — {{px}} px · {{figma}} · <code>{{var}}</code>
+            </div>
+          </div>
+        {{/each}}
       </section>
     </main>
   </body>

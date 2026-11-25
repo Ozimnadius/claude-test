@@ -1,0 +1,9 @@
+// Контейнер: контент 1696 px + боковые поля темы (112 px на 1920).
+// Шире 1920 контент не растёт и встаёт по центру (открытый вопрос 8 в decisions.md).
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + 2 * var(--page-padding));
+  padding-inline: var(--page-padding);
+  margin-inline: auto;
+}

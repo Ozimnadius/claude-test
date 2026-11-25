@@ -1,0 +1,30 @@
+// Темы. Атрибуты ставятся на <html>, оси независимы и комбинируются:
+//   data-brand="blue" | "red"   — основной цвет и скругление (по умолчанию синий);
+//   data-theme="light" | "dark" — светлая или тёмная тема (по умолчанию светлая).
+// Переменные, вычисляемые от других (--color-main-hover и т. п.), объявлены на :root,
+// поэтому атрибуты должны стоять именно на <html>, а не на вложенном элементе.
+
+// Красный бренд — режим переменных фреймов дизайн-системы (Base Elements).
+[data-brand='red'] {
+  --brand-main: #d7252c;
+  --brand-main-dark: #e5484d;
+  --radius: 0;
+}
+
+// Тёмная тема — подобрана нами, в макете её нет (на согласовании, см. docs/decisions.md).
+[data-theme='dark'] {
+  --color-main: var(--brand-main-dark);
+  --color-main-hover: color-mix(in srgb, var(--color-main) 85%, #fff);
+  --color-text: #ececee;
+  --color-text-body: #c4c6cb;
+  --color-text-secondary: #9a9ca3;
+  --color-text-muted: #7c7f87;
+  --color-bg: #141518;
+  --color-bg-alt: #1b1c20;
+  --color-fill: #25272c;
+  --color-fill-strong: #2f3137;
+  --color-border: #2c2e34;
+  --color-border-strong: #3b3e45;
+
+  color-scheme: dark;
+}

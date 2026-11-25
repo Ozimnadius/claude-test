@@ -5,36 +5,46 @@
 
 ## Стек
 
-| Что | Чем |
-|---|---|
-| Разметка | HTML, разбитый на партиалы (шаблонизатор — см. [решения](docs/decisions.md)) |
-| Стили | SCSS (модульный синтаксис `@use`), методология BEM |
-| Скрипты | Современный JS (ES-модули), по модулю на компонент |
-| Сборка | Vite (многостраничная сборка: `index.html` + `ui-kit.html`) |
-| Изображения | WebP (оригиналы хранятся отдельно, конвертация скриптом) |
-| Шрифт | Geologica (Google Fonts, локальное подключение) |
+| Что         | Чем                                                                          |
+| ----------- | ---------------------------------------------------------------------------- |
+| Разметка    | HTML, разбитый на партиалы (шаблонизатор — см. [решения](docs/decisions.md)) |
+| Стили       | SCSS (модульный синтаксис `@use`), методология BEM                           |
+| Скрипты     | Современный JS (ES-модули), по модулю на компонент                           |
+| Сборка      | Vite (многостраничная сборка: `index.html` + `ui-kit.html`)                  |
+| Изображения | WebP (оригиналы хранятся отдельно, конвертация скриптом)                     |
+| Шрифт       | Geologica, локально из пакета `@fontsource-variable/geologica`               |
 
 ## Документация
 
-| Файл | О чём |
-|---|---|
-| [docs/PLAN.md](docs/PLAN.md) | План работ по этапам и статус |
-| [docs/figma.md](docs/figma.md) | Макет: ссылки на фреймы, состав страниц, брейкпоинты |
-| [docs/design-tokens.md](docs/design-tokens.md) | Цвета, типографика, отступы, скругления, темы |
-| [docs/components.md](docs/components.md) | Перечень компонентов UI-кита и секций главной |
-| [docs/conventions.md](docs/conventions.md) | Соглашения: структура папок, BEM, SCSS, JS, картинки, git |
-| [docs/decisions.md](docs/decisions.md) | Журнал решений и открытые вопросы |
+| Файл                                           | О чём                                                     |
+| ---------------------------------------------- | --------------------------------------------------------- |
+| [docs/PLAN.md](docs/PLAN.md)                   | План работ по этапам и статус                             |
+| [docs/figma.md](docs/figma.md)                 | Макет: ссылки на фреймы, состав страниц, брейкпоинты      |
+| [docs/design-tokens.md](docs/design-tokens.md) | Цвета, типографика, отступы, скругления, темы             |
+| [docs/components.md](docs/components.md)       | Перечень компонентов UI-кита и секций главной             |
+| [docs/conventions.md](docs/conventions.md)     | Соглашения: структура папок, BEM, SCSS, JS, картинки, git |
+| [docs/decisions.md](docs/decisions.md)         | Журнал решений и открытые вопросы                         |
 
 ## Команды
 
-Появятся после этапа 0 (настройка проекта):
+| Команда           | Что делает                                                               |
+| ----------------- | ------------------------------------------------------------------------ |
+| `npm install`     | Установить зависимости                                                   |
+| `npm run dev`     | Сервер разработки: http://localhost:5173 (главная) и `/ui-kit.html`      |
+| `npm run build`   | Сборка в `dist/`                                                         |
+| `npm run preview` | Просмотр собранной версии                                                |
+| `npm run images`  | Конвертировать картинки из `src/images-src/` в WebP (`-- --force` — все) |
+| `npm run lint`    | Проверить стили (Stylelint) и форматирование (Prettier)                  |
+| `npm run format`  | Исправить форматирование автоматически                                   |
 
-```bash
-npm install
-npm run dev      # сервер разработки
-npm run build    # сборка в dist/
-npm run preview  # просмотр собранной версии
-```
+## Как устроено
+
+- **Страницы** — `index.html` и `ui-kit.html` в корне. В них вставляются партиалы Handlebars: `{{> components/icon name="chevron-right"}}`.
+- **Партиалы** — `src/partials/`, имя = путь без расширения (`components/icon.hbs` → `components/icon`). Хелперы — `src/partials/helpers.js` (`eq`, `concat`, `bem`, `times`).
+- **Демо-данные** — JSON в `src/data/`, доступны в шаблонах как `data.<имя файла>` (`data.site.name`). Правка JSON перезагружает страницу.
+- **Иконки** — SVG в `src/assets/icons/` собираются в спрайт. Цвет — через `currentColor`.
+- **Стили** — точка входа `src/scss/main.scss`; в любом файле `@use 'abstracts' as *;` даёт `rem()`, `bp()`, миксины `media-up/down`, `hover`, `visually-hidden`.
+- **Скрипты** — точка входа `src/js/main.js`, модули поведения — `src/js/modules/`.
 
 ## Окружение
 

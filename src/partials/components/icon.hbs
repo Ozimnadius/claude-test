@@ -1,0 +1,8 @@
+{{!--
+  Иконка из SVG-спрайта.
+  Параметры: name — имя файла из src/assets/icons без .svg; class — доп. классы;
+  size — размер в px (по умолчанию 24); label — подпись для экранных читалок
+  (без неё иконка декоративная и скрыта от них).
+  Пример: {{> components/icon name="chevron-right" class="btn__icon"}}
+--}}
+<svg class="icon{{#if class}} {{class}}{{/if}}" width="{{#if size}}{{size}}{{else}}24{{/if}}" height="{{#if size}}{{size}}{{else}}24{{/if}}"{{#if label}} role="img" aria-label="{{label}}"{{else}} aria-hidden="true"{{/if}} focusable="false"><use href="/__spritemap#icon-{{name}}"></use></svg>

@@ -1,0 +1,9 @@
+# Текстовые файлы храним с LF независимо от настроек git на машине
+* text=auto eol=lf
+
+# Двоичные
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.woff2 binary

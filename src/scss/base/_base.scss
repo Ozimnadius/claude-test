@@ -1,0 +1,14 @@
+// Базовые стили документа. Токены (цвета, шрифты) появятся на этапе 1.
+
+body {
+  font-family: Geologica, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.42;
+  color: #222;
+  background: #fff;
+}
+
+// Иконки из спрайта красятся через currentColor — цвет берут от color родителя.
+.icon {
+  flex-shrink: 0;
+}

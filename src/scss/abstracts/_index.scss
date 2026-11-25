@@ -1,0 +1,5 @@
+// Абстракции: переменные, функции и миксины. CSS не выводят.
+// Подключение в любом файле: @use 'abstracts' as *;
+@forward 'breakpoints';
+@forward 'functions';
+@forward 'mixins';

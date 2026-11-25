@@ -1,0 +1,37 @@
+// Стили только для страницы-витрины UI-кита (подключаются после main.scss).
+@use 'abstracts' as *;
+
+.kit {
+  max-width: rem(1696);
+  padding: rem(40) rem(24) rem(80);
+  margin-inline: auto;
+
+  &__title {
+    margin-bottom: rem(8);
+    font-size: rem(32);
+    font-weight: 500;
+  }
+
+  &__lead {
+    margin-bottom: rem(40);
+    color: #888;
+  }
+
+  &__section {
+    padding-block: rem(32);
+    border-top: 1px solid #ddd;
+  }
+
+  &__section-title {
+    margin-bottom: rem(24);
+    font-size: rem(24);
+    font-weight: 500;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16);
+    align-items: center;
+  }
+}

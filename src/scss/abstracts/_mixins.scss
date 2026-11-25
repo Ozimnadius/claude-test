@@ -1,0 +1,37 @@
+@use 'functions' as *;
+
+/// До брейкпоинта включительно: @include media-down(md) { … } → (width <= 1000px)
+@mixin media-down($name) {
+  @media (width <= bp($name)) {
+    @content;
+  }
+}
+
+/// Шире брейкпоинта: @include media-up(md) { … } → (width > 1000px)
+@mixin media-up($name) {
+  @media (width > bp($name)) {
+    @content;
+  }
+}
+
+/// Ховер только на устройствах, которые его поддерживают (без «залипания» на тач-экранах).
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/// Скрыть визуально, оставив доступным для экранных читалок.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}
